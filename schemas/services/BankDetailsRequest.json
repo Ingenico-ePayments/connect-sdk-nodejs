@@ -1,0 +1,54 @@
+{
+  "$schema" : "http://json-schema.org/draft-04/schema#",
+  "type" : "object",
+  "properties" : {
+    "bankAccountBban" : {
+      "$ref" : "#/definitions/BankAccountBban"
+    },
+    "bankAccountIban" : {
+      "$ref" : "#/definitions/BankAccountIban"
+    }
+  },
+  "additionalProperties" : false,
+  "definitions" : {
+    "BankAccountBban" : {
+      "type" : "object",
+      "properties" : {
+        "accountHolderName" : {
+          "type" : "string"
+        },
+        "accountNumber" : {
+          "type" : "string"
+        },
+        "bankCode" : {
+          "type" : "string"
+        },
+        "bankName" : {
+          "type" : "string"
+        },
+        "branchCode" : {
+          "type" : "string"
+        },
+        "checkDigit" : {
+          "type" : "string"
+        },
+        "countryCode" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "BankAccountIban" : {
+      "type" : "object",
+      "properties" : {
+        "accountHolderName" : {
+          "type" : "string"
+        },
+        "iban" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    }
+  }
+}

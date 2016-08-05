@@ -1,0 +1,186 @@
+{
+  "$schema" : "http://json-schema.org/draft-04/schema#",
+  "type" : "object",
+  "properties" : {
+    "amount" : {
+      "type" : "integer",
+      "maximum" : 9223372036854775807
+    },
+    "directDebitPaymentMethodSpecificInput" : {
+      "$ref" : "#/definitions/ApprovePaymentNonSepaDirectDebitPaymentMethodSpecificInput"
+    },
+    "order" : {
+      "$ref" : "#/definitions/OrderApprovePayment"
+    },
+    "sepaDirectDebitPaymentMethodSpecificInput" : {
+      "$ref" : "#/definitions/ApprovePaymentSepaDirectDebitPaymentMethodSpecificInput"
+    }
+  },
+  "additionalProperties" : false,
+  "definitions" : {
+    "AdditionalOrderInputAirlineData" : {
+      "type" : "object",
+      "properties" : {
+        "airlineData" : {
+          "$ref" : "#/definitions/AirlineData"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "AirlineData" : {
+      "type" : "object",
+      "properties" : {
+        "agentNumericCode" : {
+          "type" : "string"
+        },
+        "code" : {
+          "type" : "string"
+        },
+        "flightDate" : {
+          "type" : "string"
+        },
+        "flightLegs" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/AirlineFlightLeg"
+          },
+          "minItems" : 0,
+          "uniqueItems" : false
+        },
+        "invoiceNumber" : {
+          "type" : "string"
+        },
+        "isETicket" : {
+          "type" : "boolean"
+        },
+        "isRegisteredCustomer" : {
+          "type" : "boolean"
+        },
+        "isRestrictedTicket" : {
+          "type" : "boolean"
+        },
+        "isThirdParty" : {
+          "type" : "boolean"
+        },
+        "issueDate" : {
+          "type" : "string"
+        },
+        "merchantCustomerId" : {
+          "type" : "string"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "passengerName" : {
+          "type" : "string"
+        },
+        "placeOfIssue" : {
+          "type" : "string"
+        },
+        "pnr" : {
+          "type" : "string"
+        },
+        "pointOfSale" : {
+          "type" : "string"
+        },
+        "posCityCode" : {
+          "type" : "string"
+        },
+        "ticketDeliveryMethod" : {
+          "type" : "string"
+        },
+        "ticketNumber" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "code", "name" ],
+      "additionalProperties" : false
+    },
+    "AirlineFlightLeg" : {
+      "type" : "object",
+      "properties" : {
+        "airlineClass" : {
+          "type" : "string"
+        },
+        "arrivalAirport" : {
+          "type" : "string"
+        },
+        "carrierCode" : {
+          "type" : "string"
+        },
+        "date" : {
+          "type" : "string"
+        },
+        "departureTime" : {
+          "type" : "string"
+        },
+        "fare" : {
+          "type" : "string"
+        },
+        "fareBasis" : {
+          "type" : "string"
+        },
+        "flightNumber" : {
+          "type" : "string"
+        },
+        "number" : {
+          "type" : "integer",
+          "maximum" : 2147483647
+        },
+        "originAirport" : {
+          "type" : "string"
+        },
+        "stopoverCode" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "airlineClass", "arrivalAirport", "carrierCode", "date", "number", "originAirport" ],
+      "additionalProperties" : false
+    },
+    "ApprovePaymentNonSepaDirectDebitPaymentMethodSpecificInput" : {
+      "type" : "object",
+      "properties" : {
+        "dateCollect" : {
+          "type" : "string"
+        },
+        "token" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "ApprovePaymentSepaDirectDebitPaymentMethodSpecificInput" : {
+      "type" : "object",
+      "properties" : {
+        "dateCollect" : {
+          "type" : "string"
+        },
+        "token" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "OrderApprovePayment" : {
+      "type" : "object",
+      "properties" : {
+        "additionalInput" : {
+          "$ref" : "#/definitions/AdditionalOrderInputAirlineData"
+        },
+        "references" : {
+          "$ref" : "#/definitions/OrderReferencesApprovePayment"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "OrderReferencesApprovePayment" : {
+      "type" : "object",
+      "properties" : {
+        "merchantReference" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    }
+  }
+}

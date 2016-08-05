@@ -1,0 +1,194 @@
+{
+  "$schema" : "http://json-schema.org/draft-04/schema#",
+  "type" : "object",
+  "properties" : {
+    "amountOfMoney" : {
+      "$ref" : "#/definitions/AmountOfMoney"
+    },
+    "bankRefundMethodSpecificInput" : {
+      "$ref" : "#/definitions/BankRefundMethodSpecificInput"
+    },
+    "customer" : {
+      "$ref" : "#/definitions/RefundCustomer"
+    },
+    "refundDate" : {
+      "type" : "string"
+    },
+    "refundReferences" : {
+      "$ref" : "#/definitions/RefundReferences"
+    }
+  },
+  "additionalProperties" : false,
+  "definitions" : {
+    "AddressPersonal" : {
+      "type" : "object",
+      "properties" : {
+        "additionalInfo" : {
+          "type" : "string"
+        },
+        "city" : {
+          "type" : "string"
+        },
+        "countryCode" : {
+          "type" : "string"
+        },
+        "houseNumber" : {
+          "type" : "string"
+        },
+        "name" : {
+          "$ref" : "#/definitions/PersonalName"
+        },
+        "state" : {
+          "type" : "string"
+        },
+        "stateCode" : {
+          "type" : "string"
+        },
+        "street" : {
+          "type" : "string"
+        },
+        "zip" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "AmountOfMoney" : {
+      "type" : "object",
+      "properties" : {
+        "amount" : {
+          "type" : "integer",
+          "maximum" : 9223372036854775807
+        },
+        "currencyCode" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "amount", "currencyCode" ],
+      "additionalProperties" : false
+    },
+    "BankAccountBbanRefund" : {
+      "type" : "object",
+      "properties" : {
+        "accountHolderName" : {
+          "type" : "string"
+        },
+        "accountNumber" : {
+          "type" : "string"
+        },
+        "bankCity" : {
+          "type" : "string"
+        },
+        "bankCode" : {
+          "type" : "string"
+        },
+        "bankName" : {
+          "type" : "string"
+        },
+        "branchCode" : {
+          "type" : "string"
+        },
+        "checkDigit" : {
+          "type" : "string"
+        },
+        "countryCode" : {
+          "type" : "string"
+        },
+        "swiftCode" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "BankAccountIban" : {
+      "type" : "object",
+      "properties" : {
+        "accountHolderName" : {
+          "type" : "string"
+        },
+        "iban" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "BankRefundMethodSpecificInput" : {
+      "type" : "object",
+      "properties" : {
+        "bankAccountBban" : {
+          "$ref" : "#/definitions/BankAccountBbanRefund"
+        },
+        "bankAccountIban" : {
+          "$ref" : "#/definitions/BankAccountIban"
+        },
+        "countryCode" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "CompanyInformation" : {
+      "type" : "object",
+      "properties" : {
+        "name" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "ContactDetailsBase" : {
+      "type" : "object",
+      "properties" : {
+        "emailAddress" : {
+          "type" : "string"
+        },
+        "emailMessageType" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "PersonalName" : {
+      "type" : "object",
+      "properties" : {
+        "firstName" : {
+          "type" : "string"
+        },
+        "surname" : {
+          "type" : "string"
+        },
+        "surnamePrefix" : {
+          "type" : "string"
+        },
+        "title" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "RefundCustomer" : {
+      "type" : "object",
+      "properties" : {
+        "address" : {
+          "$ref" : "#/definitions/AddressPersonal"
+        },
+        "companyInformation" : {
+          "$ref" : "#/definitions/CompanyInformation"
+        },
+        "contactDetails" : {
+          "$ref" : "#/definitions/ContactDetailsBase"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "RefundReferences" : {
+      "type" : "object",
+      "properties" : {
+        "merchantReference" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    }
+  }
+}

@@ -1,0 +1,419 @@
+{
+  "$schema" : "http://json-schema.org/draft-04/schema#",
+  "type" : "object",
+  "properties" : {
+    "card" : {
+      "$ref" : "#/definitions/TokenCard"
+    },
+    "eWallet" : {
+      "$ref" : "#/definitions/TokenEWallet"
+    },
+    "nonSepaDirectDebit" : {
+      "$ref" : "#/definitions/TokenNonSepaDirectDebit"
+    },
+    "paymentProductId" : {
+      "type" : "integer",
+      "maximum" : 2147483647
+    },
+    "sepaDirectDebit" : {
+      "$ref" : "#/definitions/TokenSepaDirectDebitWithoutCreditor"
+    }
+  },
+  "required" : [ "paymentProductId" ],
+  "additionalProperties" : false,
+  "definitions" : {
+    "Address" : {
+      "type" : "object",
+      "properties" : {
+        "additionalInfo" : {
+          "type" : "string"
+        },
+        "city" : {
+          "type" : "string"
+        },
+        "countryCode" : {
+          "type" : "string"
+        },
+        "houseNumber" : {
+          "type" : "string"
+        },
+        "state" : {
+          "type" : "string"
+        },
+        "stateCode" : {
+          "type" : "string"
+        },
+        "street" : {
+          "type" : "string"
+        },
+        "zip" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "BankAccountBban" : {
+      "type" : "object",
+      "properties" : {
+        "accountHolderName" : {
+          "type" : "string"
+        },
+        "accountNumber" : {
+          "type" : "string"
+        },
+        "bankCode" : {
+          "type" : "string"
+        },
+        "bankName" : {
+          "type" : "string"
+        },
+        "branchCode" : {
+          "type" : "string"
+        },
+        "checkDigit" : {
+          "type" : "string"
+        },
+        "countryCode" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "BankAccountIban" : {
+      "type" : "object",
+      "properties" : {
+        "accountHolderName" : {
+          "type" : "string"
+        },
+        "iban" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "CardWithoutCvv" : {
+      "type" : "object",
+      "properties" : {
+        "cardNumber" : {
+          "type" : "string"
+        },
+        "cardholderName" : {
+          "type" : "string"
+        },
+        "expiryDate" : {
+          "type" : "string"
+        },
+        "issueNumber" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "CompanyInformation" : {
+      "type" : "object",
+      "properties" : {
+        "name" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "ContactDetailsToken" : {
+      "type" : "object",
+      "properties" : {
+        "emailAddress" : {
+          "type" : "string"
+        },
+        "emailMessageType" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "CustomerToken" : {
+      "type" : "object",
+      "properties" : {
+        "billingAddress" : {
+          "$ref" : "#/definitions/Address"
+        },
+        "companyInformation" : {
+          "$ref" : "#/definitions/CompanyInformation"
+        },
+        "merchantCustomerId" : {
+          "type" : "string"
+        },
+        "personalInformation" : {
+          "$ref" : "#/definitions/PersonalInformationToken"
+        },
+        "vatNumber" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "billingAddress" ],
+      "additionalProperties" : false
+    },
+    "CustomerTokenWithContactDetails" : {
+      "type" : "object",
+      "properties" : {
+        "billingAddress" : {
+          "$ref" : "#/definitions/Address"
+        },
+        "companyInformation" : {
+          "$ref" : "#/definitions/CompanyInformation"
+        },
+        "contactDetails" : {
+          "$ref" : "#/definitions/ContactDetailsToken"
+        },
+        "merchantCustomerId" : {
+          "type" : "string"
+        },
+        "personalInformation" : {
+          "$ref" : "#/definitions/PersonalInformationToken"
+        },
+        "vatNumber" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "billingAddress" ],
+      "additionalProperties" : false
+    },
+    "Debtor" : {
+      "type" : "object",
+      "properties" : {
+        "additionalAddressInfo" : {
+          "type" : "string"
+        },
+        "city" : {
+          "type" : "string"
+        },
+        "countryCode" : {
+          "type" : "string"
+        },
+        "firstName" : {
+          "type" : "string"
+        },
+        "houseNumber" : {
+          "type" : "string"
+        },
+        "state" : {
+          "type" : "string"
+        },
+        "stateCode" : {
+          "type" : "string"
+        },
+        "street" : {
+          "type" : "string"
+        },
+        "surname" : {
+          "type" : "string"
+        },
+        "surnamePrefix" : {
+          "type" : "string"
+        },
+        "zip" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "MandateApproval" : {
+      "type" : "object",
+      "properties" : {
+        "mandateSignatureDate" : {
+          "type" : "string"
+        },
+        "mandateSignaturePlace" : {
+          "type" : "string"
+        },
+        "mandateSigned" : {
+          "type" : "boolean"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "MandateNonSepaDirectDebit" : {
+      "type" : "object",
+      "properties" : {
+        "paymentProduct705SpecificData" : {
+          "$ref" : "#/definitions/TokenNonSepaDirectDebitPaymentProduct705SpecificData"
+        },
+        "paymentProduct707SpecificData" : {
+          "$ref" : "#/definitions/TokenNonSepaDirectDebitPaymentProduct707SpecificData"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "MandateSepaDirectDebitWithoutCreditor" : {
+      "type" : "object",
+      "properties" : {
+        "bankAccountIban" : {
+          "$ref" : "#/definitions/BankAccountIban"
+        },
+        "customerContractIdentifier" : {
+          "type" : "string"
+        },
+        "debtor" : {
+          "$ref" : "#/definitions/Debtor"
+        },
+        "isRecurring" : {
+          "type" : "boolean"
+        },
+        "mandateApproval" : {
+          "$ref" : "#/definitions/MandateApproval"
+        },
+        "preNotification" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "PersonalInformationToken" : {
+      "type" : "object",
+      "properties" : {
+        "name" : {
+          "$ref" : "#/definitions/PersonalNameToken"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "PersonalNameToken" : {
+      "type" : "object",
+      "properties" : {
+        "firstName" : {
+          "type" : "string"
+        },
+        "surname" : {
+          "type" : "string"
+        },
+        "surnamePrefix" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "TokenCard" : {
+      "type" : "object",
+      "properties" : {
+        "alias" : {
+          "type" : "string"
+        },
+        "customer" : {
+          "$ref" : "#/definitions/CustomerToken"
+        },
+        "data" : {
+          "$ref" : "#/definitions/TokenCardData"
+        }
+      },
+      "required" : [ "customer", "data" ],
+      "additionalProperties" : false
+    },
+    "TokenCardData" : {
+      "type" : "object",
+      "properties" : {
+        "cardWithoutCvv" : {
+          "$ref" : "#/definitions/CardWithoutCvv"
+        },
+        "firstTransactionDate" : {
+          "type" : "string"
+        },
+        "providerReference" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "cardWithoutCvv" ],
+      "additionalProperties" : false
+    },
+    "TokenEWallet" : {
+      "type" : "object",
+      "properties" : {
+        "alias" : {
+          "type" : "string"
+        },
+        "customer" : {
+          "$ref" : "#/definitions/CustomerToken"
+        },
+        "data" : {
+          "$ref" : "#/definitions/TokenEWalletData"
+        }
+      },
+      "required" : [ "customer", "data" ],
+      "additionalProperties" : false
+    },
+    "TokenEWalletData" : {
+      "type" : "object",
+      "properties" : {
+        "billingAgreementId" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "TokenNonSepaDirectDebit" : {
+      "type" : "object",
+      "properties" : {
+        "alias" : {
+          "type" : "string"
+        },
+        "customer" : {
+          "$ref" : "#/definitions/CustomerToken"
+        },
+        "mandate" : {
+          "$ref" : "#/definitions/MandateNonSepaDirectDebit"
+        }
+      },
+      "required" : [ "customer", "mandate" ],
+      "additionalProperties" : false
+    },
+    "TokenNonSepaDirectDebitPaymentProduct705SpecificData" : {
+      "type" : "object",
+      "properties" : {
+        "authorisationId" : {
+          "type" : "string"
+        },
+        "bankAccountBban" : {
+          "$ref" : "#/definitions/BankAccountBban"
+        }
+      },
+      "required" : [ "bankAccountBban" ],
+      "additionalProperties" : false
+    },
+    "TokenNonSepaDirectDebitPaymentProduct707SpecificData" : {
+      "type" : "object",
+      "properties" : {
+        "addressLine1" : {
+          "type" : "string"
+        },
+        "addressLine2" : {
+          "type" : "string"
+        },
+        "addressLine3" : {
+          "type" : "string"
+        },
+        "addressLine4" : {
+          "type" : "string"
+        },
+        "bankAccountIban" : {
+          "$ref" : "#/definitions/BankAccountIban"
+        }
+      },
+      "required" : [ "bankAccountIban" ],
+      "additionalProperties" : false
+    },
+    "TokenSepaDirectDebitWithoutCreditor" : {
+      "type" : "object",
+      "properties" : {
+        "alias" : {
+          "type" : "string"
+        },
+        "customer" : {
+          "$ref" : "#/definitions/CustomerTokenWithContactDetails"
+        },
+        "mandate" : {
+          "$ref" : "#/definitions/MandateSepaDirectDebitWithoutCreditor"
+        }
+      },
+      "required" : [ "customer", "mandate" ],
+      "additionalProperties" : false
+    }
+  }
+}
