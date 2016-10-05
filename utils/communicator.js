@@ -1,16 +1,12 @@
-var http = require('http');
-var https = require('https');
-
-var dateformat = require('dateFormat');
 var _ = require('lodash');
-var uuid = require('node-uuid');
 
+var headers = require('../utils/headers');
+var connection = require('../utils/connection');
 var sdkcontext = require('../utils/context');
-var obfuscate = require('../utils/obfuscate');
 
 var communicator = function (o) {
   var context = sdkcontext.getContext();
-  var date = dateformat("GMT:ddd, dd mmm yyyy HH:MM:ss") + " GMT";
+  var date = headers.date();
   var path = o.modulePath;
   if (o.paymentContext) {
     var separator = "?";
@@ -32,7 +28,7 @@ var communicator = function (o) {
     extraHeaders = [];
   options.path = path;
   options.method = o.method;
-  options.headers.date = date;
+  options.headers['Date'] = date;
   if (o.paymentContext && o.paymentContext.extraHeaders) {
     for (var i = 0; i < o.paymentContext.extraHeaders.length; i++) {
       var header = o.paymentContext.extraHeaders[i];
@@ -53,72 +49,39 @@ var communicator = function (o) {
   }
 
   // add X-GCS-ServerMetaInfo
-  var serverMetaInfo = {
-    key: "X-GCS-ServerMetaInfo",
-    value: {
-      'sdkCreator': 'Ingenico',
-      'sdkIdentifier': 'NodejsServerSDK/v1.0.0',
-      'platformIdentifier': process.env["OS"] + ' Node.js/' + process.versions.node
-    }
-  }
-  serverMetaInfo.value = new Buffer(JSON.stringify(serverMetaInfo.value)).toString("base64");
+  var serverMetaInfo = headers.serverMetaInfo(context);
   options.headers[serverMetaInfo.key] = serverMetaInfo.value;
   extraHeaders.push(serverMetaInfo);
-
 
   options.headers.Authorization = 'GCS v1HMAC:' + context.apiKeyId + ':' + sdkcontext.getSignature(o.method, 'application/json', date, extraHeaders, path);
   doRequest(options, o.body, o.cb);
 };
 
 
-
 var doRequest = function (options, postData, cb) {
-  var logger = sdkcontext.getLogger(),
-    uuidString = uuid.v4();
-  if (sdkcontext.isLoggingEnabled()) {
-    logger('info', 'Request with Message ID: ' + uuidString + ", " + options.method + " to " + options.path + ", headers: " + obfuscate.getObfuscated(options.headers) + ", body: " + obfuscate.getObfuscated(postData));
-  }
-  var h = options.protocol === 'https:' ? https : http;
-  var req = h.request(options, function (res) {
-    var body = '';
-
-    res.setEncoding('utf8');
-    res.on('data', function (chunk) {
-      body += chunk;
-    });
-
-    res.on('end', function () {
-      if (sdkcontext.isLoggingEnabled()) {
-        logger('info', 'Response from Message ID: ' + uuidString + ", status: " + res.statusCode + ", headers: " + obfuscate.getObfuscated(res.headers) + ", body: " + obfuscate.getObfuscated(body));
+  connection.send(options, postData, sdkcontext, function(error, response) {
+    if (error) {
+      cb(error, null);
+    } else {
+      if (response.headers["x-gcs-idempotence-request-timestamp"]) {
+        sdkcontext.setIdempotenceRequestTimestamp(response.headers["x-gcs-idempotence-request-timestamp"]);
       }
-      if (res.headers["x-gcs-idempotence-request-timestamp"]) {
-        sdkcontext.setIdempotenceRequestTimestamp(res.headers["x-gcs-idempotence-request-timestamp"]);
-      }
+      var body = response.body;
       try {
         body = (body) ? JSON.parse(body) : null;
         cb(null, {
-          status: res.statusCode,
+          status: response.status,
           body: body
         });
       } catch (e) {
         cb({
-          status: res.statusCode,
+          status: response.status,
           message: e.message,
           body: body
         }, null);
       }
-    });
-  });
-  req.on('error', function (e) {
-    if (sdkcontext.isLoggingEnabled()) {
-      logger('error', 'Error for Message ID:' + uuidString + ", error: " + JSON.stringify(e));
     }
-    cb(e, null);
   });
-  if (postData) {
-    req.write(JSON.stringify(postData));
-  }
-  req.end();
 };
 
 module.exports = communicator;

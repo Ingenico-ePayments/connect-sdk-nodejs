@@ -400,6 +400,9 @@
         "locale" : {
           "type" : "string"
         },
+        "paymentProductFilters" : {
+          "$ref" : "#/definitions/PaymentProductFiltersHostedCheckout"
+        },
         "returnUrl" : {
           "type" : "string"
         },
@@ -469,7 +472,6 @@
           "maximum" : 9223372036854775807
         }
       },
-      "required" : [ "description", "nrOfItems", "pricePerItem" ],
       "additionalProperties" : false
     },
     "LineItemLevel3InterchangeInformation" : {
@@ -584,6 +586,44 @@
         },
         "usageType" : {
           "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "PaymentProductFilter" : {
+      "type" : "object",
+      "properties" : {
+        "groups" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          },
+          "minItems" : 0,
+          "uniqueItems" : true
+        },
+        "products" : {
+          "type" : "array",
+          "items" : {
+            "type" : "integer",
+            "maximum" : 2147483647
+          },
+          "minItems" : 0,
+          "uniqueItems" : true
+        }
+      },
+      "additionalProperties" : false
+    },
+    "PaymentProductFiltersHostedCheckout" : {
+      "type" : "object",
+      "properties" : {
+        "exclude" : {
+          "$ref" : "#/definitions/PaymentProductFilter"
+        },
+        "restrictTo" : {
+          "$ref" : "#/definitions/PaymentProductFilter"
+        },
+        "tokensOnly" : {
+          "type" : "boolean"
         }
       },
       "additionalProperties" : false

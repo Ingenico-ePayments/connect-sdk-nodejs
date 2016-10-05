@@ -586,7 +586,6 @@
           "maximum" : 9223372036854775807
         }
       },
-      "required" : [ "description", "nrOfItems", "pricePerItem" ],
       "additionalProperties" : false
     },
     "LineItemLevel3InterchangeInformation" : {

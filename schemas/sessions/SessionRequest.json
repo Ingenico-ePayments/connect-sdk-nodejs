@@ -2,6 +2,9 @@
   "$schema" : "http://json-schema.org/draft-04/schema#",
   "type" : "object",
   "properties" : {
+    "paymentProductFilters" : {
+      "$ref" : "#/definitions/PaymentProductFiltersClientSession"
+    },
     "tokens" : {
       "type" : "array",
       "items" : {
@@ -11,5 +14,42 @@
       "uniqueItems" : false
     }
   },
-  "additionalProperties" : false
+  "additionalProperties" : false,
+  "definitions" : {
+    "PaymentProductFilter" : {
+      "type" : "object",
+      "properties" : {
+        "groups" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          },
+          "minItems" : 0,
+          "uniqueItems" : true
+        },
+        "products" : {
+          "type" : "array",
+          "items" : {
+            "type" : "integer",
+            "maximum" : 2147483647
+          },
+          "minItems" : 0,
+          "uniqueItems" : true
+        }
+      },
+      "additionalProperties" : false
+    },
+    "PaymentProductFiltersClientSession" : {
+      "type" : "object",
+      "properties" : {
+        "exclude" : {
+          "$ref" : "#/definitions/PaymentProductFilter"
+        },
+        "restrictTo" : {
+          "$ref" : "#/definitions/PaymentProductFilter"
+        }
+      },
+      "additionalProperties" : false
+    }
+  }
 }

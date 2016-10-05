@@ -1,8 +1,6 @@
 var traverse = require('traverse');
 var _ = require("lodash");
 
-var sdkcontext = require('../utils/context');
-
 var REPLACECHAR = "*";
 var INDENT = 2;
 
@@ -49,7 +47,10 @@ var withFixedLength = function (json, property, count) {
 
 
 var obfuscate = {
-  getObfuscated : function (input) {
+  getObfuscated : function (input, context) {
+    if (!context) {
+      context = require('../utils/context');
+    }
     if (!input) {
       return '';
     }
@@ -57,8 +58,8 @@ var obfuscate = {
       try {
         input = JSON.parse(input);
       } catch (e) {
-        var logger = sdkcontext.getLogger();
-        if (sdkcontext.isLoggingEnabled()) {
+        var logger = context.getLogger();
+        if (context.isLoggingEnabled()) {
           logger('error', 'Cannot parse input to JSON: ' + input);
         }
         // throw new Error('Input cannot be parsed to JSON', input);
