@@ -1,4 +1,4 @@
-var dateformat = require('dateFormat');
+var dateformat = require('dateformat');
 
 var date = function () {
   return dateformat("GMT:ddd, dd mmm yyyy HH:MM:ss") + " GMT";
