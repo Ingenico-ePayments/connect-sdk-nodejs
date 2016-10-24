@@ -1,8 +1,8 @@
-# Ingenico Connect JavaScript Server2Server
+# Ingenico Connect Node.js SDK
 
 ## Introduction
 
-The JavaScript SDK helps you to communicate with the [Ingenico Connect](http://www.ingenico.com/epayments) Server API. It's primary features are:
+The Node.js SDK helps you to communicate with the [Ingenico Connect](http://www.ingenico.com/epayments) Server API. It's primary features are:
 
 * convenient JavaScript wrapper around the API calls,
 * authentication of all calls
@@ -10,7 +10,7 @@ The JavaScript SDK helps you to communicate with the [Ingenico Connect](http://w
 * validation of input and
 * a logfile obfuscater
 
-See the [Ingenico ePayments Developer Hub](https://developer.globalcollect.com/documentation/api/server/) for more information on how to use the API.
+See the [Ingenico ePayments Developer Hub](https://developer.globalcollect.com/documentation/sdk/server/nodejs/) for more information on how to use the API.
 
 ## Structure of this repository
 
