@@ -236,9 +236,6 @@
       "properties" : {
         "paymentProduct705SpecificData" : {
           "$ref" : "#/definitions/TokenNonSepaDirectDebitPaymentProduct705SpecificData"
-        },
-        "paymentProduct707SpecificData" : {
-          "$ref" : "#/definitions/TokenNonSepaDirectDebitPaymentProduct707SpecificData"
         }
       },
       "additionalProperties" : false
@@ -375,28 +372,6 @@
         }
       },
       "required" : [ "bankAccountBban" ],
-      "additionalProperties" : false
-    },
-    "TokenNonSepaDirectDebitPaymentProduct707SpecificData" : {
-      "type" : "object",
-      "properties" : {
-        "addressLine1" : {
-          "type" : "string"
-        },
-        "addressLine2" : {
-          "type" : "string"
-        },
-        "addressLine3" : {
-          "type" : "string"
-        },
-        "addressLine4" : {
-          "type" : "string"
-        },
-        "bankAccountIban" : {
-          "$ref" : "#/definitions/BankAccountIban"
-        }
-      },
-      "required" : [ "bankAccountIban" ],
       "additionalProperties" : false
     },
     "TokenSepaDirectDebitWithoutCreditor" : {

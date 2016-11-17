@@ -638,9 +638,6 @@
         "paymentProduct705SpecificInput" : {
           "$ref" : "#/definitions/NonSepaDirectDebitPaymentProduct705SpecificInput"
         },
-        "paymentProduct707SpecificInput" : {
-          "$ref" : "#/definitions/NonSepaDirectDebitPaymentProduct707SpecificInput"
-        },
         "paymentProductId" : {
           "type" : "integer",
           "maximum" : 2147483647
@@ -669,40 +666,6 @@
         }
       },
       "required" : [ "bankAccountBban", "transactionType" ],
-      "additionalProperties" : false
-    },
-    "NonSepaDirectDebitPaymentProduct707SpecificInput" : {
-      "type" : "object",
-      "properties" : {
-        "addressLine1" : {
-          "type" : "string"
-        },
-        "addressLine2" : {
-          "type" : "string"
-        },
-        "addressLine3" : {
-          "type" : "string"
-        },
-        "addressLine4" : {
-          "type" : "string"
-        },
-        "bankAccountIban" : {
-          "$ref" : "#/definitions/BankAccountIban"
-        },
-        "customerBankCity" : {
-          "type" : "string"
-        },
-        "customerBankNumber" : {
-          "type" : "string"
-        },
-        "customerBankStreet" : {
-          "type" : "string"
-        },
-        "customerBankZip" : {
-          "type" : "string"
-        }
-      },
-      "required" : [ "bankAccountIban" ],
       "additionalProperties" : false
     },
     "Order" : {

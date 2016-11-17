@@ -49,7 +49,7 @@ var communicator = function (o) {
   }
 
   // add X-GCS-ServerMetaInfo
-  var serverMetaInfo = headers.serverMetaInfo(context);
+  var serverMetaInfo = headers.serverMetaInfo(sdkcontext);
   options.headers[serverMetaInfo.key] = serverMetaInfo.value;
   extraHeaders.push(serverMetaInfo);
 

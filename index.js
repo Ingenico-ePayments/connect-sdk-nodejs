@@ -66,6 +66,8 @@ var wrapper = {
     } else {
       sdkcontext.setEnableLogging(false);
     }
+    sdkcontext.setIntergrator(context.intergrator);
+    sdkcontext.setShoppingCartExtension(context.shoppingCartExtension);
   },
   payouts: payouts,
   refunds: refunds,
