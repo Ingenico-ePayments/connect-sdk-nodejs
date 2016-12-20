@@ -23,6 +23,9 @@
     "invoicePaymentMethodSpecificInput" : {
       "$ref" : "#/definitions/InvoicePaymentMethodSpecificInput"
     },
+    "mobilePaymentMethodSpecificInput" : {
+      "$ref" : "#/definitions/MobilePaymentMethodSpecificInput"
+    },
     "order" : {
       "$ref" : "#/definitions/Order"
     },
@@ -322,6 +325,9 @@
     "CardPaymentMethodSpecificInput" : {
       "type" : "object",
       "properties" : {
+        "authorizationMode" : {
+          "type" : "string"
+        },
         "card" : {
           "$ref" : "#/definitions/Card"
         },
@@ -340,6 +346,9 @@
         },
         "recurringPaymentSequenceIndicator" : {
           "type" : "string"
+        },
+        "requiresApproval" : {
+          "type" : "boolean"
         },
         "returnUrl" : {
           "type" : "string"
@@ -448,6 +457,29 @@
           "type" : "string"
         }
       },
+      "additionalProperties" : false
+    },
+    "DecryptedPaymentData" : {
+      "type" : "object",
+      "properties" : {
+        "cardholderName" : {
+          "type" : "string"
+        },
+        "cryptogram" : {
+          "type" : "string"
+        },
+        "dpan" : {
+          "type" : "string"
+        },
+        "eci" : {
+          "type" : "integer",
+          "maximum" : 2147483647
+        },
+        "expiryDate" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "cryptogram", "dpan", "eci", "expiryDate" ],
       "additionalProperties" : false
     },
     "ExternalCardholderAuthenticationData" : {
@@ -618,6 +650,46 @@
           "maximum" : 9223372036854775807
         },
         "unit" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "MobilePaymentMethodSpecificInput" : {
+      "type" : "object",
+      "properties" : {
+        "authorizationMode" : {
+          "type" : "string"
+        },
+        "decryptedPaymentData" : {
+          "$ref" : "#/definitions/DecryptedPaymentData"
+        },
+        "encryptedPaymentData" : {
+          "type" : "string"
+        },
+        "paymentProduct320SpecificInput" : {
+          "$ref" : "#/definitions/MobilePaymentProduct320SpecificInput"
+        },
+        "paymentProductId" : {
+          "type" : "integer",
+          "maximum" : 2147483647
+        },
+        "requiresApproval" : {
+          "type" : "boolean"
+        },
+        "skipFraudService" : {
+          "type" : "boolean"
+        },
+        "transactionId" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "MobilePaymentProduct320SpecificInput" : {
+      "type" : "object",
+      "properties" : {
+        "keyId" : {
           "type" : "string"
         }
       },

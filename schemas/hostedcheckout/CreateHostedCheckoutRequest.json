@@ -252,6 +252,9 @@
     "CardPaymentMethodSpecificInputBase" : {
       "type" : "object",
       "properties" : {
+        "authorizationMode" : {
+          "type" : "string"
+        },
         "customerReference" : {
           "type" : "string"
         },
@@ -261,6 +264,9 @@
         },
         "recurringPaymentSequenceIndicator" : {
           "type" : "string"
+        },
+        "requiresApproval" : {
+          "type" : "boolean"
         },
         "skipAuthentication" : {
           "type" : "boolean"

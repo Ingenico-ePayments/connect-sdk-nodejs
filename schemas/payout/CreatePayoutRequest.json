@@ -27,7 +27,7 @@
       "type" : "string"
     }
   },
-  "required" : [ "amountOfMoney", "customer", "payoutText", "references" ],
+  "required" : [ "amountOfMoney", "references" ],
   "additionalProperties" : false,
   "definitions" : {
     "Address" : {
