@@ -479,7 +479,7 @@
           "type" : "string"
         }
       },
-      "required" : [ "cryptogram", "dpan", "eci", "expiryDate" ],
+      "required" : [ "cryptogram", "dpan", "expiryDate" ],
       "additionalProperties" : false
     },
     "ExternalCardholderAuthenticationData" : {
