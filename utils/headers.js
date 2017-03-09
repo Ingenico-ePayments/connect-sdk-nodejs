@@ -9,12 +9,12 @@ var serverMetaInfo = function (sdkContext) {
     key: "X-GCS-ServerMetaInfo",
     value: {
       'sdkCreator': 'Ingenico',
-      'sdkIdentifier': 'NodejsServerSDK/v2.1.1',
+      'sdkIdentifier': 'NodejsServerSDK/v2.2.0',
       'platformIdentifier': process.env['OS'] + ' Node.js/' + process.versions.node
     }
   };
-  if (sdkContext.getIntergrator() !== null) {
-    info.value['intergrator'] = sdkContext.getIntergrator();
+  if (sdkContext.getIntegrator() !== null) {
+    info.value['integrator'] = sdkContext.getIntegrator();
   }
   if (sdkContext.getShoppingCartExtension() !== null) {
     info.value['shoppingCartExtension'] = sdkContext.getShoppingCartExtension();

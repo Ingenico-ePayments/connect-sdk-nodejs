@@ -66,7 +66,12 @@ var wrapper = {
     } else {
       sdkcontext.setEnableLogging(false);
     }
-    sdkcontext.setIntergrator(context.intergrator);
+    // context.intergrator has been deprecated but needs to be supported for backwards compatibility
+    if (context.integrator) {
+      sdkcontext.setIntegrator(context.integrator);
+    } else {
+      sdkcontext.setIntegrator(context.intergrator);
+    }
     sdkcontext.setShoppingCartExtension(context.shoppingCartExtension);
   },
   payouts: payouts,

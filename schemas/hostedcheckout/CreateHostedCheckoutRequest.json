@@ -276,6 +276,9 @@
         },
         "token" : {
           "type" : "string"
+        },
+        "tokenize" : {
+          "type" : "boolean"
         }
       },
       "additionalProperties" : false

@@ -61,11 +61,18 @@ var sdkContext = {
   getIdempotenceRequestTimestamp: function () {
     return this.idempotenceRequestTimestamp;
   },
-  setIntergrator: function (intergrator) {
-    this.intergrator = intergrator;
+  setIntegrator: function (integrator) {
+    this.integrator = integrator;
+  },
+  getIntegrator: function () {
+    return this.integrator;
+  },
+  // setIntergrator and getIntergrator have been deprecated but need to be supported for backwards compatibility
+  setIntergrator: function (integrator) {
+    this.integrator = integrator;
   },
   getIntergrator: function () {
-    return this.intergrator;
+    return this.integrator;
   },
   setShoppingCartExtension: function (shoppingCartExtension) {
     if (this.getShoppingCartExtension()) {

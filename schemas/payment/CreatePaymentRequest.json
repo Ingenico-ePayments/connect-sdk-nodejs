@@ -361,6 +361,9 @@
         },
         "token" : {
           "type" : "string"
+        },
+        "tokenize" : {
+          "type" : "boolean"
         }
       },
       "additionalProperties" : false
@@ -719,6 +722,9 @@
         },
         "token" : {
           "type" : "string"
+        },
+        "tokenize" : {
+          "type" : "boolean"
         }
       },
       "required" : [ "directDebitText" ],
@@ -937,6 +943,9 @@
         },
         "token" : {
           "type" : "string"
+        },
+        "tokenize" : {
+          "type" : "boolean"
         }
       },
       "required" : [ "directDebitText", "token" ],
