@@ -234,6 +234,20 @@
       "required" : [ "airlineClass", "arrivalAirport", "carrierCode", "date", "number", "originAirport" ],
       "additionalProperties" : false
     },
+    "AmountBreakdown" : {
+      "type" : "object",
+      "properties" : {
+        "amount" : {
+          "type" : "integer",
+          "maximum" : 9223372036854775807
+        },
+        "type" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "amount", "type" ],
+      "additionalProperties" : false
+    },
     "AmountOfMoney" : {
       "type" : "object",
       "properties" : {
@@ -596,6 +610,9 @@
         },
         "level3InterchangeInformation" : {
           "$ref" : "#/definitions/LineItemLevel3InterchangeInformation"
+        },
+        "orderLineDetails" : {
+          "$ref" : "#/definitions/OrderLineDetails"
         }
       },
       "required" : [ "amountOfMoney", "invoiceData" ],
@@ -768,6 +785,9 @@
         },
         "references" : {
           "$ref" : "#/definitions/OrderReferences"
+        },
+        "shoppingCart" : {
+          "$ref" : "#/definitions/ShoppingCart"
         }
       },
       "required" : [ "amountOfMoney" ],
@@ -792,6 +812,41 @@
           },
           "minItems" : 0,
           "uniqueItems" : false
+        }
+      },
+      "additionalProperties" : false
+    },
+    "OrderLineDetails" : {
+      "type" : "object",
+      "properties" : {
+        "discountAmount" : {
+          "type" : "integer",
+          "maximum" : 9223372036854775807
+        },
+        "lineAmountTotal" : {
+          "type" : "integer",
+          "maximum" : 9223372036854775807
+        },
+        "productCode" : {
+          "type" : "string"
+        },
+        "productPrice" : {
+          "type" : "integer",
+          "maximum" : 9223372036854775807
+        },
+        "productType" : {
+          "type" : "string"
+        },
+        "quantity" : {
+          "type" : "integer",
+          "maximum" : 9223372036854775807
+        },
+        "taxAmount" : {
+          "type" : "integer",
+          "maximum" : 9223372036854775807
+        },
+        "unit" : {
+          "type" : "string"
         }
       },
       "additionalProperties" : false
@@ -863,6 +918,10 @@
     "RedirectPaymentMethodSpecificInput" : {
       "type" : "object",
       "properties" : {
+        "expirationPeriod" : {
+          "type" : "integer",
+          "maximum" : 60
+        },
         "isRecurring" : {
           "type" : "boolean"
         },
@@ -949,6 +1008,20 @@
         }
       },
       "required" : [ "directDebitText", "token" ],
+      "additionalProperties" : false
+    },
+    "ShoppingCart" : {
+      "type" : "object",
+      "properties" : {
+        "amountBreakdown" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/AmountBreakdown"
+          },
+          "minItems" : 0,
+          "uniqueItems" : false
+        }
+      },
       "additionalProperties" : false
     }
   }

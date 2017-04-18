@@ -68,32 +68,32 @@ var obfuscate = {
     }
     var obfuscated = JSON.parse(JSON.stringify(input));
     obfuscated = withKeepEndCount(obfuscated, "cardNumber", 4);
-		obfuscated = withKeepEndCount(obfuscated, "expiryDate", 2);
-		obfuscated = withAll(obfuscated, "cvv");
-		obfuscated = withKeepEndCount(obfuscated, "iban", 4);
-		obfuscated = withKeepEndCount(obfuscated, "accountNumber", 4);
-		obfuscated = withKeepEndCount(obfuscated, "reformattedAccountNumber", 4);
-		obfuscated = withKeepStartCount(obfuscated, "bin", 6);
-			// key-value pairs can contain any value, like credit card numbers or other private data; mask all values
-		obfuscated = withAll(obfuscated, "value");
-		obfuscated = withFixedLength(obfuscated, "keyId", 8);
-		obfuscated = withFixedLength(obfuscated, "secretKey", 8);
-		obfuscated = withFixedLength(obfuscated, "publicKey", 8);
-		obfuscated = withFixedLength(obfuscated, "userAuthenticationToken", 8);
-			// encrypted payload is a base64 string that contains an encrypted value; to make decrypting even harder, just mask the entire thing
-		obfuscated = withFixedLength(obfuscated, "encryptedPayload", 8);
-			// decrypted payload is a simple base64 string that may contain credit card numbers or other private data; just mask the entire thing
-		obfuscated = withFixedLength(obfuscated, "decryptedPayload", 8);
-			// encrypted customer input is similar to encrypted payload
-		obfuscated = withFixedLength(obfuscated, "encryptedCustomerInput", 8);
+    obfuscated = withKeepEndCount(obfuscated, "expiryDate", 2);
+    obfuscated = withAll(obfuscated, "cvv");
+    obfuscated = withKeepEndCount(obfuscated, "iban", 4);
+    obfuscated = withKeepEndCount(obfuscated, "accountNumber", 4);
+    obfuscated = withKeepEndCount(obfuscated, "reformattedAccountNumber", 4);
+    obfuscated = withKeepStartCount(obfuscated, "bin", 6);
+    // key-value pairs can contain any value, like credit card numbers or other private data; mask all values
+    obfuscated = withAll(obfuscated, "value");
+    obfuscated = withFixedLength(obfuscated, "keyId", 8);
+    obfuscated = withFixedLength(obfuscated, "secretKey", 8);
+    obfuscated = withFixedLength(obfuscated, "publicKey", 8);
+    obfuscated = withFixedLength(obfuscated, "userAuthenticationToken", 8);
+    // encrypted payload is a base64 string that contains an encrypted value; to make decrypting even harder, just mask the entire thing
+    obfuscated = withFixedLength(obfuscated, "encryptedPayload", 8);
+    // decrypted payload is a simple base64 string that may contain credit card numbers or other private data; just mask the entire thing
+    obfuscated = withFixedLength(obfuscated, "decryptedPayload", 8);
+    // encrypted customer input is similar to encrypted payload
+    obfuscated = withFixedLength(obfuscated, "encryptedCustomerInput", 8);
 
     // headers
     obfuscated = withFixedLength(obfuscated, "Authorization", 8);
-		obfuscated = withFixedLength(obfuscated, "WWW-Authenticate", 8);
-		obfuscated = withFixedLength(obfuscated, "Proxy-Authenticate", 8);
-		obfuscated = withFixedLength(obfuscated, "Proxy-Authorization", 8);
-		obfuscated = withFixedLength(obfuscated, "X-GCS-Authentication-Token", 8);
-		obfuscated = withFixedLength(obfuscated, "X-GCS-CallerPassword", 8);
+    obfuscated = withFixedLength(obfuscated, "WWW-Authenticate", 8);
+    obfuscated = withFixedLength(obfuscated, "Proxy-Authenticate", 8);
+    obfuscated = withFixedLength(obfuscated, "Proxy-Authorization", 8);
+    obfuscated = withFixedLength(obfuscated, "X-GCS-Authentication-Token", 8);
+    obfuscated = withFixedLength(obfuscated, "X-GCS-CallerPassword", 8);
 
     return JSON.stringify(obfuscated, null, INDENT);
   }
