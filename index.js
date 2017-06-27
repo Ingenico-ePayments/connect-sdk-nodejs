@@ -1,21 +1,22 @@
 /*
  * This file was auto-generated from the API references found at
- * https://developer.globalcollect.com/documentation/api/server/
+ * https://epayments-api.developer-ingenico.com/s2sapi/v1/
  */
 // SDK
 var sdkcontext = require('./utils/context');
 var communicator = require('./utils/communicator');
 
+var payments = require('./payments');
+var captures = require('./captures');
 var payouts = require('./payouts');
+var products = require('./products');
+var productgroups = require('./productgroups');
 var refunds = require('./refunds');
+var riskassessments = require('./riskassessments');
+var services = require('./services');
 var sessions = require('./sessions');
 var tokens = require('./tokens');
-var services = require('./services');
 var hostedcheckouts = require('./hostedcheckouts');
-var products = require('./products');
-var payments = require('./payments');
-var productgroups = require('./productgroups');
-var riskassessments = require('./riskassessments');
 
 var _logger = null;
 var _context = null;
@@ -74,16 +75,17 @@ var wrapper = {
     }
     sdkcontext.setShoppingCartExtension(context.shoppingCartExtension);
   },
+  payments: payments,
+  captures: captures,
   payouts: payouts,
+  products: products,
+  productgroups: productgroups,
   refunds: refunds,
+  riskassessments: riskassessments,
+  services: services,
   sessions: sessions,
   tokens: tokens,
-  services: services,
   hostedcheckouts: hostedcheckouts,
-  products: products,
-  payments: payments,
-  productgroups: productgroups,
-  riskassessments: riskassessments,
   context: sdkcontext
 };
 module.exports = wrapper;

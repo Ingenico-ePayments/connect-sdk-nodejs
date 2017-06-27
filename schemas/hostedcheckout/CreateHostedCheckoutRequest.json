@@ -293,6 +293,9 @@
         },
         "tokenize" : {
           "type" : "boolean"
+        },
+        "transactionChannel" : {
+          "type" : "string"
         }
       },
       "additionalProperties" : false
@@ -370,11 +373,23 @@
     "FraudFields" : {
       "type" : "object",
       "properties" : {
+        "addressesAreIdentical" : {
+          "type" : "boolean"
+        },
+        "blackListData" : {
+          "type" : "string"
+        },
+        "cardOwnerAddress" : {
+          "$ref" : "#/definitions/Address"
+        },
         "customerIpAddress" : {
           "type" : "string"
         },
         "defaultFormFill" : {
           "type" : "string"
+        },
+        "fingerPrintActivated" : {
+          "type" : "boolean"
         },
         "giftCardType" : {
           "type" : "string"
@@ -400,6 +415,9 @@
         "shipmentTrackingNumber" : {
           "type" : "string"
         },
+        "shippingDetails" : {
+          "$ref" : "#/definitions/FraudFieldsShippingDetails"
+        },
         "userData" : {
           "type" : "array",
           "items" : {
@@ -410,6 +428,23 @@
         },
         "website" : {
           "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "FraudFieldsShippingDetails" : {
+      "type" : "object",
+      "properties" : {
+        "methodDetails" : {
+          "type" : "string"
+        },
+        "methodSpeed" : {
+          "type" : "integer",
+          "maximum" : 2147483647
+        },
+        "methodType" : {
+          "type" : "integer",
+          "maximum" : 32767
         }
       },
       "additionalProperties" : false

@@ -11,6 +11,12 @@
     "bankAccountIban" : {
       "$ref" : "#/definitions/BankAccountIban"
     },
+    "bankTransferPayoutMethodSpecificInput" : {
+      "$ref" : "#/definitions/BankTransferPayoutMethodSpecificInput"
+    },
+    "cardPayoutMethodSpecificInput" : {
+      "$ref" : "#/definitions/CardPayoutMethodSpecificInput"
+    },
     "customer" : {
       "$ref" : "#/definitions/PayoutCustomer"
     },
@@ -111,6 +117,67 @@
           "type" : "string"
         }
       },
+      "additionalProperties" : false
+    },
+    "BankTransferPayoutMethodSpecificInput" : {
+      "type" : "object",
+      "properties" : {
+        "bankAccountBban" : {
+          "$ref" : "#/definitions/BankAccountBban"
+        },
+        "bankAccountIban" : {
+          "$ref" : "#/definitions/BankAccountIban"
+        },
+        "customer" : {
+          "$ref" : "#/definitions/PayoutCustomer"
+        },
+        "payoutDate" : {
+          "type" : "string"
+        },
+        "payoutText" : {
+          "type" : "string"
+        },
+        "swiftCode" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "customer", "payoutText" ],
+      "additionalProperties" : false
+    },
+    "Card" : {
+      "type" : "object",
+      "properties" : {
+        "cardNumber" : {
+          "type" : "string"
+        },
+        "cardholderName" : {
+          "type" : "string"
+        },
+        "cvv" : {
+          "type" : "string"
+        },
+        "expiryDate" : {
+          "type" : "string"
+        },
+        "issueNumber" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "cvv" ],
+      "additionalProperties" : false
+    },
+    "CardPayoutMethodSpecificInput" : {
+      "type" : "object",
+      "properties" : {
+        "card" : {
+          "$ref" : "#/definitions/Card"
+        },
+        "paymentProductId" : {
+          "type" : "integer",
+          "maximum" : 2147483647
+        }
+      },
+      "required" : [ "card", "paymentProductId" ],
       "additionalProperties" : false
     },
     "CompanyInformation" : {

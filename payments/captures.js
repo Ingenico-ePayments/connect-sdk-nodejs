@@ -7,8 +7,8 @@ var communicator = require('../utils/communicator');
 
 var myModule = function (merchantId, paymentId, paymentContext, cb) {
   communicator({
-    method: 'POST',
-    modulePath: '/v1/' + merchantId + '/payments/' + paymentId + '/cancelapproval',
+    method: 'GET',
+    modulePath: '/v1/' + merchantId + '/payments/' + paymentId + '/captures',
     body: null,
     paymentContext: paymentContext,
     cb: cb

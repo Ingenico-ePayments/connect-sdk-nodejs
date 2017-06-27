@@ -6,9 +6,9 @@
 var validate = require('jsonschema').validate;
 var communicator = require('../utils/communicator');
 var sdkcontext = require('../utils/context');
-var requestSchema = require('../schemas/riskassessments/RiskAssessmentCard.json');
+var requestSchema = require('../schemas/payment/CapturePaymentRequest.json');
 
-var myModule = function (merchantId, postData, paymentContext, cb) {
+var myModule = function (merchantId, paymentId, postData, paymentContext, cb) {
   // validate postData
   var isValidRequest = validate(postData, requestSchema);
   if (!isValidRequest.valid) {
@@ -20,7 +20,7 @@ var myModule = function (merchantId, postData, paymentContext, cb) {
   }
   communicator({
     method: 'POST',
-    modulePath: '/v1/' + merchantId + '/riskassessments/cards',
+    modulePath: '/v1/' + merchantId + '/payments/' + paymentId + '/capture',
     body: postData,
     paymentContext: paymentContext,
     cb: cb
