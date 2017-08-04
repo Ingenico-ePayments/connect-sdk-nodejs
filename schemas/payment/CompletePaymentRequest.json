@@ -1,0 +1,41 @@
+{
+  "$schema" : "http://json-schema.org/draft-04/schema#",
+  "type" : "object",
+  "properties" : {
+    "cardPaymentMethodSpecificInput" : {
+      "$ref" : "#/definitions/CompletePaymentCardPaymentMethodSpecificInput"
+    }
+  },
+  "required" : [ "cardPaymentMethodSpecificInput" ],
+  "additionalProperties" : false,
+  "definitions" : {
+    "CardWithoutCvv" : {
+      "type" : "object",
+      "properties" : {
+        "cardNumber" : {
+          "type" : "string"
+        },
+        "cardholderName" : {
+          "type" : "string"
+        },
+        "expiryDate" : {
+          "type" : "string"
+        },
+        "issueNumber" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "CompletePaymentCardPaymentMethodSpecificInput" : {
+      "type" : "object",
+      "properties" : {
+        "card" : {
+          "$ref" : "#/definitions/CardWithoutCvv"
+        }
+      },
+      "required" : [ "card" ],
+      "additionalProperties" : false
+    }
+  }
+}
