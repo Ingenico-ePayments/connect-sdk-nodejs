@@ -4,11 +4,237 @@
   "properties" : {
     "cardPaymentMethodSpecificInput" : {
       "$ref" : "#/definitions/CompletePaymentCardPaymentMethodSpecificInput"
+    },
+    "order" : {
+      "$ref" : "#/definitions/Order"
     }
   },
   "required" : [ "cardPaymentMethodSpecificInput" ],
   "additionalProperties" : false,
   "definitions" : {
+    "AdditionalOrderInput" : {
+      "type" : "object",
+      "properties" : {
+        "airlineData" : {
+          "$ref" : "#/definitions/AirlineData"
+        },
+        "level3SummaryData" : {
+          "$ref" : "#/definitions/Level3SummaryData"
+        },
+        "numberOfInstallments" : {
+          "type" : "integer",
+          "maximum" : 9223372036854775807
+        },
+        "orderDate" : {
+          "type" : "string"
+        },
+        "typeInformation" : {
+          "$ref" : "#/definitions/OrderTypeInformation"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "Address" : {
+      "type" : "object",
+      "properties" : {
+        "additionalInfo" : {
+          "type" : "string"
+        },
+        "city" : {
+          "type" : "string"
+        },
+        "countryCode" : {
+          "type" : "string"
+        },
+        "houseNumber" : {
+          "type" : "string"
+        },
+        "state" : {
+          "type" : "string"
+        },
+        "stateCode" : {
+          "type" : "string"
+        },
+        "street" : {
+          "type" : "string"
+        },
+        "zip" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "AddressPersonal" : {
+      "type" : "object",
+      "properties" : {
+        "additionalInfo" : {
+          "type" : "string"
+        },
+        "city" : {
+          "type" : "string"
+        },
+        "countryCode" : {
+          "type" : "string"
+        },
+        "houseNumber" : {
+          "type" : "string"
+        },
+        "name" : {
+          "$ref" : "#/definitions/PersonalName"
+        },
+        "state" : {
+          "type" : "string"
+        },
+        "stateCode" : {
+          "type" : "string"
+        },
+        "street" : {
+          "type" : "string"
+        },
+        "zip" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "AirlineData" : {
+      "type" : "object",
+      "properties" : {
+        "agentNumericCode" : {
+          "type" : "string"
+        },
+        "code" : {
+          "type" : "string"
+        },
+        "flightDate" : {
+          "type" : "string"
+        },
+        "flightLegs" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/AirlineFlightLeg"
+          },
+          "minItems" : 0,
+          "uniqueItems" : false
+        },
+        "invoiceNumber" : {
+          "type" : "string"
+        },
+        "isETicket" : {
+          "type" : "boolean"
+        },
+        "isRegisteredCustomer" : {
+          "type" : "boolean"
+        },
+        "isRestrictedTicket" : {
+          "type" : "boolean"
+        },
+        "isThirdParty" : {
+          "type" : "boolean"
+        },
+        "issueDate" : {
+          "type" : "string"
+        },
+        "merchantCustomerId" : {
+          "type" : "string"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "passengerName" : {
+          "type" : "string"
+        },
+        "placeOfIssue" : {
+          "type" : "string"
+        },
+        "pnr" : {
+          "type" : "string"
+        },
+        "pointOfSale" : {
+          "type" : "string"
+        },
+        "posCityCode" : {
+          "type" : "string"
+        },
+        "ticketDeliveryMethod" : {
+          "type" : "string"
+        },
+        "ticketNumber" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "code", "name" ],
+      "additionalProperties" : false
+    },
+    "AirlineFlightLeg" : {
+      "type" : "object",
+      "properties" : {
+        "airlineClass" : {
+          "type" : "string"
+        },
+        "arrivalAirport" : {
+          "type" : "string"
+        },
+        "carrierCode" : {
+          "type" : "string"
+        },
+        "date" : {
+          "type" : "string"
+        },
+        "departureTime" : {
+          "type" : "string"
+        },
+        "fare" : {
+          "type" : "string"
+        },
+        "fareBasis" : {
+          "type" : "string"
+        },
+        "flightNumber" : {
+          "type" : "string"
+        },
+        "number" : {
+          "type" : "integer",
+          "maximum" : 2147483647
+        },
+        "originAirport" : {
+          "type" : "string"
+        },
+        "stopoverCode" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "airlineClass", "arrivalAirport", "carrierCode", "date", "number", "originAirport" ],
+      "additionalProperties" : false
+    },
+    "AmountBreakdown" : {
+      "type" : "object",
+      "properties" : {
+        "amount" : {
+          "type" : "integer",
+          "maximum" : 9223372036854775807
+        },
+        "type" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "amount", "type" ],
+      "additionalProperties" : false
+    },
+    "AmountOfMoney" : {
+      "type" : "object",
+      "properties" : {
+        "amount" : {
+          "type" : "integer",
+          "maximum" : 9223372036854775807
+        },
+        "currencyCode" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "amount", "currencyCode" ],
+      "additionalProperties" : false
+    },
     "CardWithoutCvv" : {
       "type" : "object",
       "properties" : {
@@ -27,6 +253,15 @@
       },
       "additionalProperties" : false
     },
+    "CompanyInformation" : {
+      "type" : "object",
+      "properties" : {
+        "name" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
     "CompletePaymentCardPaymentMethodSpecificInput" : {
       "type" : "object",
       "properties" : {
@@ -35,6 +270,325 @@
         }
       },
       "required" : [ "card" ],
+      "additionalProperties" : false
+    },
+    "ContactDetails" : {
+      "type" : "object",
+      "properties" : {
+        "emailAddress" : {
+          "type" : "string"
+        },
+        "emailMessageType" : {
+          "type" : "string"
+        },
+        "faxNumber" : {
+          "type" : "string"
+        },
+        "phoneNumber" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "Customer" : {
+      "type" : "object",
+      "properties" : {
+        "billingAddress" : {
+          "$ref" : "#/definitions/Address"
+        },
+        "companyInformation" : {
+          "$ref" : "#/definitions/CompanyInformation"
+        },
+        "contactDetails" : {
+          "$ref" : "#/definitions/ContactDetails"
+        },
+        "fiscalNumber" : {
+          "type" : "string"
+        },
+        "locale" : {
+          "type" : "string"
+        },
+        "merchantCustomerId" : {
+          "type" : "string"
+        },
+        "personalInformation" : {
+          "$ref" : "#/definitions/PersonalInformation"
+        },
+        "shippingAddress" : {
+          "$ref" : "#/definitions/AddressPersonal"
+        },
+        "vatNumber" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "Level3SummaryData" : {
+      "type" : "object",
+      "properties" : {
+        "discountAmount" : {
+          "type" : "integer",
+          "maximum" : 9223372036854775807
+        },
+        "dutyAmount" : {
+          "type" : "integer",
+          "maximum" : 9223372036854775807
+        },
+        "shippingAmount" : {
+          "type" : "integer",
+          "maximum" : 9223372036854775807
+        }
+      },
+      "additionalProperties" : false
+    },
+    "LineItem" : {
+      "type" : "object",
+      "properties" : {
+        "amountOfMoney" : {
+          "$ref" : "#/definitions/AmountOfMoney"
+        },
+        "invoiceData" : {
+          "$ref" : "#/definitions/LineItemInvoiceData"
+        },
+        "level3InterchangeInformation" : {
+          "$ref" : "#/definitions/LineItemLevel3InterchangeInformation"
+        },
+        "orderLineDetails" : {
+          "$ref" : "#/definitions/OrderLineDetails"
+        }
+      },
+      "required" : [ "amountOfMoney", "invoiceData" ],
+      "additionalProperties" : false
+    },
+    "LineItemInvoiceData" : {
+      "type" : "object",
+      "properties" : {
+        "description" : {
+          "type" : "string"
+        },
+        "merchantLinenumber" : {
+          "type" : "string"
+        },
+        "merchantPagenumber" : {
+          "type" : "string"
+        },
+        "nrOfItems" : {
+          "type" : "string"
+        },
+        "pricePerItem" : {
+          "type" : "integer",
+          "maximum" : 9223372036854775807
+        }
+      },
+      "additionalProperties" : false
+    },
+    "LineItemLevel3InterchangeInformation" : {
+      "type" : "object",
+      "properties" : {
+        "discountAmount" : {
+          "type" : "integer",
+          "maximum" : 9223372036854775807
+        },
+        "lineAmountTotal" : {
+          "type" : "integer",
+          "maximum" : 9223372036854775807
+        },
+        "productCode" : {
+          "type" : "string"
+        },
+        "productPrice" : {
+          "type" : "integer",
+          "maximum" : 9223372036854775807
+        },
+        "productType" : {
+          "type" : "string"
+        },
+        "quantity" : {
+          "type" : "integer",
+          "maximum" : 9223372036854775807
+        },
+        "taxAmount" : {
+          "type" : "integer",
+          "maximum" : 9223372036854775807
+        },
+        "unit" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "Order" : {
+      "type" : "object",
+      "properties" : {
+        "additionalInput" : {
+          "$ref" : "#/definitions/AdditionalOrderInput"
+        },
+        "amountOfMoney" : {
+          "$ref" : "#/definitions/AmountOfMoney"
+        },
+        "customer" : {
+          "$ref" : "#/definitions/Customer"
+        },
+        "items" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/LineItem"
+          },
+          "minItems" : 0,
+          "uniqueItems" : false
+        },
+        "references" : {
+          "$ref" : "#/definitions/OrderReferences"
+        },
+        "shoppingCart" : {
+          "$ref" : "#/definitions/ShoppingCart"
+        }
+      },
+      "required" : [ "amountOfMoney" ],
+      "additionalProperties" : false
+    },
+    "OrderInvoiceData" : {
+      "type" : "object",
+      "properties" : {
+        "additionalData" : {
+          "type" : "string"
+        },
+        "invoiceDate" : {
+          "type" : "string"
+        },
+        "invoiceNumber" : {
+          "type" : "string"
+        },
+        "textQualifiers" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          },
+          "minItems" : 0,
+          "uniqueItems" : false
+        }
+      },
+      "additionalProperties" : false
+    },
+    "OrderLineDetails" : {
+      "type" : "object",
+      "properties" : {
+        "discountAmount" : {
+          "type" : "integer",
+          "maximum" : 9223372036854775807
+        },
+        "lineAmountTotal" : {
+          "type" : "integer",
+          "maximum" : 9223372036854775807
+        },
+        "productCode" : {
+          "type" : "string"
+        },
+        "productPrice" : {
+          "type" : "integer",
+          "maximum" : 9223372036854775807
+        },
+        "productType" : {
+          "type" : "string"
+        },
+        "quantity" : {
+          "type" : "integer",
+          "maximum" : 9223372036854775807
+        },
+        "taxAmount" : {
+          "type" : "integer",
+          "maximum" : 9223372036854775807
+        },
+        "unit" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "OrderReferences" : {
+      "type" : "object",
+      "properties" : {
+        "descriptor" : {
+          "type" : "string"
+        },
+        "invoiceData" : {
+          "$ref" : "#/definitions/OrderInvoiceData"
+        },
+        "merchantOrderId" : {
+          "type" : "integer",
+          "maximum" : 9223372036854775807
+        },
+        "merchantReference" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "OrderTypeInformation" : {
+      "type" : "object",
+      "properties" : {
+        "purchaseType" : {
+          "type" : "string"
+        },
+        "usageType" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "PersonalInformation" : {
+      "type" : "object",
+      "properties" : {
+        "dateOfBirth" : {
+          "type" : "string"
+        },
+        "gender" : {
+          "type" : "string"
+        },
+        "name" : {
+          "$ref" : "#/definitions/PersonalName"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "PersonalName" : {
+      "type" : "object",
+      "properties" : {
+        "firstName" : {
+          "type" : "string"
+        },
+        "surname" : {
+          "type" : "string"
+        },
+        "surnamePrefix" : {
+          "type" : "string"
+        },
+        "title" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "ShoppingCart" : {
+      "type" : "object",
+      "properties" : {
+        "amountBreakdown" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/AmountBreakdown"
+          },
+          "minItems" : 0,
+          "uniqueItems" : false
+        },
+        "items" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/LineItem"
+          },
+          "minItems" : 0,
+          "uniqueItems" : false
+        }
+      },
       "additionalProperties" : false
     }
   }

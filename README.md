@@ -10,7 +10,7 @@ The Node.js SDK helps you to communicate with the [Ingenico Connect](http://www.
 * validation of input and
 * a logfile obfuscater
 
-See the [Ingenico ePayments Developer Hub](https://developer.globalcollect.com/documentation/sdk/server/nodejs/) for more information on how to use the API.
+See the [Ingenico ePayments Developer Hub](https://epayments.developer-ingenico.com/documentation/sdk/server/nodejs/) for more information on how to use the API.
 
 ## Structure of this repository
 

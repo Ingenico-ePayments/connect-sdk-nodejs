@@ -966,6 +966,9 @@
         "paymentProduct816SpecificInput" : {
           "$ref" : "#/definitions/RedirectPaymentProduct816SpecificInput"
         },
+        "paymentProduct840SpecificInput" : {
+          "$ref" : "#/definitions/RedirectPaymentProduct840SpecificInput"
+        },
         "paymentProduct882SpecificInput" : {
           "$ref" : "#/definitions/RedirectPaymentProduct882SpecificInput"
         },
@@ -976,11 +979,17 @@
         "recurringPaymentSequenceIndicator" : {
           "type" : "string"
         },
+        "requiresApproval" : {
+          "type" : "boolean"
+        },
         "returnUrl" : {
           "type" : "string"
         },
         "token" : {
           "type" : "string"
+        },
+        "tokenize" : {
+          "type" : "boolean"
         }
       },
       "additionalProperties" : false
@@ -1002,6 +1011,18 @@
       "properties" : {
         "bankAccountIban" : {
           "$ref" : "#/definitions/BankAccountIban"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "RedirectPaymentProduct840SpecificInput" : {
+      "type" : "object",
+      "properties" : {
+        "custom" : {
+          "type" : "string"
+        },
+        "isShortcut" : {
+          "type" : "boolean"
         }
       },
       "additionalProperties" : false
@@ -1051,6 +1072,14 @@
           "type" : "array",
           "items" : {
             "$ref" : "#/definitions/AmountBreakdown"
+          },
+          "minItems" : 0,
+          "uniqueItems" : false
+        },
+        "items" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/LineItem"
           },
           "minItems" : 0,
           "uniqueItems" : false

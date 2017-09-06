@@ -774,8 +774,14 @@
         "recurringPaymentSequenceIndicator" : {
           "type" : "string"
         },
+        "requiresApproval" : {
+          "type" : "boolean"
+        },
         "token" : {
           "type" : "string"
+        },
+        "tokenize" : {
+          "type" : "boolean"
         }
       },
       "additionalProperties" : false
@@ -787,6 +793,14 @@
           "type" : "array",
           "items" : {
             "$ref" : "#/definitions/AmountBreakdown"
+          },
+          "minItems" : 0,
+          "uniqueItems" : false
+        },
+        "items" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/LineItem"
           },
           "minItems" : 0,
           "uniqueItems" : false
