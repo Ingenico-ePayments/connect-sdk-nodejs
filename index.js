@@ -3,6 +3,8 @@
  * https://epayments-api.developer-ingenico.com/s2sapi/v1/
  */
 // SDK
+var apiVersion = 'v1';
+
 var sdkcontext = require('./utils/context');
 var communicator = require('./utils/communicator');
 
@@ -17,6 +19,9 @@ var services = require('./services');
 var sessions = require('./sessions');
 var tokens = require('./tokens');
 var hostedcheckouts = require('./hostedcheckouts');
+
+var webhooks = require('./webhooks');
+webhooks.API_VERSION = apiVersion;
 
 var _logger = null;
 var _context = null;
@@ -53,7 +58,7 @@ var wrapper = {
     }
     setBasicOptions();
     _context.httpOptions = httpOptions;
-    _context.API_VERSION = 'v1';
+    _context.API_VERSION = apiVersion;
     sdkcontext.setContext(_context);
     sdkcontext.setLogger(function (level, message) {
       if (typeof _logger !== 'undefined' && _logger) {
@@ -74,6 +79,7 @@ var wrapper = {
       sdkcontext.setIntegrator(context.intergrator);
     }
     sdkcontext.setShoppingCartExtension(context.shoppingCartExtension);
+    return wrapper;
   },
   payments: payments,
   captures: captures,
@@ -86,6 +92,8 @@ var wrapper = {
   sessions: sessions,
   tokens: tokens,
   hostedcheckouts: hostedcheckouts,
-  context: sdkcontext
+  context: sdkcontext,
+
+  webhooks: webhooks
 };
 module.exports = wrapper;

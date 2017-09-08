@@ -60,9 +60,8 @@ var obfuscate = {
       } catch (e) {
         var logger = context.getLogger();
         if (context.isLoggingEnabled()) {
-          logger('error', 'Cannot parse input to JSON: ' + input);
+          logger('warn', 'Cannot parse input to JSON: ' + input);
         }
-        // throw new Error('Input cannot be parsed to JSON', input);
         return input;
       }
     }

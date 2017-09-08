@@ -1,13 +1,14 @@
 {
   "name": "connect-sdk-nodejs",
-  "version": "2.6.0",
+  "version": "2.7.0",
   "description": "SDK to communicate with the Ingenico ePayments platform using the Ingenico Connect Server API",
   "dependencies": {
     "dateformat": "^1.0.12",
     "jsonschema": "^1.1.0",
     "lodash": "^4.7.0",
     "node-uuid": "^1.4.7",
-    "traverse": "^0.6.6"
+    "traverse": "^0.6.6",
+    "secure-compare": "^3.0.1"
   },
   "devDependencies": {},
   "repository": {
