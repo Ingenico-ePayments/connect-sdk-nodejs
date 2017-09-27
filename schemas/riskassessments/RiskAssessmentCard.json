@@ -236,11 +236,23 @@
       "required" : [ "cvv" ],
       "additionalProperties" : false
     },
+    "ContactDetailsRiskAssessment" : {
+      "type" : "object",
+      "properties" : {
+        "emailAddress" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
     "CustomerRiskAssessment" : {
       "type" : "object",
       "properties" : {
         "billingAddress" : {
           "$ref" : "#/definitions/Address"
+        },
+        "contactDetails" : {
+          "$ref" : "#/definitions/ContactDetailsRiskAssessment"
         },
         "locale" : {
           "type" : "string"
