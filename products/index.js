@@ -15,5 +15,7 @@ modules['networks'] = require('./networks');
 // console.log(`Added networks to module space`);
 modules['publicKey'] = require('./publicKey');
 // console.log(`Added publicKey to module space`);
+modules['customerDetails'] = require('./customerDetails');
+// console.log(`Added customerDetails to module space`);
 
 module.exports = modules;

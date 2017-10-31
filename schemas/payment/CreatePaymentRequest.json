@@ -14,6 +14,9 @@
     "directDebitPaymentMethodSpecificInput" : {
       "$ref" : "#/definitions/NonSepaDirectDebitPaymentMethodSpecificInput"
     },
+    "eInvoicePaymentMethodSpecificInput" : {
+      "$ref" : "#/definitions/EInvoicePaymentMethodSpecificInput"
+    },
     "encryptedCustomerInput" : {
       "type" : "string"
     },
@@ -502,6 +505,39 @@
       "required" : [ "cryptogram", "dpan", "expiryDate" ],
       "additionalProperties" : false
     },
+    "EInvoicePaymentMethodSpecificInput" : {
+      "type" : "object",
+      "properties" : {
+        "acceptedTermsAndConditions" : {
+          "type" : "boolean"
+        },
+        "paymentProduct9000SpecificInput" : {
+          "$ref" : "#/definitions/EInvoicePaymentProduct9000SpecificInput"
+        },
+        "paymentProductId" : {
+          "type" : "integer",
+          "maximum" : 2147483647
+        },
+        "requiresApproval" : {
+          "type" : "boolean"
+        }
+      },
+      "required" : [ "acceptedTermsAndConditions" ],
+      "additionalProperties" : false
+    },
+    "EInvoicePaymentProduct9000SpecificInput" : {
+      "type" : "object",
+      "properties" : {
+        "bankAccountIban" : {
+          "$ref" : "#/definitions/BankAccountIban"
+        },
+        "installmentId" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "installmentId" ],
+      "additionalProperties" : false
+    },
     "ExternalCardholderAuthenticationData" : {
       "type" : "object",
       "properties" : {
@@ -858,11 +894,18 @@
           "type" : "integer",
           "maximum" : 9223372036854775807
         },
+        "googleProductCategoryId" : {
+          "type" : "integer",
+          "maximum" : 9223372036854775807
+        },
         "lineAmountTotal" : {
           "type" : "integer",
           "maximum" : 9223372036854775807
         },
         "productCode" : {
+          "type" : "string"
+        },
+        "productName" : {
           "type" : "string"
         },
         "productPrice" : {

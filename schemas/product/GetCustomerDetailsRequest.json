@@ -1,0 +1,33 @@
+{
+  "$schema" : "http://json-schema.org/draft-04/schema#",
+  "type" : "object",
+  "properties" : {
+    "countryCode" : {
+      "type" : "string"
+    },
+    "values" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/KeyValuePair"
+      },
+      "minItems" : 1,
+      "uniqueItems" : false
+    }
+  },
+  "required" : [ "values" ],
+  "additionalProperties" : false,
+  "definitions" : {
+    "KeyValuePair" : {
+      "type" : "object",
+      "properties" : {
+        "key" : {
+          "type" : "string"
+        },
+        "value" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    }
+  }
+}

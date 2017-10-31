@@ -1,6 +1,6 @@
 {
   "name": "connect-sdk-nodejs",
-  "version": "2.9.0",
+  "version": "2.10.0",
   "description": "SDK to communicate with the Ingenico ePayments platform using the Ingenico Connect Server API",
   "dependencies": {
     "dateformat": "^1.0.12",
