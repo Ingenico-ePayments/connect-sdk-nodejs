@@ -449,6 +449,31 @@
       },
       "additionalProperties" : false
     },
+    "CreateMandateBase" : {
+      "type" : "object",
+      "properties" : {
+        "customer" : {
+          "$ref" : "#/definitions/MandateCustomer"
+        },
+        "customerReference" : {
+          "type" : "string"
+        },
+        "language" : {
+          "type" : "string"
+        },
+        "recurrenceType" : {
+          "type" : "string"
+        },
+        "returnUrl" : {
+          "type" : "string"
+        },
+        "signatureType" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "customerReference", "recurrenceType", "signatureType" ],
+      "additionalProperties" : false
+    },
     "Customer" : {
       "type" : "object",
       "properties" : {
@@ -746,6 +771,84 @@
       },
       "additionalProperties" : false
     },
+    "MandateAddress" : {
+      "type" : "object",
+      "properties" : {
+        "city" : {
+          "type" : "string"
+        },
+        "countryCode" : {
+          "type" : "string"
+        },
+        "houseNumber" : {
+          "type" : "string"
+        },
+        "street" : {
+          "type" : "string"
+        },
+        "zip" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "MandateContactDetails" : {
+      "type" : "object",
+      "properties" : {
+        "emailAddress" : {
+          "type" : "string"
+        },
+        "phoneNumber" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "MandateCustomer" : {
+      "type" : "object",
+      "properties" : {
+        "bankAccountIban" : {
+          "$ref" : "#/definitions/BankAccountIban"
+        },
+        "companyName" : {
+          "type" : "string"
+        },
+        "contactDetails" : {
+          "$ref" : "#/definitions/MandateContactDetails"
+        },
+        "mandateAddress" : {
+          "$ref" : "#/definitions/MandateAddress"
+        },
+        "personalInformation" : {
+          "$ref" : "#/definitions/MandatePersonalInformation"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "MandatePersonalInformation" : {
+      "type" : "object",
+      "properties" : {
+        "name" : {
+          "$ref" : "#/definitions/MandatePersonalName"
+        },
+        "title" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "MandatePersonalName" : {
+      "type" : "object",
+      "properties" : {
+        "firstName" : {
+          "type" : "string"
+        },
+        "surname" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
     "MobilePaymentMethodSpecificInput" : {
       "type" : "object",
       "properties" : {
@@ -856,6 +959,9 @@
         },
         "references" : {
           "$ref" : "#/definitions/OrderReferences"
+        },
+        "seller" : {
+          "$ref" : "#/definitions/Seller"
         },
         "shoppingCart" : {
           "$ref" : "#/definitions/ShoppingCart"
@@ -1079,6 +1185,40 @@
       },
       "additionalProperties" : false
     },
+    "Seller" : {
+      "type" : "object",
+      "properties" : {
+        "address" : {
+          "$ref" : "#/definitions/Address"
+        },
+        "channelCode" : {
+          "type" : "string"
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "geocode" : {
+          "type" : "string"
+        },
+        "id" : {
+          "type" : "string"
+        },
+        "invoiceNumber" : {
+          "type" : "string"
+        },
+        "mcc" : {
+          "type" : "string"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "type" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "id", "name", "type" ],
+      "additionalProperties" : false
+    },
     "SepaDirectDebitPaymentMethodSpecificInput" : {
       "type" : "object",
       "properties" : {
@@ -1090,6 +1230,9 @@
         },
         "isRecurring" : {
           "type" : "boolean"
+        },
+        "paymentProduct771SpecificInput" : {
+          "$ref" : "#/definitions/SepaDirectDebitPaymentProduct771SpecificInput"
         },
         "paymentProductId" : {
           "type" : "integer",
@@ -1105,7 +1248,19 @@
           "type" : "boolean"
         }
       },
-      "required" : [ "directDebitText", "token" ],
+      "required" : [ "directDebitText" ],
+      "additionalProperties" : false
+    },
+    "SepaDirectDebitPaymentProduct771SpecificInput" : {
+      "type" : "object",
+      "properties" : {
+        "mandate" : {
+          "$ref" : "#/definitions/CreateMandateBase"
+        },
+        "mandateReference" : {
+          "type" : "string"
+        }
+      },
       "additionalProperties" : false
     },
     "ShoppingCart" : {

@@ -1,0 +1,118 @@
+{
+  "$schema" : "http://json-schema.org/draft-04/schema#",
+  "type" : "object",
+  "properties" : {
+    "customer" : {
+      "$ref" : "#/definitions/MandateCustomer"
+    },
+    "customerReference" : {
+      "type" : "string"
+    },
+    "language" : {
+      "type" : "string"
+    },
+    "recurrenceType" : {
+      "type" : "string"
+    },
+    "returnUrl" : {
+      "type" : "string"
+    },
+    "signatureType" : {
+      "type" : "string"
+    }
+  },
+  "required" : [ "customerReference", "recurrenceType", "signatureType" ],
+  "additionalProperties" : false,
+  "definitions" : {
+    "BankAccountIban" : {
+      "type" : "object",
+      "properties" : {
+        "accountHolderName" : {
+          "type" : "string"
+        },
+        "iban" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "MandateAddress" : {
+      "type" : "object",
+      "properties" : {
+        "city" : {
+          "type" : "string"
+        },
+        "countryCode" : {
+          "type" : "string"
+        },
+        "houseNumber" : {
+          "type" : "string"
+        },
+        "street" : {
+          "type" : "string"
+        },
+        "zip" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "MandateContactDetails" : {
+      "type" : "object",
+      "properties" : {
+        "emailAddress" : {
+          "type" : "string"
+        },
+        "phoneNumber" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "MandateCustomer" : {
+      "type" : "object",
+      "properties" : {
+        "bankAccountIban" : {
+          "$ref" : "#/definitions/BankAccountIban"
+        },
+        "companyName" : {
+          "type" : "string"
+        },
+        "contactDetails" : {
+          "$ref" : "#/definitions/MandateContactDetails"
+        },
+        "mandateAddress" : {
+          "$ref" : "#/definitions/MandateAddress"
+        },
+        "personalInformation" : {
+          "$ref" : "#/definitions/MandatePersonalInformation"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "MandatePersonalInformation" : {
+      "type" : "object",
+      "properties" : {
+        "name" : {
+          "$ref" : "#/definitions/MandatePersonalName"
+        },
+        "title" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "MandatePersonalName" : {
+      "type" : "object",
+      "properties" : {
+        "firstName" : {
+          "type" : "string"
+        },
+        "surname" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    }
+  }
+}

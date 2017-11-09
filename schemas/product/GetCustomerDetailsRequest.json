@@ -14,7 +14,7 @@
       "uniqueItems" : false
     }
   },
-  "required" : [ "values" ],
+  "required" : [ "countryCode", "values" ],
   "additionalProperties" : false,
   "definitions" : {
     "KeyValuePair" : {

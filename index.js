@@ -13,6 +13,7 @@ var captures = require('./captures');
 var payouts = require('./payouts');
 var products = require('./products');
 var productgroups = require('./productgroups');
+var mandates = require('./mandates');
 var refunds = require('./refunds');
 var riskassessments = require('./riskassessments');
 var services = require('./services');
@@ -86,6 +87,7 @@ var wrapper = {
   payouts: payouts,
   products: products,
   productgroups: productgroups,
+  mandates: mandates,
   refunds: refunds,
   riskassessments: riskassessments,
   services: services,

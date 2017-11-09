@@ -11,6 +11,9 @@
     "cashPaymentMethodSpecificInput" : {
       "$ref" : "#/definitions/CashPaymentMethodSpecificInputBase"
     },
+    "eInvoicePaymentMethodSpecificInput" : {
+      "$ref" : "#/definitions/EInvoicePaymentMethodSpecificInputBase"
+    },
     "fraudFields" : {
       "$ref" : "#/definitions/FraudFields"
     },
@@ -22,6 +25,9 @@
     },
     "redirectPaymentMethodSpecificInput" : {
       "$ref" : "#/definitions/RedirectPaymentMethodSpecificInputBase"
+    },
+    "sepaDirectDebitPaymentMethodSpecificInput" : {
+      "$ref" : "#/definitions/SepaDirectDebitPaymentMethodSpecificInputBase"
     }
   },
   "required" : [ "order" ],
@@ -250,6 +256,18 @@
       "required" : [ "amount", "currencyCode" ],
       "additionalProperties" : false
     },
+    "BankAccountIban" : {
+      "type" : "object",
+      "properties" : {
+        "accountHolderName" : {
+          "type" : "string"
+        },
+        "iban" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
     "BankTransferPaymentMethodSpecificInputBase" : {
       "type" : "object",
       "properties" : {
@@ -337,6 +355,31 @@
       },
       "additionalProperties" : false
     },
+    "CreateMandateBase" : {
+      "type" : "object",
+      "properties" : {
+        "customer" : {
+          "$ref" : "#/definitions/MandateCustomer"
+        },
+        "customerReference" : {
+          "type" : "string"
+        },
+        "language" : {
+          "type" : "string"
+        },
+        "recurrenceType" : {
+          "type" : "string"
+        },
+        "returnUrl" : {
+          "type" : "string"
+        },
+        "signatureType" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "customerReference", "recurrenceType", "signatureType" ],
+      "additionalProperties" : false
+    },
     "Customer" : {
       "type" : "object",
       "properties" : {
@@ -366,6 +409,19 @@
         },
         "vatNumber" : {
           "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "EInvoicePaymentMethodSpecificInputBase" : {
+      "type" : "object",
+      "properties" : {
+        "paymentProductId" : {
+          "type" : "integer",
+          "maximum" : 2147483647
+        },
+        "requiresApproval" : {
+          "type" : "boolean"
         }
       },
       "additionalProperties" : false
@@ -460,6 +516,9 @@
         },
         "paymentProductFilters" : {
           "$ref" : "#/definitions/PaymentProductFiltersHostedCheckout"
+        },
+        "returnCancelState" : {
+          "type" : "boolean"
         },
         "returnUrl" : {
           "type" : "string"
@@ -570,6 +629,84 @@
       },
       "additionalProperties" : false
     },
+    "MandateAddress" : {
+      "type" : "object",
+      "properties" : {
+        "city" : {
+          "type" : "string"
+        },
+        "countryCode" : {
+          "type" : "string"
+        },
+        "houseNumber" : {
+          "type" : "string"
+        },
+        "street" : {
+          "type" : "string"
+        },
+        "zip" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "MandateContactDetails" : {
+      "type" : "object",
+      "properties" : {
+        "emailAddress" : {
+          "type" : "string"
+        },
+        "phoneNumber" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "MandateCustomer" : {
+      "type" : "object",
+      "properties" : {
+        "bankAccountIban" : {
+          "$ref" : "#/definitions/BankAccountIban"
+        },
+        "companyName" : {
+          "type" : "string"
+        },
+        "contactDetails" : {
+          "$ref" : "#/definitions/MandateContactDetails"
+        },
+        "mandateAddress" : {
+          "$ref" : "#/definitions/MandateAddress"
+        },
+        "personalInformation" : {
+          "$ref" : "#/definitions/MandatePersonalInformation"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "MandatePersonalInformation" : {
+      "type" : "object",
+      "properties" : {
+        "name" : {
+          "$ref" : "#/definitions/MandatePersonalName"
+        },
+        "title" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "MandatePersonalName" : {
+      "type" : "object",
+      "properties" : {
+        "firstName" : {
+          "type" : "string"
+        },
+        "surname" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
     "Order" : {
       "type" : "object",
       "properties" : {
@@ -592,6 +729,9 @@
         },
         "references" : {
           "$ref" : "#/definitions/OrderReferences"
+        },
+        "seller" : {
+          "$ref" : "#/definitions/Seller"
         },
         "shoppingCart" : {
           "$ref" : "#/definitions/ShoppingCart"
@@ -789,6 +929,65 @@
         },
         "tokenize" : {
           "type" : "boolean"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "Seller" : {
+      "type" : "object",
+      "properties" : {
+        "address" : {
+          "$ref" : "#/definitions/Address"
+        },
+        "channelCode" : {
+          "type" : "string"
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "geocode" : {
+          "type" : "string"
+        },
+        "id" : {
+          "type" : "string"
+        },
+        "invoiceNumber" : {
+          "type" : "string"
+        },
+        "mcc" : {
+          "type" : "string"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "type" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "id", "name", "type" ],
+      "additionalProperties" : false
+    },
+    "SepaDirectDebitPaymentMethodSpecificInputBase" : {
+      "type" : "object",
+      "properties" : {
+        "paymentProduct771SpecificInput" : {
+          "$ref" : "#/definitions/SepaDirectDebitPaymentProduct771SpecificInput"
+        },
+        "paymentProductId" : {
+          "type" : "integer",
+          "maximum" : 2147483647
+        }
+      },
+      "additionalProperties" : false
+    },
+    "SepaDirectDebitPaymentProduct771SpecificInput" : {
+      "type" : "object",
+      "properties" : {
+        "mandate" : {
+          "$ref" : "#/definitions/CreateMandateBase"
+        },
+        "mandateReference" : {
+          "type" : "string"
         }
       },
       "additionalProperties" : false

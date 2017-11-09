@@ -440,6 +440,9 @@
         "references" : {
           "$ref" : "#/definitions/OrderReferences"
         },
+        "seller" : {
+          "$ref" : "#/definitions/Seller"
+        },
         "shoppingCart" : {
           "$ref" : "#/definitions/ShoppingCart"
         }
@@ -574,6 +577,40 @@
           "type" : "string"
         }
       },
+      "additionalProperties" : false
+    },
+    "Seller" : {
+      "type" : "object",
+      "properties" : {
+        "address" : {
+          "$ref" : "#/definitions/Address"
+        },
+        "channelCode" : {
+          "type" : "string"
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "geocode" : {
+          "type" : "string"
+        },
+        "id" : {
+          "type" : "string"
+        },
+        "invoiceNumber" : {
+          "type" : "string"
+        },
+        "mcc" : {
+          "type" : "string"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "type" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "id", "name", "type" ],
       "additionalProperties" : false
     },
     "ShoppingCart" : {
