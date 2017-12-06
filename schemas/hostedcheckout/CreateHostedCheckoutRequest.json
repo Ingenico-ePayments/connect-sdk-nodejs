@@ -370,9 +370,6 @@
         "recurrenceType" : {
           "type" : "string"
         },
-        "returnUrl" : {
-          "type" : "string"
-        },
         "signatureType" : {
           "type" : "string"
         }
@@ -971,7 +968,7 @@
       "type" : "object",
       "properties" : {
         "paymentProduct771SpecificInput" : {
-          "$ref" : "#/definitions/SepaDirectDebitPaymentProduct771SpecificInput"
+          "$ref" : "#/definitions/SepaDirectDebitPaymentProduct771SpecificInputBase"
         },
         "paymentProductId" : {
           "type" : "integer",
@@ -980,7 +977,7 @@
       },
       "additionalProperties" : false
     },
-    "SepaDirectDebitPaymentProduct771SpecificInput" : {
+    "SepaDirectDebitPaymentProduct771SpecificInputBase" : {
       "type" : "object",
       "properties" : {
         "mandate" : {

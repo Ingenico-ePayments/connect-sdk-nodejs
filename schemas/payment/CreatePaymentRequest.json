@@ -449,7 +449,7 @@
       },
       "additionalProperties" : false
     },
-    "CreateMandateBase" : {
+    "CreateMandateWithReturnUrl" : {
       "type" : "object",
       "properties" : {
         "customer" : {
@@ -1255,7 +1255,7 @@
       "type" : "object",
       "properties" : {
         "mandate" : {
-          "$ref" : "#/definitions/CreateMandateBase"
+          "$ref" : "#/definitions/CreateMandateWithReturnUrl"
         },
         "mandateReference" : {
           "type" : "string"
