@@ -144,6 +144,14 @@
         "passengerName" : {
           "type" : "string"
         },
+        "passengers" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/AirlinePassenger"
+          },
+          "minItems" : 0,
+          "uniqueItems" : false
+        },
         "placeOfIssue" : {
           "type" : "string"
         },
@@ -200,11 +208,32 @@
         "originAirport" : {
           "type" : "string"
         },
+        "serviceClass" : {
+          "type" : "string"
+        },
         "stopoverCode" : {
           "type" : "string"
         }
       },
       "required" : [ "airlineClass", "arrivalAirport", "carrierCode", "date", "number", "originAirport" ],
+      "additionalProperties" : false
+    },
+    "AirlinePassenger" : {
+      "type" : "object",
+      "properties" : {
+        "firstName" : {
+          "type" : "string"
+        },
+        "surname" : {
+          "type" : "string"
+        },
+        "surnamePrefix" : {
+          "type" : "string"
+        },
+        "title" : {
+          "type" : "string"
+        }
+      },
       "additionalProperties" : false
     },
     "AmountBreakdown" : {
