@@ -5,10 +5,10 @@
  */
 var modules = {};
 
-modules['find'] = require('./find');
-// console.log(`Added find to module space`);
 modules['create'] = require('./create');
 // console.log(`Added create to module space`);
+modules['find'] = require('./find');
+// console.log(`Added find to module space`);
 modules['get'] = require('./get');
 // console.log(`Added get to module space`);
 modules['approve'] = require('./approve');

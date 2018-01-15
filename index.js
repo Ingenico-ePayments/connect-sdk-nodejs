@@ -8,18 +8,18 @@ var apiVersion = 'v1';
 var sdkcontext = require('./utils/context');
 var communicator = require('./utils/communicator');
 
+var hostedcheckouts = require('./hostedcheckouts');
 var payments = require('./payments');
 var captures = require('./captures');
-var payouts = require('./payouts');
-var products = require('./products');
-var productgroups = require('./productgroups');
-var mandates = require('./mandates');
 var refunds = require('./refunds');
+var payouts = require('./payouts');
+var productgroups = require('./productgroups');
+var products = require('./products');
 var riskassessments = require('./riskassessments');
 var services = require('./services');
-var sessions = require('./sessions');
 var tokens = require('./tokens');
-var hostedcheckouts = require('./hostedcheckouts');
+var mandates = require('./mandates');
+var sessions = require('./sessions');
 
 var webhooks = require('./webhooks');
 webhooks.API_VERSION = apiVersion;
@@ -82,18 +82,18 @@ var wrapper = {
     sdkcontext.setShoppingCartExtension(context.shoppingCartExtension);
     return wrapper;
   },
+  hostedcheckouts: hostedcheckouts,
   payments: payments,
   captures: captures,
-  payouts: payouts,
-  products: products,
-  productgroups: productgroups,
-  mandates: mandates,
   refunds: refunds,
+  payouts: payouts,
+  productgroups: productgroups,
+  products: products,
   riskassessments: riskassessments,
   services: services,
-  sessions: sessions,
   tokens: tokens,
-  hostedcheckouts: hostedcheckouts,
+  mandates: mandates,
+  sessions: sessions,
   context: sdkcontext,
 
   webhooks: webhooks
