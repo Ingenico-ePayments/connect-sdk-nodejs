@@ -386,7 +386,6 @@
           "$ref" : "#/definitions/OrderLineDetails"
         }
       },
-      "required" : [ "amountOfMoney", "invoiceData" ],
       "additionalProperties" : false
     },
     "LineItemInvoiceData" : {
@@ -516,6 +515,9 @@
         "lineAmountTotal" : {
           "type" : "integer",
           "maximum" : 9223372036854775807
+        },
+        "productCategory" : {
+          "type" : "string"
         },
         "productCode" : {
           "type" : "string"
