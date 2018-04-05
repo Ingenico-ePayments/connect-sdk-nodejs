@@ -236,6 +236,9 @@
       "properties" : {
         "paymentProduct705SpecificData" : {
           "$ref" : "#/definitions/TokenNonSepaDirectDebitPaymentProduct705SpecificData"
+        },
+        "paymentProduct730SpecificData" : {
+          "$ref" : "#/definitions/TokenNonSepaDirectDebitPaymentProduct730SpecificData"
         }
       },
       "additionalProperties" : false
@@ -367,6 +370,16 @@
         "authorisationId" : {
           "type" : "string"
         },
+        "bankAccountBban" : {
+          "$ref" : "#/definitions/BankAccountBban"
+        }
+      },
+      "required" : [ "bankAccountBban" ],
+      "additionalProperties" : false
+    },
+    "TokenNonSepaDirectDebitPaymentProduct730SpecificData" : {
+      "type" : "object",
+      "properties" : {
         "bankAccountBban" : {
           "$ref" : "#/definitions/BankAccountBban"
         }
