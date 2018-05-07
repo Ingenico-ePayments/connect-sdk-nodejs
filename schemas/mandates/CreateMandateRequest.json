@@ -22,6 +22,9 @@
     },
     "signatureType" : {
       "type" : "string"
+    },
+    "uniqueMandateReference" : {
+      "type" : "string"
     }
   },
   "required" : [ "customerReference", "recurrenceType", "signatureType" ],

@@ -413,6 +413,12 @@
         },
         "transactionChannel" : {
           "type" : "string"
+        },
+        "unscheduledCardOnFileIndicator" : {
+          "type" : "string"
+        },
+        "unscheduledCardOnFileRequestor" : {
+          "type" : "string"
         }
       },
       "additionalProperties" : false
@@ -500,6 +506,9 @@
           "type" : "string"
         },
         "signatureType" : {
+          "type" : "string"
+        },
+        "uniqueMandateReference" : {
           "type" : "string"
         }
       },
