@@ -9,6 +9,7 @@ var sdkcontext = require('./utils/context');
 var communicator = require('./utils/communicator');
 
 var hostedcheckouts = require('./hostedcheckouts');
+var hostedmandatemanagements = require('./hostedmandatemanagements');
 var payments = require('./payments');
 var captures = require('./captures');
 var refunds = require('./refunds');
@@ -83,6 +84,7 @@ var wrapper = {
     return wrapper;
   },
   hostedcheckouts: hostedcheckouts,
+  hostedmandatemanagements: hostedmandatemanagements,
   payments: payments,
   captures: captures,
   refunds: refunds,
