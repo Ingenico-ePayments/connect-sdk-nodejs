@@ -29,6 +29,8 @@ modules['captures'] = require('./captures');
 // console.log(`Added captures to module space`);
 modules['refund'] = require('./refund');
 // console.log(`Added refund to module space`);
+modules['refunds'] = require('./refunds');
+// console.log(`Added refunds to module space`);
 modules['cancel'] = require('./cancel');
 // console.log(`Added cancel to module space`);
 

@@ -2,7 +2,7 @@
 
 ## Introduction
 
-The Node.js SDK helps you to communicate with the [Ingenico Connect](http://www.ingenico.com/epayments) Server API. It's primary features are:
+The Node.js SDK helps you to communicate with the [Ingenico Connect](https://epayments.developer-ingenico.com/) Server API. It's primary features are:
 
 * convenient JavaScript wrapper around the API calls,
 * authentication of all calls
