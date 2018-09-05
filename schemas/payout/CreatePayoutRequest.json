@@ -175,9 +175,12 @@
         "paymentProductId" : {
           "type" : "integer",
           "maximum" : 2147483647
+        },
+        "token" : {
+          "type" : "string"
         }
       },
-      "required" : [ "card", "paymentProductId" ],
+      "required" : [ "paymentProductId" ],
       "additionalProperties" : false
     },
     "CompanyInformation" : {

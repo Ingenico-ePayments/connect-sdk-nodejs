@@ -9,7 +9,7 @@ var serverMetaInfo = function (sdkContext) {
     key: "X-GCS-ServerMetaInfo",
     value: {
       'sdkCreator': 'Ingenico',
-      'sdkIdentifier': 'NodejsServerSDK/v2.20.0',
+      'sdkIdentifier': 'NodejsServerSDK/v2.21.0',
       'platformIdentifier': process.env['OS'] + ' Node.js/' + process.versions.node
     }
   };

@@ -94,6 +94,9 @@
         "countryCode" : {
           "type" : "string"
         },
+        "patronymicName" : {
+          "type" : "string"
+        },
         "swiftCode" : {
           "type" : "string"
         }
@@ -177,6 +180,9 @@
         },
         "contactDetails" : {
           "$ref" : "#/definitions/ContactDetailsBase"
+        },
+        "fiscalNumber" : {
+          "type" : "string"
         }
       },
       "additionalProperties" : false
