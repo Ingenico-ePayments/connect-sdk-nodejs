@@ -169,6 +169,21 @@
         },
         "ticketNumber" : {
           "type" : "string"
+        },
+        "totalFare" : {
+          "type" : "integer",
+          "maximum" : 10000
+        },
+        "totalFee" : {
+          "type" : "integer",
+          "maximum" : 10000
+        },
+        "totalTaxes" : {
+          "type" : "integer",
+          "maximum" : 10000
+        },
+        "travelAgencyName" : {
+          "type" : "string"
         }
       },
       "required" : [ "code", "name" ],
@@ -183,7 +198,16 @@
         "arrivalAirport" : {
           "type" : "string"
         },
+        "arrivalTime" : {
+          "type" : "string"
+        },
         "carrierCode" : {
+          "type" : "string"
+        },
+        "conjunctionTicket" : {
+          "type" : "string"
+        },
+        "couponNumber" : {
           "type" : "string"
         },
         "date" : {
@@ -192,11 +216,21 @@
         "departureTime" : {
           "type" : "string"
         },
+        "endorsementOrRestriction" : {
+          "type" : "string"
+        },
+        "exchangeTicket" : {
+          "type" : "string"
+        },
         "fare" : {
           "type" : "string"
         },
         "fareBasis" : {
           "type" : "string"
+        },
+        "fee" : {
+          "type" : "integer",
+          "maximum" : 10000
         },
         "flightNumber" : {
           "type" : "string"
@@ -208,11 +242,18 @@
         "originAirport" : {
           "type" : "string"
         },
+        "passengerClass" : {
+          "type" : "string"
+        },
         "serviceClass" : {
           "type" : "string"
         },
         "stopoverCode" : {
           "type" : "string"
+        },
+        "taxes" : {
+          "type" : "integer",
+          "maximum" : 10000
         }
       },
       "required" : [ "airlineClass", "arrivalAirport", "carrierCode", "date", "number", "originAirport" ],
