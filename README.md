@@ -18,6 +18,14 @@ This repository consists out of one main component:
 
 1. The source code of the SDK itself: `/`
 
+## Installation
+
+From the folder where your `package.json` is located, run the following command to install the SDK:
+
+    npm i connect-sdk-nodejs
+
 ## Building the repository
 
-1. From the root of the project install all dependencies: `npm install`.
+From the root of the project install all dependencies: 
+
+    npm install
