@@ -1214,6 +1214,9 @@
         "paymentProduct840SpecificInput" : {
           "$ref" : "#/definitions/RedirectPaymentProduct840SpecificInput"
         },
+        "paymentProduct863SpecificInput" : {
+          "$ref" : "#/definitions/RedirectPaymentProduct863SpecificInput"
+        },
         "paymentProduct882SpecificInput" : {
           "$ref" : "#/definitions/RedirectPaymentProduct882SpecificInput"
         },
@@ -1270,6 +1273,16 @@
           "type" : "boolean"
         }
       },
+      "additionalProperties" : false
+    },
+    "RedirectPaymentProduct863SpecificInput" : {
+      "type" : "object",
+      "properties" : {
+        "integrationType" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "integrationType" ],
       "additionalProperties" : false
     },
     "RedirectPaymentProduct882SpecificInput" : {
