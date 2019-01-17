@@ -607,9 +607,15 @@
         },
         "expiryDate" : {
           "type" : "string"
+        },
+        "pan" : {
+          "type" : "string"
+        },
+        "paymentMethod" : {
+          "type" : "string"
         }
       },
-      "required" : [ "cryptogram", "dpan", "expiryDate" ],
+      "required" : [ "expiryDate" ],
       "additionalProperties" : false
     },
     "EInvoicePaymentMethodSpecificInput" : {
@@ -942,9 +948,6 @@
         "encryptedPaymentData" : {
           "type" : "string"
         },
-        "paymentProduct320SpecificInput" : {
-          "$ref" : "#/definitions/MobilePaymentProduct320SpecificInput"
-        },
         "paymentProductId" : {
           "type" : "integer",
           "maximum" : 2147483647
@@ -954,18 +957,6 @@
         },
         "skipFraudService" : {
           "type" : "boolean"
-        },
-        "transactionId" : {
-          "type" : "string"
-        }
-      },
-      "additionalProperties" : false
-    },
-    "MobilePaymentProduct320SpecificInput" : {
-      "type" : "object",
-      "properties" : {
-        "keyId" : {
-          "type" : "string"
         }
       },
       "additionalProperties" : false
@@ -1363,6 +1354,9 @@
     "SepaDirectDebitPaymentProduct771SpecificInput" : {
       "type" : "object",
       "properties" : {
+        "existingUniqueMandateReference" : {
+          "type" : "string"
+        },
         "mandate" : {
           "$ref" : "#/definitions/CreateMandateWithReturnUrl"
         },

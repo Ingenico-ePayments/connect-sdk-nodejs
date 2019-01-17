@@ -20,6 +20,9 @@
     "hostedCheckoutSpecificInput" : {
       "$ref" : "#/definitions/HostedCheckoutSpecificInput"
     },
+    "mobilePaymentMethodSpecificInput" : {
+      "$ref" : "#/definitions/MobilePaymentMethodSpecificInputHostedCheckout"
+    },
     "order" : {
       "$ref" : "#/definitions/Order"
     },
@@ -788,6 +791,32 @@
       },
       "additionalProperties" : false
     },
+    "MobilePaymentMethodSpecificInputHostedCheckout" : {
+      "type" : "object",
+      "properties" : {
+        "paymentProduct320SpecificInput" : {
+          "$ref" : "#/definitions/MobilePaymentProduct320SpecificInputHostedCheckout"
+        },
+        "paymentProductId" : {
+          "type" : "integer",
+          "maximum" : 2147483647
+        }
+      },
+      "additionalProperties" : false
+    },
+    "MobilePaymentProduct320SpecificInputHostedCheckout" : {
+      "type" : "object",
+      "properties" : {
+        "merchantName" : {
+          "type" : "string"
+        },
+        "merchantOrigin" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "merchantName", "merchantOrigin" ],
+      "additionalProperties" : false
+    },
     "Order" : {
       "type" : "object",
       "properties" : {
@@ -1067,6 +1096,9 @@
     "SepaDirectDebitPaymentProduct771SpecificInputBase" : {
       "type" : "object",
       "properties" : {
+        "existingUniqueMandateReference" : {
+          "type" : "string"
+        },
         "mandate" : {
           "$ref" : "#/definitions/CreateMandateBase"
         },
