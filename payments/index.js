@@ -33,5 +33,9 @@ modules['refunds'] = require('./refunds');
 // console.log(`Added refunds to module space`);
 modules['cancel'] = require('./cancel');
 // console.log(`Added cancel to module space`);
+modules['dispute'] = require('./dispute');
+// console.log(`Added dispute to module space`);
+modules['disputes'] = require('./disputes');
+// console.log(`Added disputes to module space`);
 
 module.exports = modules;

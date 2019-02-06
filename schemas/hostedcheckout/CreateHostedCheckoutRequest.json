@@ -1027,6 +1027,9 @@
           "type" : "integer",
           "maximum" : 60
         },
+        "paymentProduct840SpecificInput" : {
+          "$ref" : "#/definitions/RedirectPaymentProduct840SpecificInputBase"
+        },
         "paymentProductId" : {
           "type" : "integer",
           "maximum" : 2147483647
@@ -1041,6 +1044,15 @@
           "type" : "string"
         },
         "tokenize" : {
+          "type" : "boolean"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "RedirectPaymentProduct840SpecificInputBase" : {
+      "type" : "object",
+      "properties" : {
+        "addressSelectionAtPayPal" : {
           "type" : "boolean"
         }
       },

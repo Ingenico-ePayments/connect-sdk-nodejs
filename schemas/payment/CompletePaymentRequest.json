@@ -9,7 +9,6 @@
       "$ref" : "#/definitions/Order"
     }
   },
-  "required" : [ "cardPaymentMethodSpecificInput" ],
   "additionalProperties" : false,
   "definitions" : {
     "AdditionalOrderInput" : {

@@ -13,6 +13,7 @@ var hostedmandatemanagements = require('./hostedmandatemanagements');
 var payments = require('./payments');
 var captures = require('./captures');
 var refunds = require('./refunds');
+var disputes = require('./disputes');
 var payouts = require('./payouts');
 var productgroups = require('./productgroups');
 var products = require('./products');
@@ -88,6 +89,7 @@ var wrapper = {
   payments: payments,
   captures: captures,
   refunds: refunds,
+  disputes: disputes,
   payouts: payouts,
   productgroups: productgroups,
   products: products,

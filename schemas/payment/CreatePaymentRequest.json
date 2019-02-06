@@ -1257,6 +1257,9 @@
     "RedirectPaymentProduct840SpecificInput" : {
       "type" : "object",
       "properties" : {
+        "addressSelectionAtPayPal" : {
+          "type" : "boolean"
+        },
         "custom" : {
           "type" : "string"
         },
