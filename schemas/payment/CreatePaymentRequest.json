@@ -1047,6 +1047,9 @@
         "seller" : {
           "$ref" : "#/definitions/Seller"
         },
+        "shipping" : {
+          "$ref" : "#/definitions/Shipping"
+        },
         "shoppingCart" : {
           "$ref" : "#/definitions/ShoppingCart"
         }
@@ -1364,6 +1367,15 @@
           "$ref" : "#/definitions/CreateMandateWithReturnUrl"
         },
         "mandateReference" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "Shipping" : {
+      "type" : "object",
+      "properties" : {
+        "emailAddress" : {
           "type" : "string"
         }
       },

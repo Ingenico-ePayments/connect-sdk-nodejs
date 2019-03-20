@@ -843,6 +843,9 @@
         "seller" : {
           "$ref" : "#/definitions/Seller"
         },
+        "shipping" : {
+          "$ref" : "#/definitions/Shipping"
+        },
         "shoppingCart" : {
           "$ref" : "#/definitions/ShoppingCart"
         }
@@ -1115,6 +1118,15 @@
           "$ref" : "#/definitions/CreateMandateBase"
         },
         "mandateReference" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "Shipping" : {
+      "type" : "object",
+      "properties" : {
+        "emailAddress" : {
           "type" : "string"
         }
       },

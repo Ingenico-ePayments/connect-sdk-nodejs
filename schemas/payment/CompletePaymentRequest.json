@@ -511,6 +511,9 @@
         "seller" : {
           "$ref" : "#/definitions/Seller"
         },
+        "shipping" : {
+          "$ref" : "#/definitions/Shipping"
+        },
         "shoppingCart" : {
           "$ref" : "#/definitions/ShoppingCart"
         }
@@ -682,6 +685,15 @@
         }
       },
       "required" : [ "id", "name", "type" ],
+      "additionalProperties" : false
+    },
+    "Shipping" : {
+      "type" : "object",
+      "properties" : {
+        "emailAddress" : {
+          "type" : "string"
+        }
+      },
       "additionalProperties" : false
     },
     "ShoppingCart" : {

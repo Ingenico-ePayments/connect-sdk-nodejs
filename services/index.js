@@ -11,6 +11,8 @@ modules['bankaccount'] = require('./bankaccount');
 // console.log(`Added bankaccount to module space`);
 modules['getIINdetails'] = require('./getIINdetails');
 // console.log(`Added getIINdetails to module space`);
+modules['privacypolicy'] = require('./privacypolicy');
+// console.log(`Added privacypolicy to module space`);
 modules['testconnection'] = require('./testconnection');
 // console.log(`Added testconnection to module space`);
 
