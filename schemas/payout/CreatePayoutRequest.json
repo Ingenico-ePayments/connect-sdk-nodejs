@@ -188,6 +188,9 @@
       "properties" : {
         "name" : {
           "type" : "string"
+        },
+        "vatNumber" : {
+          "type" : "string"
         }
       },
       "additionalProperties" : false

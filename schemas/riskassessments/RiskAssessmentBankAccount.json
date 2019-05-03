@@ -11,6 +11,9 @@
     "fraudFields" : {
       "$ref" : "#/definitions/FraudFields"
     },
+    "merchant" : {
+      "$ref" : "#/definitions/MerchantRiskAssessment"
+    },
     "order" : {
       "$ref" : "#/definitions/OrderRiskAssessment"
     },
@@ -335,14 +338,50 @@
       },
       "additionalProperties" : false
     },
+    "CustomerAccountRiskAssessment" : {
+      "type" : "object",
+      "properties" : {
+        "hasForgottenPassword" : {
+          "type" : "boolean"
+        },
+        "hasPassword" : {
+          "type" : "boolean"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "CustomerDeviceRiskAssessment" : {
+      "type" : "object",
+      "properties" : {
+        "defaultFormFill" : {
+          "type" : "string"
+        },
+        "deviceFingerprintTransactionId" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
     "CustomerRiskAssessment" : {
       "type" : "object",
       "properties" : {
+        "account" : {
+          "$ref" : "#/definitions/CustomerAccountRiskAssessment"
+        },
+        "accountType" : {
+          "type" : "string"
+        },
         "billingAddress" : {
           "$ref" : "#/definitions/Address"
         },
         "contactDetails" : {
           "$ref" : "#/definitions/ContactDetailsRiskAssessment"
+        },
+        "device" : {
+          "$ref" : "#/definitions/CustomerDeviceRiskAssessment"
+        },
+        "isPreviousCustomer" : {
+          "type" : "boolean"
         },
         "locale" : {
           "type" : "string"
@@ -438,6 +477,15 @@
       },
       "additionalProperties" : false
     },
+    "MerchantRiskAssessment" : {
+      "type" : "object",
+      "properties" : {
+        "websiteUrl" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
     "OrderRiskAssessment" : {
       "type" : "object",
       "properties" : {
@@ -449,6 +497,9 @@
         },
         "customer" : {
           "$ref" : "#/definitions/CustomerRiskAssessment"
+        },
+        "shipping" : {
+          "$ref" : "#/definitions/ShippingRiskAssessment"
         }
       },
       "required" : [ "amountOfMoney" ],
@@ -491,6 +542,21 @@
           "type" : "string"
         },
         "surnamePrefix" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "ShippingRiskAssessment" : {
+      "type" : "object",
+      "properties" : {
+        "address" : {
+          "$ref" : "#/definitions/AddressPersonal"
+        },
+        "comments" : {
+          "type" : "string"
+        },
+        "trackingNumber" : {
           "type" : "string"
         }
       },

@@ -5,6 +5,9 @@
     "cardPaymentMethodSpecificInput" : {
       "$ref" : "#/definitions/CompletePaymentCardPaymentMethodSpecificInput"
     },
+    "merchant" : {
+      "$ref" : "#/definitions/Merchant"
+    },
     "order" : {
       "$ref" : "#/definitions/Order"
     }
@@ -304,6 +307,34 @@
       "required" : [ "amount", "currencyCode" ],
       "additionalProperties" : false
     },
+    "BrowserData" : {
+      "type" : "object",
+      "properties" : {
+        "colorDepth" : {
+          "type" : "integer",
+          "maximum" : 2147483647
+        },
+        "innerHeight" : {
+          "type" : "string"
+        },
+        "innerWidth" : {
+          "type" : "string"
+        },
+        "javaEnabled" : {
+          "type" : "boolean"
+        },
+        "javaScriptEnabled" : {
+          "type" : "boolean"
+        },
+        "screenHeight" : {
+          "type" : "string"
+        },
+        "screenWidth" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
     "CardWithoutCvv" : {
       "type" : "object",
       "properties" : {
@@ -326,6 +357,9 @@
       "type" : "object",
       "properties" : {
         "name" : {
+          "type" : "string"
+        },
+        "vatNumber" : {
           "type" : "string"
         }
       },
@@ -353,7 +387,13 @@
         "faxNumber" : {
           "type" : "string"
         },
+        "mobilePhoneNumber" : {
+          "type" : "string"
+        },
         "phoneNumber" : {
+          "type" : "string"
+        },
+        "workPhoneNumber" : {
           "type" : "string"
         }
       },
@@ -362,6 +402,12 @@
     "Customer" : {
       "type" : "object",
       "properties" : {
+        "account" : {
+          "$ref" : "#/definitions/CustomerAccount"
+        },
+        "accountType" : {
+          "type" : "string"
+        },
         "billingAddress" : {
           "$ref" : "#/definitions/Address"
         },
@@ -371,8 +417,14 @@
         "contactDetails" : {
           "$ref" : "#/definitions/ContactDetails"
         },
+        "device" : {
+          "$ref" : "#/definitions/CustomerDevice"
+        },
         "fiscalNumber" : {
           "type" : "string"
+        },
+        "isPreviousCustomer" : {
+          "type" : "boolean"
         },
         "locale" : {
           "type" : "string"
@@ -388,6 +440,121 @@
         },
         "vatNumber" : {
           "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "CustomerAccount" : {
+      "type" : "object",
+      "properties" : {
+        "authentication" : {
+          "$ref" : "#/definitions/CustomerAccountAuthentication"
+        },
+        "changeDate" : {
+          "type" : "string"
+        },
+        "changedDuringCheckout" : {
+          "type" : "boolean"
+        },
+        "createDate" : {
+          "type" : "string"
+        },
+        "hadSuspiciousActivity" : {
+          "type" : "boolean"
+        },
+        "hasForgottenPassword" : {
+          "type" : "boolean"
+        },
+        "hasPassword" : {
+          "type" : "boolean"
+        },
+        "passwordChangeDate" : {
+          "type" : "string"
+        },
+        "passwordChangedDuringCheckout" : {
+          "type" : "boolean"
+        },
+        "paymentAccountOnFile" : {
+          "$ref" : "#/definitions/PaymentAccountOnFile"
+        },
+        "paymentAccountOnFileType" : {
+          "type" : "string"
+        },
+        "paymentActivity" : {
+          "$ref" : "#/definitions/CustomerPaymentActivity"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "CustomerAccountAuthentication" : {
+      "type" : "object",
+      "properties" : {
+        "method" : {
+          "type" : "string"
+        },
+        "utcTimestamp" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "CustomerDevice" : {
+      "type" : "object",
+      "properties" : {
+        "acceptHeader" : {
+          "type" : "string"
+        },
+        "browserData" : {
+          "$ref" : "#/definitions/BrowserData"
+        },
+        "defaultFormFill" : {
+          "type" : "string"
+        },
+        "deviceFingerprintTransactionId" : {
+          "type" : "string"
+        },
+        "ipAddress" : {
+          "type" : "string"
+        },
+        "locale" : {
+          "type" : "string"
+        },
+        "timezoneOffsetUtcMinutes" : {
+          "type" : "string"
+        },
+        "userAgent" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "CustomerPaymentActivity" : {
+      "type" : "object",
+      "properties" : {
+        "numberOfPaymentAttemptsLast24Hours" : {
+          "type" : "integer",
+          "maximum" : 2147483647
+        },
+        "numberOfPaymentAttemptsLastYear" : {
+          "type" : "integer",
+          "maximum" : 2147483647
+        },
+        "numberOfPurchasesLast6Months" : {
+          "type" : "integer",
+          "maximum" : 2147483647
+        }
+      },
+      "additionalProperties" : false
+    },
+    "GiftCardPurchase" : {
+      "type" : "object",
+      "properties" : {
+        "amountOfMoney" : {
+          "$ref" : "#/definitions/AmountOfMoney"
+        },
+        "numberOfGiftCards" : {
+          "type" : "integer",
+          "maximum" : 2147483647
         }
       },
       "additionalProperties" : false
@@ -480,6 +647,21 @@
           "maximum" : 9223372036854775807
         },
         "unit" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "Merchant" : {
+      "type" : "object",
+      "properties" : {
+        "contactWebsiteUrl" : {
+          "type" : "string"
+        },
+        "seller" : {
+          "$ref" : "#/definitions/Seller"
+        },
+        "websiteUrl" : {
           "type" : "string"
         }
       },
@@ -614,8 +796,24 @@
         "purchaseType" : {
           "type" : "string"
         },
+        "transactionType" : {
+          "type" : "string"
+        },
         "usageType" : {
           "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "PaymentAccountOnFile" : {
+      "type" : "object",
+      "properties" : {
+        "createDate" : {
+          "type" : "string"
+        },
+        "numberOfCardOnFileCreationAttemptsLast24Hours" : {
+          "type" : "integer",
+          "maximum" : 2147483647
         }
       },
       "additionalProperties" : false
@@ -690,7 +888,28 @@
     "Shipping" : {
       "type" : "object",
       "properties" : {
+        "address" : {
+          "$ref" : "#/definitions/AddressPersonal"
+        },
+        "addressIndicator" : {
+          "type" : "string"
+        },
+        "comments" : {
+          "type" : "string"
+        },
         "emailAddress" : {
+          "type" : "string"
+        },
+        "firstUsageDate" : {
+          "type" : "string"
+        },
+        "isFirstUsage" : {
+          "type" : "boolean"
+        },
+        "trackingNumber" : {
+          "type" : "string"
+        },
+        "type" : {
           "type" : "string"
         }
       },
@@ -707,6 +926,12 @@
           "minItems" : 0,
           "uniqueItems" : false
         },
+        "giftCardPurchase" : {
+          "$ref" : "#/definitions/GiftCardPurchase"
+        },
+        "isPreOrder" : {
+          "type" : "boolean"
+        },
         "items" : {
           "type" : "array",
           "items" : {
@@ -714,6 +939,12 @@
           },
           "minItems" : 0,
           "uniqueItems" : false
+        },
+        "preOrderItemAvailabilityDate" : {
+          "type" : "string"
+        },
+        "reOrderIndicator" : {
+          "type" : "boolean"
         }
       },
       "additionalProperties" : false

@@ -231,11 +231,23 @@
       },
       "additionalProperties" : false
     },
+    "CustomerApprovePayment" : {
+      "type" : "object",
+      "properties" : {
+        "accountType" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
     "OrderApprovePayment" : {
       "type" : "object",
       "properties" : {
         "additionalInput" : {
           "$ref" : "#/definitions/AdditionalOrderInputAirlineData"
+        },
+        "customer" : {
+          "$ref" : "#/definitions/CustomerApprovePayment"
         },
         "references" : {
           "$ref" : "#/definitions/OrderReferencesApprovePayment"

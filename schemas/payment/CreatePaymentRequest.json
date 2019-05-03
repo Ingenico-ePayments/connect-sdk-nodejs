@@ -26,6 +26,9 @@
     "invoicePaymentMethodSpecificInput" : {
       "$ref" : "#/definitions/InvoicePaymentMethodSpecificInput"
     },
+    "merchant" : {
+      "$ref" : "#/definitions/Merchant"
+    },
     "mobilePaymentMethodSpecificInput" : {
       "$ref" : "#/definitions/MobilePaymentMethodSpecificInput"
     },
@@ -387,6 +390,34 @@
       },
       "additionalProperties" : false
     },
+    "BrowserData" : {
+      "type" : "object",
+      "properties" : {
+        "colorDepth" : {
+          "type" : "integer",
+          "maximum" : 2147483647
+        },
+        "innerHeight" : {
+          "type" : "string"
+        },
+        "innerWidth" : {
+          "type" : "string"
+        },
+        "javaEnabled" : {
+          "type" : "boolean"
+        },
+        "javaScriptEnabled" : {
+          "type" : "boolean"
+        },
+        "screenHeight" : {
+          "type" : "string"
+        },
+        "screenWidth" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
     "Card" : {
       "type" : "object",
       "properties" : {
@@ -431,6 +462,9 @@
           "type" : "integer",
           "maximum" : 2147483647
         },
+        "recurring" : {
+          "$ref" : "#/definitions/CardRecurrenceDetails"
+        },
         "recurringPaymentSequenceIndicator" : {
           "type" : "string"
         },
@@ -446,6 +480,9 @@
         "skipFraudService" : {
           "type" : "boolean"
         },
+        "threeDSecure" : {
+          "$ref" : "#/definitions/ThreeDSecure"
+        },
         "token" : {
           "type" : "string"
         },
@@ -459,6 +496,25 @@
           "type" : "string"
         },
         "unscheduledCardOnFileRequestor" : {
+          "type" : "string"
+        },
+        "unscheduledCardOnFileSequenceIndicator" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "CardRecurrenceDetails" : {
+      "type" : "object",
+      "properties" : {
+        "endDate" : {
+          "type" : "string"
+        },
+        "minFrequency" : {
+          "type" : "integer",
+          "maximum" : 2147483647
+        },
+        "recurringPaymentSequenceIndicator" : {
           "type" : "string"
         }
       },
@@ -503,6 +559,9 @@
       "properties" : {
         "name" : {
           "type" : "string"
+        },
+        "vatNumber" : {
+          "type" : "string"
         }
       },
       "additionalProperties" : false
@@ -519,7 +578,13 @@
         "faxNumber" : {
           "type" : "string"
         },
+        "mobilePhoneNumber" : {
+          "type" : "string"
+        },
         "phoneNumber" : {
+          "type" : "string"
+        },
+        "workPhoneNumber" : {
           "type" : "string"
         }
       },
@@ -559,6 +624,12 @@
     "Customer" : {
       "type" : "object",
       "properties" : {
+        "account" : {
+          "$ref" : "#/definitions/CustomerAccount"
+        },
+        "accountType" : {
+          "type" : "string"
+        },
         "billingAddress" : {
           "$ref" : "#/definitions/Address"
         },
@@ -568,8 +639,14 @@
         "contactDetails" : {
           "$ref" : "#/definitions/ContactDetails"
         },
+        "device" : {
+          "$ref" : "#/definitions/CustomerDevice"
+        },
         "fiscalNumber" : {
           "type" : "string"
+        },
+        "isPreviousCustomer" : {
+          "type" : "boolean"
         },
         "locale" : {
           "type" : "string"
@@ -585,6 +662,108 @@
         },
         "vatNumber" : {
           "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "CustomerAccount" : {
+      "type" : "object",
+      "properties" : {
+        "authentication" : {
+          "$ref" : "#/definitions/CustomerAccountAuthentication"
+        },
+        "changeDate" : {
+          "type" : "string"
+        },
+        "changedDuringCheckout" : {
+          "type" : "boolean"
+        },
+        "createDate" : {
+          "type" : "string"
+        },
+        "hadSuspiciousActivity" : {
+          "type" : "boolean"
+        },
+        "hasForgottenPassword" : {
+          "type" : "boolean"
+        },
+        "hasPassword" : {
+          "type" : "boolean"
+        },
+        "passwordChangeDate" : {
+          "type" : "string"
+        },
+        "passwordChangedDuringCheckout" : {
+          "type" : "boolean"
+        },
+        "paymentAccountOnFile" : {
+          "$ref" : "#/definitions/PaymentAccountOnFile"
+        },
+        "paymentAccountOnFileType" : {
+          "type" : "string"
+        },
+        "paymentActivity" : {
+          "$ref" : "#/definitions/CustomerPaymentActivity"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "CustomerAccountAuthentication" : {
+      "type" : "object",
+      "properties" : {
+        "method" : {
+          "type" : "string"
+        },
+        "utcTimestamp" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "CustomerDevice" : {
+      "type" : "object",
+      "properties" : {
+        "acceptHeader" : {
+          "type" : "string"
+        },
+        "browserData" : {
+          "$ref" : "#/definitions/BrowserData"
+        },
+        "defaultFormFill" : {
+          "type" : "string"
+        },
+        "deviceFingerprintTransactionId" : {
+          "type" : "string"
+        },
+        "ipAddress" : {
+          "type" : "string"
+        },
+        "locale" : {
+          "type" : "string"
+        },
+        "timezoneOffsetUtcMinutes" : {
+          "type" : "string"
+        },
+        "userAgent" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "CustomerPaymentActivity" : {
+      "type" : "object",
+      "properties" : {
+        "numberOfPaymentAttemptsLast24Hours" : {
+          "type" : "integer",
+          "maximum" : 2147483647
+        },
+        "numberOfPaymentAttemptsLastYear" : {
+          "type" : "integer",
+          "maximum" : 2147483647
+        },
+        "numberOfPurchasesLast6Months" : {
+          "type" : "integer",
+          "maximum" : 2147483647
         }
       },
       "additionalProperties" : false
@@ -616,6 +795,18 @@
         }
       },
       "required" : [ "expiryDate" ],
+      "additionalProperties" : false
+    },
+    "DeviceRenderOptions" : {
+      "type" : "object",
+      "properties" : {
+        "sdkInterface" : {
+          "type" : "string"
+        },
+        "sdkUiType" : {
+          "type" : "string"
+        }
+      },
       "additionalProperties" : false
     },
     "EInvoicePaymentMethodSpecificInput" : {
@@ -660,9 +851,18 @@
         "cavvAlgorithm" : {
           "type" : "string"
         },
+        "directoryServerTransactionId" : {
+          "type" : "string"
+        },
         "eci" : {
           "type" : "integer",
           "maximum" : 2147483647
+        },
+        "threeDSecureVersion" : {
+          "type" : "string"
+        },
+        "threeDServerTransactionId" : {
+          "type" : "string"
         },
         "validationResult" : {
           "type" : "string"
@@ -751,6 +951,19 @@
         "methodType" : {
           "type" : "integer",
           "maximum" : 32767
+        }
+      },
+      "additionalProperties" : false
+    },
+    "GiftCardPurchase" : {
+      "type" : "object",
+      "properties" : {
+        "amountOfMoney" : {
+          "$ref" : "#/definitions/AmountOfMoney"
+        },
+        "numberOfGiftCards" : {
+          "type" : "integer",
+          "maximum" : 2147483647
         }
       },
       "additionalProperties" : false
@@ -931,6 +1144,21 @@
           "type" : "string"
         },
         "surname" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "Merchant" : {
+      "type" : "object",
+      "properties" : {
+        "contactWebsiteUrl" : {
+          "type" : "string"
+        },
+        "seller" : {
+          "$ref" : "#/definitions/Seller"
+        },
+        "websiteUrl" : {
           "type" : "string"
         }
       },
@@ -1150,8 +1378,24 @@
         "purchaseType" : {
           "type" : "string"
         },
+        "transactionType" : {
+          "type" : "string"
+        },
         "usageType" : {
           "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "PaymentAccountOnFile" : {
+      "type" : "object",
+      "properties" : {
+        "createDate" : {
+          "type" : "string"
+        },
+        "numberOfCardOnFileCreationAttemptsLast24Hours" : {
+          "type" : "integer",
+          "maximum" : 2147483647
         }
       },
       "additionalProperties" : false
@@ -1221,6 +1465,9 @@
         "recurringPaymentSequenceIndicator" : {
           "type" : "string"
         },
+        "redirectionData" : {
+          "$ref" : "#/definitions/RedirectionData"
+        },
         "requiresApproval" : {
           "type" : "boolean"
         },
@@ -1286,6 +1533,48 @@
       "type" : "object",
       "properties" : {
         "issuerId" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "RedirectionData" : {
+      "type" : "object",
+      "properties" : {
+        "returnUrl" : {
+          "type" : "string"
+        },
+        "variant" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "SdkDataInput" : {
+      "type" : "object",
+      "properties" : {
+        "deviceInfo" : {
+          "type" : "string"
+        },
+        "deviceRenderOptions" : {
+          "$ref" : "#/definitions/DeviceRenderOptions"
+        },
+        "sdkAppId" : {
+          "type" : "string"
+        },
+        "sdkEncryptedData" : {
+          "type" : "string"
+        },
+        "sdkEphemeralPublicKey" : {
+          "type" : "string"
+        },
+        "sdkMaxTimeout" : {
+          "type" : "string"
+        },
+        "sdkReferenceNumber" : {
+          "type" : "string"
+        },
+        "sdkTransactionId" : {
           "type" : "string"
         }
       },
@@ -1375,7 +1664,28 @@
     "Shipping" : {
       "type" : "object",
       "properties" : {
+        "address" : {
+          "$ref" : "#/definitions/AddressPersonal"
+        },
+        "addressIndicator" : {
+          "type" : "string"
+        },
+        "comments" : {
+          "type" : "string"
+        },
         "emailAddress" : {
+          "type" : "string"
+        },
+        "firstUsageDate" : {
+          "type" : "string"
+        },
+        "isFirstUsage" : {
+          "type" : "boolean"
+        },
+        "trackingNumber" : {
+          "type" : "string"
+        },
+        "type" : {
           "type" : "string"
         }
       },
@@ -1392,6 +1702,12 @@
           "minItems" : 0,
           "uniqueItems" : false
         },
+        "giftCardPurchase" : {
+          "$ref" : "#/definitions/GiftCardPurchase"
+        },
+        "isPreOrder" : {
+          "type" : "boolean"
+        },
         "items" : {
           "type" : "array",
           "items" : {
@@ -1399,6 +1715,57 @@
           },
           "minItems" : 0,
           "uniqueItems" : false
+        },
+        "preOrderItemAvailabilityDate" : {
+          "type" : "string"
+        },
+        "reOrderIndicator" : {
+          "type" : "boolean"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "ThreeDSecure" : {
+      "type" : "object",
+      "properties" : {
+        "authenticationFlow" : {
+          "type" : "string"
+        },
+        "challengeCanvasSize" : {
+          "type" : "string"
+        },
+        "challengeIndicator" : {
+          "type" : "string"
+        },
+        "externalCardholderAuthenticationData" : {
+          "$ref" : "#/definitions/ExternalCardholderAuthenticationData"
+        },
+        "priorThreeDSecureData" : {
+          "$ref" : "#/definitions/ThreeDSecureData"
+        },
+        "redirectionData" : {
+          "$ref" : "#/definitions/RedirectionData"
+        },
+        "sdkData" : {
+          "$ref" : "#/definitions/SdkDataInput"
+        },
+        "skipAuthentication" : {
+          "type" : "boolean"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "ThreeDSecureData" : {
+      "type" : "object",
+      "properties" : {
+        "acsTransactionId" : {
+          "type" : "string"
+        },
+        "method" : {
+          "type" : "string"
+        },
+        "utcTimestamp" : {
+          "type" : "string"
         }
       },
       "additionalProperties" : false
