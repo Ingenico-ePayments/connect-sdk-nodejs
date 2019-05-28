@@ -42,7 +42,6 @@
       "$ref" : "#/definitions/SepaDirectDebitPaymentMethodSpecificInput"
     }
   },
-  "required" : [ "order" ],
   "additionalProperties" : false,
   "definitions" : {
     "AdditionalOrderInput" : {
@@ -219,7 +218,6 @@
           "type" : "string"
         }
       },
-      "required" : [ "code", "name" ],
       "additionalProperties" : false
     },
     "AirlineFlightLeg" : {
@@ -289,7 +287,6 @@
           "maximum" : 10000
         }
       },
-      "required" : [ "airlineClass", "arrivalAirport", "carrierCode", "date", "number", "originAirport" ],
       "additionalProperties" : false
     },
     "AirlinePassenger" : {
@@ -321,7 +318,6 @@
           "type" : "string"
         }
       },
-      "required" : [ "amount", "type" ],
       "additionalProperties" : false
     },
     "AmountOfMoney" : {
@@ -335,7 +331,6 @@
           "type" : "string"
         }
       },
-      "required" : [ "amount", "currencyCode" ],
       "additionalProperties" : false
     },
     "BankAccountBban" : {
@@ -437,7 +432,6 @@
           "type" : "string"
         }
       },
-      "required" : [ "cvv" ],
       "additionalProperties" : false
     },
     "CardPaymentMethodSpecificInput" : {
@@ -618,7 +612,6 @@
           "type" : "string"
         }
       },
-      "required" : [ "customerReference", "recurrenceType", "signatureType" ],
       "additionalProperties" : false
     },
     "Customer" : {
@@ -794,7 +787,6 @@
           "type" : "string"
         }
       },
-      "required" : [ "expiryDate" ],
       "additionalProperties" : false
     },
     "DeviceRenderOptions" : {
@@ -826,7 +818,6 @@
           "type" : "boolean"
         }
       },
-      "required" : [ "acceptedTermsAndConditions" ],
       "additionalProperties" : false
     },
     "EInvoicePaymentProduct9000SpecificInput" : {
@@ -839,7 +830,6 @@
           "type" : "string"
         }
       },
-      "required" : [ "installmentId" ],
       "additionalProperties" : false
     },
     "ExternalCardholderAuthenticationData" : {
@@ -1221,7 +1211,6 @@
           "type" : "boolean"
         }
       },
-      "required" : [ "directDebitText" ],
       "additionalProperties" : false
     },
     "NonSepaDirectDebitPaymentProduct705SpecificInput" : {
@@ -1237,7 +1226,6 @@
           "type" : "string"
         }
       },
-      "required" : [ "bankAccountBban", "transactionType" ],
       "additionalProperties" : false
     },
     "NonSepaDirectDebitPaymentProduct730SpecificInput" : {
@@ -1282,7 +1270,6 @@
           "$ref" : "#/definitions/ShoppingCart"
         }
       },
-      "required" : [ "amountOfMoney" ],
       "additionalProperties" : false
     },
     "OrderInvoiceData" : {
@@ -1452,6 +1439,9 @@
         "paymentProduct840SpecificInput" : {
           "$ref" : "#/definitions/RedirectPaymentProduct840SpecificInput"
         },
+        "paymentProduct861SpecificInput" : {
+          "$ref" : "#/definitions/RedirectPaymentProduct861SpecificInput"
+        },
         "paymentProduct863SpecificInput" : {
           "$ref" : "#/definitions/RedirectPaymentProduct863SpecificInput"
         },
@@ -1519,14 +1509,25 @@
       },
       "additionalProperties" : false
     },
+    "RedirectPaymentProduct861SpecificInput" : {
+      "type" : "object",
+      "properties" : {
+        "mobileDevice" : {
+          "type" : "boolean"
+        }
+      },
+      "additionalProperties" : false
+    },
     "RedirectPaymentProduct863SpecificInput" : {
       "type" : "object",
       "properties" : {
         "integrationType" : {
           "type" : "string"
+        },
+        "openId" : {
+          "type" : "string"
         }
       },
-      "required" : [ "integrationType" ],
       "additionalProperties" : false
     },
     "RedirectPaymentProduct882SpecificInput" : {
@@ -1611,7 +1612,6 @@
           "type" : "string"
         }
       },
-      "required" : [ "id", "name", "type" ],
       "additionalProperties" : false
     },
     "SepaDirectDebitPaymentMethodSpecificInput" : {
@@ -1643,7 +1643,6 @@
           "type" : "boolean"
         }
       },
-      "required" : [ "directDebitText" ],
       "additionalProperties" : false
     },
     "SepaDirectDebitPaymentProduct771SpecificInput" : {

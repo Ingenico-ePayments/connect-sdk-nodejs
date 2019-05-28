@@ -33,7 +33,6 @@
       "type" : "string"
     }
   },
-  "required" : [ "amountOfMoney", "references" ],
   "additionalProperties" : false,
   "definitions" : {
     "Address" : {
@@ -77,7 +76,6 @@
           "type" : "string"
         }
       },
-      "required" : [ "amount", "currencyCode" ],
       "additionalProperties" : false
     },
     "BankAccountBban" : {
@@ -141,7 +139,6 @@
           "type" : "string"
         }
       },
-      "required" : [ "customer", "payoutText" ],
       "additionalProperties" : false
     },
     "Card" : {
@@ -163,7 +160,6 @@
           "type" : "string"
         }
       },
-      "required" : [ "cvv" ],
       "additionalProperties" : false
     },
     "CardPayoutMethodSpecificInput" : {
@@ -180,7 +176,6 @@
           "type" : "string"
         }
       },
-      "required" : [ "paymentProductId" ],
       "additionalProperties" : false
     },
     "CompanyInformation" : {
@@ -226,7 +221,6 @@
           "$ref" : "#/definitions/PersonalName"
         }
       },
-      "required" : [ "address", "name" ],
       "additionalProperties" : false
     },
     "PayoutReferences" : {
@@ -243,7 +237,6 @@
           "type" : "string"
         }
       },
-      "required" : [ "merchantReference" ],
       "additionalProperties" : false
     },
     "PersonalName" : {

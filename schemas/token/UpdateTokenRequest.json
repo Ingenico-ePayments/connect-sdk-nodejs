@@ -19,7 +19,6 @@
       "$ref" : "#/definitions/TokenSepaDirectDebitWithoutCreditor"
     }
   },
-  "required" : [ "paymentProductId" ],
   "additionalProperties" : false,
   "definitions" : {
     "Address" : {
@@ -152,7 +151,6 @@
           "type" : "string"
         }
       },
-      "required" : [ "billingAddress" ],
       "additionalProperties" : false
     },
     "CustomerTokenWithContactDetails" : {
@@ -177,7 +175,6 @@
           "type" : "string"
         }
       },
-      "required" : [ "billingAddress" ],
       "additionalProperties" : false
     },
     "Debtor" : {
@@ -307,7 +304,6 @@
           "$ref" : "#/definitions/TokenCardData"
         }
       },
-      "required" : [ "customer", "data" ],
       "additionalProperties" : false
     },
     "TokenCardData" : {
@@ -323,7 +319,6 @@
           "type" : "string"
         }
       },
-      "required" : [ "cardWithoutCvv" ],
       "additionalProperties" : false
     },
     "TokenEWallet" : {
@@ -339,7 +334,6 @@
           "$ref" : "#/definitions/TokenEWalletData"
         }
       },
-      "required" : [ "customer", "data" ],
       "additionalProperties" : false
     },
     "TokenEWalletData" : {
@@ -364,7 +358,6 @@
           "$ref" : "#/definitions/MandateNonSepaDirectDebit"
         }
       },
-      "required" : [ "customer", "mandate" ],
       "additionalProperties" : false
     },
     "TokenNonSepaDirectDebitPaymentProduct705SpecificData" : {
@@ -377,7 +370,6 @@
           "$ref" : "#/definitions/BankAccountBban"
         }
       },
-      "required" : [ "bankAccountBban" ],
       "additionalProperties" : false
     },
     "TokenNonSepaDirectDebitPaymentProduct730SpecificData" : {
@@ -387,7 +379,6 @@
           "$ref" : "#/definitions/BankAccountBban"
         }
       },
-      "required" : [ "bankAccountBban" ],
       "additionalProperties" : false
     },
     "TokenSepaDirectDebitWithoutCreditor" : {
@@ -403,7 +394,6 @@
           "$ref" : "#/definitions/MandateSepaDirectDebitWithoutCreditor"
         }
       },
-      "required" : [ "customer", "mandate" ],
       "additionalProperties" : false
     }
   }

@@ -36,7 +36,6 @@
       "$ref" : "#/definitions/SepaDirectDebitPaymentMethodSpecificInputBase"
     }
   },
-  "required" : [ "order" ],
   "additionalProperties" : false,
   "definitions" : {
     "AdditionalOrderInput" : {
@@ -213,7 +212,6 @@
           "type" : "string"
         }
       },
-      "required" : [ "code", "name" ],
       "additionalProperties" : false
     },
     "AirlineFlightLeg" : {
@@ -283,7 +281,6 @@
           "maximum" : 10000
         }
       },
-      "required" : [ "airlineClass", "arrivalAirport", "carrierCode", "date", "number", "originAirport" ],
       "additionalProperties" : false
     },
     "AirlinePassenger" : {
@@ -315,7 +312,6 @@
           "type" : "string"
         }
       },
-      "required" : [ "amount", "type" ],
       "additionalProperties" : false
     },
     "AmountOfMoney" : {
@@ -329,7 +325,6 @@
           "type" : "string"
         }
       },
-      "required" : [ "amount", "currencyCode" ],
       "additionalProperties" : false
     },
     "BankAccountIban" : {
@@ -524,7 +519,6 @@
           "type" : "string"
         }
       },
-      "required" : [ "customerReference", "recurrenceType", "signatureType" ],
       "additionalProperties" : false
     },
     "Customer" : {
@@ -1033,7 +1027,6 @@
           "type" : "string"
         }
       },
-      "required" : [ "merchantName", "merchantOrigin" ],
       "additionalProperties" : false
     },
     "Order" : {
@@ -1069,7 +1062,6 @@
           "$ref" : "#/definitions/ShoppingCart"
         }
       },
-      "required" : [ "amountOfMoney" ],
       "additionalProperties" : false
     },
     "OrderInvoiceData" : {
@@ -1357,7 +1349,6 @@
           "type" : "string"
         }
       },
-      "required" : [ "id", "name", "type" ],
       "additionalProperties" : false
     },
     "SepaDirectDebitPaymentMethodSpecificInputBase" : {

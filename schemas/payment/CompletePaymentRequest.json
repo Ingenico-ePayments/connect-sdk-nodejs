@@ -188,7 +188,6 @@
           "type" : "string"
         }
       },
-      "required" : [ "code", "name" ],
       "additionalProperties" : false
     },
     "AirlineFlightLeg" : {
@@ -258,7 +257,6 @@
           "maximum" : 10000
         }
       },
-      "required" : [ "airlineClass", "arrivalAirport", "carrierCode", "date", "number", "originAirport" ],
       "additionalProperties" : false
     },
     "AirlinePassenger" : {
@@ -290,7 +288,6 @@
           "type" : "string"
         }
       },
-      "required" : [ "amount", "type" ],
       "additionalProperties" : false
     },
     "AmountOfMoney" : {
@@ -304,7 +301,6 @@
           "type" : "string"
         }
       },
-      "required" : [ "amount", "currencyCode" ],
       "additionalProperties" : false
     },
     "BrowserData" : {
@@ -372,7 +368,6 @@
           "$ref" : "#/definitions/CardWithoutCvv"
         }
       },
-      "required" : [ "card" ],
       "additionalProperties" : false
     },
     "ContactDetails" : {
@@ -700,7 +695,6 @@
           "$ref" : "#/definitions/ShoppingCart"
         }
       },
-      "required" : [ "amountOfMoney" ],
       "additionalProperties" : false
     },
     "OrderInvoiceData" : {
@@ -882,7 +876,6 @@
           "type" : "string"
         }
       },
-      "required" : [ "id", "name", "type" ],
       "additionalProperties" : false
     },
     "Shipping" : {

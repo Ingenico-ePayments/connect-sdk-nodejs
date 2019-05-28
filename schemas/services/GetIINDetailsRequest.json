@@ -9,7 +9,6 @@
       "$ref" : "#/definitions/PaymentContext"
     }
   },
-  "required" : [ "bin" ],
   "additionalProperties" : false,
   "definitions" : {
     "AmountOfMoney" : {
@@ -23,7 +22,6 @@
           "type" : "string"
         }
       },
-      "required" : [ "amount", "currencyCode" ],
       "additionalProperties" : false
     },
     "PaymentContext" : {

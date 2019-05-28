@@ -9,7 +9,6 @@
       "$ref" : "#/definitions/HostedMandateManagementSpecificInput"
     }
   },
-  "required" : [ "createMandateInfo" ],
   "additionalProperties" : false,
   "definitions" : {
     "BankAccountIban" : {
@@ -46,7 +45,6 @@
           "type" : "string"
         }
       },
-      "required" : [ "customerReference", "recurrenceType", "signatureType" ],
       "additionalProperties" : false
     },
     "HostedMandateManagementSpecificInput" : {

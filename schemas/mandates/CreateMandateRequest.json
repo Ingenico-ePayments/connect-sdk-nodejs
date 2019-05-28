@@ -27,7 +27,6 @@
       "type" : "string"
     }
   },
-  "required" : [ "customerReference", "recurrenceType", "signatureType" ],
   "additionalProperties" : false,
   "definitions" : {
     "BankAccountIban" : {

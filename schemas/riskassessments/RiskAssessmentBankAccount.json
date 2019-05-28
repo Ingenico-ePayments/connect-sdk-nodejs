@@ -185,7 +185,6 @@
           "type" : "string"
         }
       },
-      "required" : [ "code", "name" ],
       "additionalProperties" : false
     },
     "AirlineFlightLeg" : {
@@ -255,7 +254,6 @@
           "maximum" : 10000
         }
       },
-      "required" : [ "airlineClass", "arrivalAirport", "carrierCode", "date", "number", "originAirport" ],
       "additionalProperties" : false
     },
     "AirlinePassenger" : {
@@ -287,7 +285,6 @@
           "type" : "string"
         }
       },
-      "required" : [ "amount", "currencyCode" ],
       "additionalProperties" : false
     },
     "BankAccountBban" : {
@@ -502,7 +499,6 @@
           "$ref" : "#/definitions/ShippingRiskAssessment"
         }
       },
-      "required" : [ "amountOfMoney" ],
       "additionalProperties" : false
     },
     "PersonalInformationRiskAssessment" : {
