@@ -523,6 +523,21 @@
         "paymentProduct1504SpecificInput" : {
           "$ref" : "#/definitions/CashPaymentProduct1504SpecificInput"
         },
+        "paymentProduct1521SpecificInput" : {
+          "$ref" : "#/definitions/CashPaymentProduct1521SpecificInput"
+        },
+        "paymentProduct1522SpecificInput" : {
+          "$ref" : "#/definitions/CashPaymentProduct1522SpecificInput"
+        },
+        "paymentProduct1523SpecificInput" : {
+          "$ref" : "#/definitions/CashPaymentProduct1523SpecificInput"
+        },
+        "paymentProduct1524SpecificInput" : {
+          "$ref" : "#/definitions/CashPaymentProduct1524SpecificInput"
+        },
+        "paymentProduct1526SpecificInput" : {
+          "$ref" : "#/definitions/CashPaymentProduct1526SpecificInput"
+        },
         "paymentProductId" : {
           "type" : "integer",
           "maximum" : 2147483647
@@ -540,6 +555,51 @@
       "additionalProperties" : false
     },
     "CashPaymentProduct1504SpecificInput" : {
+      "type" : "object",
+      "properties" : {
+        "returnUrl" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "CashPaymentProduct1521SpecificInput" : {
+      "type" : "object",
+      "properties" : {
+        "returnUrl" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "CashPaymentProduct1522SpecificInput" : {
+      "type" : "object",
+      "properties" : {
+        "returnUrl" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "CashPaymentProduct1523SpecificInput" : {
+      "type" : "object",
+      "properties" : {
+        "returnUrl" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "CashPaymentProduct1524SpecificInput" : {
+      "type" : "object",
+      "properties" : {
+        "returnUrl" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "CashPaymentProduct1526SpecificInput" : {
       "type" : "object",
       "properties" : {
         "returnUrl" : {
