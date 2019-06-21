@@ -6,7 +6,7 @@
 var communicator = require('../utils/communicator');
 
 var myModule = function (merchantId, uniqueMandateReference, paymentContext, cb) {
-  communicator({
+  communicator.json({
     method: 'POST',
     modulePath: '/v1/' + merchantId + '/mandates/' + uniqueMandateReference + '/block',
     body: null,

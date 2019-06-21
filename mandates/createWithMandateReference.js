@@ -18,7 +18,7 @@ var myModule = function (merchantId, uniqueMandateReference, postData, paymentCo
     }
     throw new Error(isValidRequest.errors);
   }
-  communicator({
+  communicator.json({
     method: 'PUT',
     modulePath: '/v1/' + merchantId + '/mandates/' + uniqueMandateReference,
     body: postData,

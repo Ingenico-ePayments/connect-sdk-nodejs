@@ -5,11 +5,11 @@
  */
 var communicator = require('../utils/communicator');
 
-var myModule = function (merchantId, paymentProductGroupId, paymentContext, cb) {
-  communicator.json({
-    method: 'GET',
-    modulePath: '/v1/' + merchantId + '/productgroups/' + paymentProductGroupId,
-    body: null,
+var myModule = function (merchantId, disputeId, postData, paymentContext, cb) {
+  communicator.multipart({
+    method: 'POST',
+    modulePath: '/files/v1/' + merchantId + '/disputes/' + disputeId,
+    body: postData,
     paymentContext: paymentContext,
     cb: cb
   });

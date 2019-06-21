@@ -6,7 +6,7 @@
 var communicator = require('../utils/communicator');
 
 var myModule = function (merchantId, tokenId, paymentContext, cb) {
-  communicator({
+  communicator.json({
     method: 'DELETE',
     modulePath: '/v1/' + merchantId + '/tokens/' + tokenId,
     body: null,

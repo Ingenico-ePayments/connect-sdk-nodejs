@@ -6,7 +6,7 @@
 var communicator = require('../utils/communicator');
 
 var myModule = function (merchantId, hostedCheckoutId, paymentContext, cb) {
-  communicator({
+  communicator.json({
     method: 'GET',
     modulePath: '/v1/' + merchantId + '/hostedcheckouts/' + hostedCheckoutId,
     body: null,

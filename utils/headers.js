@@ -9,7 +9,7 @@ var serverMetaInfo = function (sdkContext) {
     key: "X-GCS-ServerMetaInfo",
     value: {
       'sdkCreator': 'Ingenico',
-      'sdkIdentifier': 'NodejsServerSDK/v2.30.0',
+      'sdkIdentifier': 'NodejsServerSDK/v3.0.0',
       'platformIdentifier': process.env['OS'] + ' Node.js/' + process.versions.node
     }
   };
@@ -23,7 +23,55 @@ var serverMetaInfo = function (sdkContext) {
   return info;
 };
 
+var isBinaryContent = function (contentType) {
+  return contentType
+    && !contentType.startsWith("text/")
+    && contentType.indexOf("json") == -1
+    && contentType.indexOf("xml") == -1;
+};
+
+var isJSON = function (contentType) {
+  return contentType == null || contentType.toLowerCase().startsWith('application/json');
+};
+
+var dispositionFilenamePattern = /(?:^|;)\s*filename\s*=\s*(.*?)\s*(?:;|$)/i;
+
+var trimQuotes = function (filename) {
+  if (filename.length < 2) {
+    return filename;
+  }
+  if ((filename.startsWith('"') && filename.endsWith('"')) || (filename.startsWith("'") && filename.endsWith("'"))) {
+    return filename.substring(1, filename.length - 1);
+  }
+  return filename;
+};
+
+var dispositionFilename = function (headers) {
+  var disposition = headers['content-disposition'];
+  if (disposition) {
+    var match = disposition.match(dispositionFilenamePattern);
+    if (match) {
+      var filename = match[1];
+      return trimQuotes(filename);
+    }
+  }
+  return null;
+};
+
+var contentLength = function (headers) {
+  var length = headers['content-length'];
+  if (length) {
+    var intLength = parseInt(length);
+    return isNaN(intLength) ? length : intLength;
+  }
+  return null;
+}
+
 module.exports = {
   date: date,
-  serverMetaInfo: serverMetaInfo
+  serverMetaInfo: serverMetaInfo,
+  isBinaryContent: isBinaryContent,
+  isJSON: isJSON,
+  dispositionFilename: dispositionFilename,
+  contentLength: contentLength
 };

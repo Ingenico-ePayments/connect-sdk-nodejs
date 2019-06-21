@@ -22,6 +22,7 @@ var services = require('./services');
 var tokens = require('./tokens');
 var mandates = require('./mandates');
 var sessions = require('./sessions');
+var files = require('./files');
 
 var webhooks = require('./webhooks');
 webhooks.API_VERSION = apiVersion;
@@ -98,6 +99,7 @@ var wrapper = {
   tokens: tokens,
   mandates: mandates,
   sessions: sessions,
+  files: files,
   context: sdkcontext,
 
   webhooks: webhooks

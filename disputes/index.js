@@ -11,5 +11,7 @@ modules['submit'] = require('./submit');
 // console.log(`Added submit to module space`);
 modules['cancel'] = require('./cancel');
 // console.log(`Added cancel to module space`);
+modules['uploadFile'] = require('./uploadFile');
+// console.log(`Added uploadFile to module space`);
 
 module.exports = modules;

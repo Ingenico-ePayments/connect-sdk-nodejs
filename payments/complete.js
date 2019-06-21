@@ -18,7 +18,7 @@ var myModule = function (merchantId, paymentId, postData, paymentContext, cb) {
     }
     throw new Error(isValidRequest.errors);
   }
-  communicator({
+  communicator.json({
     method: 'POST',
     modulePath: '/v1/' + merchantId + '/payments/' + paymentId + '/complete',
     body: postData,

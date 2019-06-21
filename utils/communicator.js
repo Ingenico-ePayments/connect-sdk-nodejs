@@ -4,8 +4,10 @@ var headers = require('../utils/headers');
 var connection = require('../utils/connection');
 var sdkcontext = require('../utils/context');
 
-var communicator = function (o) {
-  var context = sdkcontext.getContext();
+var uuid = require('node-uuid');
+
+
+var prepareRequest = function (o, context, options, contentType) {
   var date = headers.date();
   var path = o.modulePath;
   if (o.paymentContext) {
@@ -24,11 +26,11 @@ var communicator = function (o) {
       }
     }
   }
-  var options = _.merge({}, context.httpOptions),
-    extraHeaders = [];
+  var extraHeaders = [];
   options.path = path;
   options.method = o.method;
   options.headers['Date'] = date;
+  options.headers['Content-Type'] = contentType;
   if (o.paymentContext && o.paymentContext.extraHeaders) {
     for (var i = 0; i < o.paymentContext.extraHeaders.length; i++) {
       var header = o.paymentContext.extraHeaders[i];
@@ -53,35 +55,77 @@ var communicator = function (o) {
   options.headers[serverMetaInfo.key] = serverMetaInfo.value;
   extraHeaders.push(serverMetaInfo);
 
-  options.headers.Authorization = 'GCS v1HMAC:' + context.apiKeyId + ':' + sdkcontext.getSignature(o.method, 'application/json', date, extraHeaders, path);
-  doRequest(options, o.body, o.cb);
+  options.headers.Authorization = 'GCS v1HMAC:' + context.apiKeyId + ':' + sdkcontext.getSignature(o.method, contentType, date, extraHeaders, options.path);
 };
 
-
-var doRequest = function (options, postData, cb) {
-  connection.send(options, postData, sdkcontext, function(error, response) {
-    if (error) {
-      cb(error, null);
-    } else {
-      if (response.headers["x-gcs-idempotence-request-timestamp"]) {
-        sdkcontext.setIdempotenceRequestTimestamp(response.headers["x-gcs-idempotence-request-timestamp"]);
-      }
-      var body = response.body;
-      try {
-        body = (body) ? JSON.parse(body) : null;
-        cb(null, {
-          status: response.status,
-          body: body
-        });
-      } catch (e) {
-        cb({
-          status: response.status,
-          message: e.message,
-          body: body
-        }, null);
-      }
+var handleResponse = function (error, response, cb) {
+  if (error) {
+    cb(error, null);
+  } else {
+    if (response.headers["x-gcs-idempotence-request-timestamp"]) {
+      sdkcontext.setIdempotenceRequestTimestamp(response.headers["x-gcs-idempotence-request-timestamp"]);
     }
+
+    if (headers.isBinaryContent(response.headers['content-type'])) {
+      cb(null, {
+        status: response.statusCode,
+        body: response,
+        isSuccess: response.statusCode >= 200 && response.statusCode < 300,
+        file: {
+          contentType: response.headers['content-type'],
+          contentLength: headers.contentLength(response.headers),
+          filename: headers.dispositionFilename(response.headers)
+        }
+      });
+    } else {
+      var body = '';
+
+      response.setEncoding('utf8');
+      response.on('data', function (chunk) {
+        body += chunk;
+      });
+      response.on('end', function () {
+        try {
+          body = (body) ? JSON.parse(body) : null;
+          cb(null, {
+            status: response.statusCode,
+            body: body,
+            isSuccess: response.statusCode >= 200 && response.statusCode < 300
+          });
+        } catch (e) {
+          cb({
+            status: response.statusCode,
+            message: e.message,
+            body: body
+          }, null);
+        }
+      });
+    }
+  }
+};
+
+var json = function (o) {
+  var context = sdkcontext.getContext();
+  var options = _.merge({}, context.httpOptions);
+  prepareRequest(o, context, options, 'application/json');
+  connection.sendJSON(options, o.body, sdkcontext, function (error, response) {
+    handleResponse(error, response, o.cb);
   });
+};
+
+var multipart = function (o) {
+  var context = sdkcontext.getContext();
+  var options = _.merge({}, context.httpOptions);
+  var boundary = uuid.v4();
+  prepareRequest(o, context, options, 'multipart/form-data; boundary=' + boundary);
+  connection.sendMultipart(options, o.body, boundary, sdkcontext, function (error, response) {
+    handleResponse(error, response, o.cb);
+  });
+};
+
+var communicator = {
+  json:      json,
+  multipart: multipart
 };
 
 module.exports = communicator;

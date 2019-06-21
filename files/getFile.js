@@ -5,10 +5,10 @@
  */
 var communicator = require('../utils/communicator');
 
-var myModule = function (merchantId, paymentProductId, paymentContext, cb) {
-  communicator({
+var myModule = function (merchantId, fileId, paymentContext, cb) {
+  communicator.json({
     method: 'GET',
-    modulePath: '/v1/' + merchantId + '/products/' + paymentProductId + '/publicKey',
+    modulePath: '/files/v1/' + merchantId + '/files/' + fileId,
     body: null,
     paymentContext: paymentContext,
     cb: cb
