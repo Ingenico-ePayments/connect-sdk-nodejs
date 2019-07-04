@@ -53,6 +53,9 @@
         "level3SummaryData" : {
           "$ref" : "#/definitions/Level3SummaryData"
         },
+        "loanRecipient" : {
+          "$ref" : "#/definitions/LoanRecipient"
+        },
         "numberOfInstallments" : {
           "type" : "integer",
           "maximum" : 9223372036854775807
@@ -1119,6 +1122,27 @@
           "maximum" : 9223372036854775807
         },
         "unit" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "LoanRecipient" : {
+      "type" : "object",
+      "properties" : {
+        "accountNumber" : {
+          "type" : "string"
+        },
+        "dateOfBirth" : {
+          "type" : "string"
+        },
+        "partialPan" : {
+          "type" : "string"
+        },
+        "surname" : {
+          "type" : "string"
+        },
+        "zip" : {
           "type" : "string"
         }
       },
