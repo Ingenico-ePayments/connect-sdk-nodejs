@@ -452,8 +452,14 @@
         "externalCardholderAuthenticationData" : {
           "$ref" : "#/definitions/ExternalCardholderAuthenticationData"
         },
+        "initialSchemeTransactionId" : {
+          "type" : "string"
+        },
         "isRecurring" : {
           "type" : "boolean"
+        },
+        "merchantInitiatedReasonIndicator" : {
+          "type" : "string"
         },
         "paymentProductId" : {
           "type" : "integer",
@@ -1818,6 +1824,9 @@
           "type" : "string"
         },
         "challengeIndicator" : {
+          "type" : "string"
+        },
+        "exemptionRequest" : {
           "type" : "string"
         },
         "externalCardholderAuthenticationData" : {
