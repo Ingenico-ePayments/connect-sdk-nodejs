@@ -1535,6 +1535,9 @@
         "paymentProduct863SpecificInput" : {
           "$ref" : "#/definitions/RedirectPaymentProduct863SpecificInput"
         },
+        "paymentProduct869SpecificInput" : {
+          "$ref" : "#/definitions/RedirectPaymentProduct869SpecificInput"
+        },
         "paymentProduct882SpecificInput" : {
           "$ref" : "#/definitions/RedirectPaymentProduct882SpecificInput"
         },
@@ -1615,6 +1618,21 @@
           "type" : "string"
         },
         "openId" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "RedirectPaymentProduct869SpecificInput" : {
+      "type" : "object",
+      "properties" : {
+        "issuerId" : {
+          "type" : "string"
+        },
+        "residentIdName" : {
+          "type" : "string"
+        },
+        "residentIdNumber" : {
           "type" : "string"
         }
       },
