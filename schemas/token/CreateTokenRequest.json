@@ -8,6 +8,9 @@
     "eWallet" : {
       "$ref" : "#/definitions/TokenEWallet"
     },
+    "encryptedCustomerInput" : {
+      "type" : "string"
+    },
     "nonSepaDirectDebit" : {
       "$ref" : "#/definitions/TokenNonSepaDirectDebit"
     },
