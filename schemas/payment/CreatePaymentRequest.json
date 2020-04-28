@@ -904,6 +904,12 @@
     "ExternalCardholderAuthenticationData" : {
       "type" : "object",
       "properties" : {
+        "acsTransactionId" : {
+          "type" : "string"
+        },
+        "appliedExemption" : {
+          "type" : "string"
+        },
         "cavv" : {
           "type" : "string"
         },
@@ -914,6 +920,10 @@
           "type" : "string"
         },
         "eci" : {
+          "type" : "integer",
+          "maximum" : 2147483647
+        },
+        "schemeRiskScore" : {
           "type" : "integer",
           "maximum" : 2147483647
         },
