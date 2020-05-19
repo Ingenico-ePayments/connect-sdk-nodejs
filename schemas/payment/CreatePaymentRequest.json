@@ -1845,6 +1845,9 @@
     "ThreeDSecure" : {
       "type" : "object",
       "properties" : {
+        "authenticationAmount" : {
+          "$ref" : "#/definitions/AmountOfMoney"
+        },
         "authenticationFlow" : {
           "type" : "string"
         },
