@@ -18,6 +18,10 @@ This repository consists out of one main component:
 
 1. The source code of the SDK itself: `/`
 
+## Requirements
+
+Node.js 8 or higher is required.
+
 ## Installation
 
 From the folder where your `package.json` is located, run the following command to install the SDK:
