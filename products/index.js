@@ -17,5 +17,7 @@ modules['deviceFingerprint'] = require('./deviceFingerprint');
 // console.log(`Added deviceFingerprint to module space`);
 modules['networks'] = require('./networks');
 // console.log(`Added networks to module space`);
+modules['sessions'] = require('./sessions');
+// console.log(`Added sessions to module space`);
 
 module.exports = modules;

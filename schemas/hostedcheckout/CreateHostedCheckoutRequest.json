@@ -1034,12 +1034,24 @@
     "MobilePaymentMethodSpecificInputHostedCheckout" : {
       "type" : "object",
       "properties" : {
+        "paymentProduct302SpecificInput" : {
+          "$ref" : "#/definitions/MobilePaymentProduct302SpecificInputHostedCheckout"
+        },
         "paymentProduct320SpecificInput" : {
           "$ref" : "#/definitions/MobilePaymentProduct320SpecificInputHostedCheckout"
         },
         "paymentProductId" : {
           "type" : "integer",
           "maximum" : 2147483647
+        }
+      },
+      "additionalProperties" : false
+    },
+    "MobilePaymentProduct302SpecificInputHostedCheckout" : {
+      "type" : "object",
+      "properties" : {
+        "businessName" : {
+          "type" : "string"
         }
       },
       "additionalProperties" : false
