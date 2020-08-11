@@ -37,5 +37,7 @@ modules['dispute'] = require('./dispute');
 // console.log(`Added dispute to module space`);
 modules['disputes'] = require('./disputes');
 // console.log(`Added disputes to module space`);
+modules['devicefingerprint'] = require('./devicefingerprint');
+// console.log(`Added devicefingerprint to module space`);
 
 module.exports = modules;

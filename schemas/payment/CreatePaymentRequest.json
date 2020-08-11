@@ -50,6 +50,9 @@
         "airlineData" : {
           "$ref" : "#/definitions/AirlineData"
         },
+        "installments" : {
+          "$ref" : "#/definitions/Installments"
+        },
         "level3SummaryData" : {
           "$ref" : "#/definitions/Level3SummaryData"
         },
@@ -1033,6 +1036,25 @@
         "numberOfGiftCards" : {
           "type" : "integer",
           "maximum" : 2147483647
+        }
+      },
+      "additionalProperties" : false
+    },
+    "Installments" : {
+      "type" : "object",
+      "properties" : {
+        "amountOfMoneyPerInstallment" : {
+          "$ref" : "#/definitions/AmountOfMoney"
+        },
+        "frequencyOfInstallments" : {
+          "type" : "string"
+        },
+        "interestRate" : {
+          "type" : "string"
+        },
+        "numberOfInstallments" : {
+          "type" : "integer",
+          "maximum" : 9223372036854775807
         }
       },
       "additionalProperties" : false
