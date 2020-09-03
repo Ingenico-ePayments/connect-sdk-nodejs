@@ -836,6 +836,9 @@
     "DecryptedPaymentData" : {
       "type" : "object",
       "properties" : {
+        "authMethod" : {
+          "type" : "string"
+        },
         "cardholderName" : {
           "type" : "string"
         },
