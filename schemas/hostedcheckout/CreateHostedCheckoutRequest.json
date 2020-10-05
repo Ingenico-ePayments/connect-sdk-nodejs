@@ -784,6 +784,27 @@
       },
       "additionalProperties" : false
     },
+    "GPayThreeDSecure" : {
+      "type" : "object",
+      "properties" : {
+        "challengeCanvasSize" : {
+          "type" : "string"
+        },
+        "challengeIndicator" : {
+          "type" : "string"
+        },
+        "exemptionRequest" : {
+          "type" : "string"
+        },
+        "redirectionData" : {
+          "$ref" : "#/definitions/RedirectionData"
+        },
+        "skipAuthentication" : {
+          "type" : "boolean"
+        }
+      },
+      "additionalProperties" : false
+    },
     "GiftCardPurchase" : {
       "type" : "object",
       "properties" : {
@@ -1056,6 +1077,12 @@
     "MobilePaymentMethodSpecificInputHostedCheckout" : {
       "type" : "object",
       "properties" : {
+        "authorizationMode" : {
+          "type" : "string"
+        },
+        "customerReference" : {
+          "type" : "string"
+        },
         "paymentProduct302SpecificInput" : {
           "$ref" : "#/definitions/MobilePaymentProduct302SpecificInputHostedCheckout"
         },
@@ -1065,6 +1092,12 @@
         "paymentProductId" : {
           "type" : "integer",
           "maximum" : 2147483647
+        },
+        "requiresApproval" : {
+          "type" : "boolean"
+        },
+        "skipFraudService" : {
+          "type" : "boolean"
         }
       },
       "additionalProperties" : false
@@ -1086,6 +1119,9 @@
         },
         "merchantOrigin" : {
           "type" : "string"
+        },
+        "threeDSecure" : {
+          "$ref" : "#/definitions/GPayThreeDSecure"
         }
       },
       "additionalProperties" : false
@@ -1345,6 +1381,18 @@
       "properties" : {
         "addressSelectionAtPayPal" : {
           "type" : "boolean"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "RedirectionData" : {
+      "type" : "object",
+      "properties" : {
+        "returnUrl" : {
+          "type" : "string"
+        },
+        "variant" : {
+          "type" : "string"
         }
       },
       "additionalProperties" : false
