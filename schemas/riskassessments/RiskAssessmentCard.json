@@ -26,6 +26,9 @@
       "properties" : {
         "airlineData" : {
           "$ref" : "#/definitions/AirlineData"
+        },
+        "lodgingData" : {
+          "$ref" : "#/definitions/LodgingData"
         }
       },
       "additionalProperties" : false
@@ -449,6 +452,123 @@
         "methodType" : {
           "type" : "integer",
           "maximum" : 32767
+        }
+      },
+      "additionalProperties" : false
+    },
+    "LodgingCharge" : {
+      "type" : "object",
+      "properties" : {
+        "chargeAmount" : {
+          "type" : "integer",
+          "maximum" : 9223372036854775807
+        },
+        "chargeAmountCurrencyCode" : {
+          "type" : "string"
+        },
+        "chargeType" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "LodgingData" : {
+      "type" : "object",
+      "properties" : {
+        "charges" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/LodgingCharge"
+          },
+          "minItems" : 0,
+          "uniqueItems" : false
+        },
+        "checkInDate" : {
+          "type" : "string"
+        },
+        "checkOutDate" : {
+          "type" : "string"
+        },
+        "folioNumber" : {
+          "type" : "string"
+        },
+        "isConfirmedReservation" : {
+          "type" : "boolean"
+        },
+        "isFacilityFireSafetyConform" : {
+          "type" : "boolean"
+        },
+        "isNoShow" : {
+          "type" : "boolean"
+        },
+        "isPreferenceSmokingRoom" : {
+          "type" : "boolean"
+        },
+        "numberOfAdults" : {
+          "type" : "integer",
+          "maximum" : 2147483647
+        },
+        "numberOfNights" : {
+          "type" : "integer",
+          "maximum" : 2147483647
+        },
+        "numberOfRooms" : {
+          "type" : "integer",
+          "maximum" : 2147483647
+        },
+        "programCode" : {
+          "type" : "string"
+        },
+        "propertyCustomerServicePhoneNumber" : {
+          "type" : "string"
+        },
+        "propertyPhoneNumber" : {
+          "type" : "string"
+        },
+        "renterName" : {
+          "type" : "string"
+        },
+        "rooms" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/LodgingRoom"
+          },
+          "minItems" : 0,
+          "uniqueItems" : false
+        }
+      },
+      "additionalProperties" : false
+    },
+    "LodgingRoom" : {
+      "type" : "object",
+      "properties" : {
+        "dailyRoomRate" : {
+          "type" : "string"
+        },
+        "dailyRoomRateCurrencyCode" : {
+          "type" : "string"
+        },
+        "dailyRoomTaxAmount" : {
+          "type" : "string"
+        },
+        "dailyRoomTaxAmountCurrencyCode" : {
+          "type" : "string"
+        },
+        "numberOfNightsAtRoomRate" : {
+          "type" : "integer",
+          "maximum" : 2147483647
+        },
+        "roomLocation" : {
+          "type" : "string"
+        },
+        "roomNumber" : {
+          "type" : "string"
+        },
+        "typeOfBed" : {
+          "type" : "string"
+        },
+        "typeOfRoom" : {
+          "type" : "string"
         }
       },
       "additionalProperties" : false
