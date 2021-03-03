@@ -93,11 +93,9 @@ var handleResponse = function (error, response, cb) {
             isSuccess: response.statusCode >= 200 && response.statusCode < 300
           });
         } catch (e) {
-          cb({
-            status: response.statusCode,
-            message: e.message,
-            body: body
-          }, null);
+          e.status = response.statusCode;
+          e.body = body;
+          cb(e, null);
         }
       });
     }

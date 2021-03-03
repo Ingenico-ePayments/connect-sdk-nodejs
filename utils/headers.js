@@ -9,7 +9,7 @@ var serverMetaInfo = function (sdkContext) {
     key: "X-GCS-ServerMetaInfo",
     value: {
       'sdkCreator': 'Ingenico',
-      'sdkIdentifier': 'NodejsServerSDK/v3.11.0',
+      'sdkIdentifier': 'NodejsServerSDK/v3.12.0',
       'platformIdentifier': process.env['OS'] + ' Node.js/' + process.versions.node
     }
   };
@@ -24,7 +24,7 @@ var serverMetaInfo = function (sdkContext) {
 };
 
 var isBinaryContent = function (contentType) {
-  return contentType
+  return !!contentType
     && !contentType.startsWith("text/")
     && contentType.indexOf("json") == -1
     && contentType.indexOf("xml") == -1;

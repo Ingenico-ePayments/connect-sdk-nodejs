@@ -1485,6 +1485,9 @@
         "recurringPaymentSequenceIndicator" : {
           "type" : "string"
         },
+        "requiresApproval" : {
+          "type" : "boolean"
+        },
         "token" : {
           "type" : "string"
         },
@@ -1934,6 +1937,9 @@
         },
         "recurringPaymentSequenceIndicator" : {
           "type" : "string"
+        },
+        "requiresApproval" : {
+          "type" : "boolean"
         },
         "token" : {
           "type" : "string"

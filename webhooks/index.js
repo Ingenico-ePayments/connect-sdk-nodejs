@@ -12,7 +12,7 @@ var unmarshal = function (body, requestHeaders, cb) {
       cb(error, null);
     } else {
       try {
-        event = JSON.parse(body);
+        var event = JSON.parse(body);
         validateApiVersion(event);
         cb(null, event);
       } catch (e) {
@@ -41,7 +41,7 @@ var validateBody = function (body, requestHeaders, cb) {
 
     webhooksContext.getSecretKey(keyId, function(error, secretKey) {
       if (error) {
-        cb(error, null);
+        cb(error);
       } else {
         var expectedSignature = crypto.createHmac('sha256', secretKey).update(body).digest('base64');
         if (compare(expectedSignature, signature)) {
@@ -99,7 +99,7 @@ var wrapper = {
 
   inMemorySecretKeyStore: {
     getSecretKey: function (keyId, cb) {
-      secretKey = secretKeyStore[keyId];
+      var secretKey = secretKeyStore[keyId];
       if (!secretKey) {
         var e = new Error('could not find secret key for key id ' + keyId);
         e.keyId = keyId;

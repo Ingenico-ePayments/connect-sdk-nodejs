@@ -82,21 +82,15 @@ var sendMultipart = function (options, postData, boundary, context, cb) {
     for (var key in postData) {
       if (typeof(postData[key]) === 'object') {
         if (!postData[key].fileName) {
-          cb({
-            message: key + ': fileName is required'
-          }, null);
+          cb(new Error(key + ': fileName is required'), null);
           return;
         }
         if (!postData[key].contentType) {
-          cb({
-            message: key + ': contentType is required'
-          }, null);
+          cb(new Error(key + ': contentType is required'), null);
           return;
         }
         if (!postData[key].content) {
-          cb({
-            message: key + ': content is required'
-          }, null);
+          cb(new Error(key + ': content is required'), null);
           return;
         }
         var opts = {
