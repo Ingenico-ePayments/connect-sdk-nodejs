@@ -33,6 +33,9 @@
         "countryCode" : {
           "type" : "string"
         },
+        "isInstallments" : {
+          "type" : "boolean"
+        },
         "isRecurring" : {
           "type" : "boolean"
         }
