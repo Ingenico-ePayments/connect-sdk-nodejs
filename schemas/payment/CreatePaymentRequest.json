@@ -1714,6 +1714,9 @@
         "isRecurring" : {
           "type" : "boolean"
         },
+        "paymentProduct4101SpecificInput" : {
+          "$ref" : "#/definitions/RedirectPaymentProduct4101SpecificInput"
+        },
         "paymentProduct809SpecificInput" : {
           "$ref" : "#/definitions/RedirectPaymentProduct809SpecificInput"
         },
@@ -1756,6 +1759,18 @@
         },
         "tokenize" : {
           "type" : "boolean"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "RedirectPaymentProduct4101SpecificInput" : {
+      "type" : "object",
+      "properties" : {
+        "integrationType" : {
+          "type" : "string"
+        },
+        "vpa" : {
+          "type" : "string"
         }
       },
       "additionalProperties" : false

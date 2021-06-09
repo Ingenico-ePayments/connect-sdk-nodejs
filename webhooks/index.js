@@ -44,7 +44,7 @@ var validateBody = function (body, requestHeaders, cb) {
         cb(error);
       } else {
         var expectedSignature = crypto.createHmac('sha256', secretKey).update(body).digest('base64');
-        if (compare(expectedSignature, signature)) {
+        if (compare(signature, expectedSignature)) {
           cb(null);
         } else {
           cb(new Error("failed to validate signature '" + signature + "'"));

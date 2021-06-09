@@ -9,7 +9,7 @@ var serverMetaInfo = function (sdkContext) {
     key: "X-GCS-ServerMetaInfo",
     value: {
       'sdkCreator': 'Ingenico',
-      'sdkIdentifier': 'NodejsServerSDK/v3.13.0',
+      'sdkIdentifier': 'NodejsServerSDK/v3.14.0',
       'platformIdentifier': process.env['OS'] + ' Node.js/' + process.versions.node
     }
   };
@@ -19,7 +19,7 @@ var serverMetaInfo = function (sdkContext) {
   if (sdkContext.getShoppingCartExtension() !== null) {
     info.value['shoppingCartExtension'] = sdkContext.getShoppingCartExtension();
   }
-  info.value = new Buffer(JSON.stringify(info.value)).toString("base64");
+  info.value = Buffer.from(JSON.stringify(info.value)).toString("base64");
   return info;
 };
 
