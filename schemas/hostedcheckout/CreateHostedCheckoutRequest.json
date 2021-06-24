@@ -688,6 +688,14 @@
         },
         "sdkUiType" : {
           "type" : "string"
+        },
+        "sdkUiTypes" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          },
+          "minItems" : 0,
+          "uniqueItems" : false
         }
       },
       "additionalProperties" : false

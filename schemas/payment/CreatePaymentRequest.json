@@ -875,6 +875,14 @@
         },
         "sdkUiType" : {
           "type" : "string"
+        },
+        "sdkUiTypes" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          },
+          "minItems" : 0,
+          "uniqueItems" : false
         }
       },
       "additionalProperties" : false
@@ -1767,6 +1775,12 @@
       "type" : "object",
       "properties" : {
         "integrationType" : {
+          "type" : "string"
+        },
+        "merchantName" : {
+          "type" : "string"
+        },
+        "transactionNote" : {
           "type" : "string"
         },
         "vpa" : {
