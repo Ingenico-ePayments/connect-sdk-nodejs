@@ -23,6 +23,9 @@
     "payoutDate" : {
       "type" : "string"
     },
+    "payoutDetails" : {
+      "$ref" : "#/definitions/PayoutDetails"
+    },
     "payoutText" : {
       "type" : "string"
     },
@@ -172,6 +175,9 @@
           "type" : "integer",
           "maximum" : 2147483647
         },
+        "recipient" : {
+          "$ref" : "#/definitions/PayoutRecipient"
+        },
         "token" : {
           "type" : "string"
         }
@@ -219,6 +225,36 @@
         },
         "name" : {
           "$ref" : "#/definitions/PersonalName"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "PayoutDetails" : {
+      "type" : "object",
+      "properties" : {
+        "amountOfMoney" : {
+          "$ref" : "#/definitions/AmountOfMoney"
+        },
+        "customer" : {
+          "$ref" : "#/definitions/PayoutCustomer"
+        },
+        "references" : {
+          "$ref" : "#/definitions/PayoutReferences"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "PayoutRecipient" : {
+      "type" : "object",
+      "properties" : {
+        "firstName" : {
+          "type" : "string"
+        },
+        "surname" : {
+          "type" : "string"
+        },
+        "surnamePrefix" : {
+          "type" : "string"
         }
       },
       "additionalProperties" : false
