@@ -1774,16 +1774,13 @@
     "RedirectPaymentProduct4101SpecificInput" : {
       "type" : "object",
       "properties" : {
+        "displayName" : {
+          "type" : "string"
+        },
         "integrationType" : {
           "type" : "string"
         },
-        "merchantName" : {
-          "type" : "string"
-        },
-        "transactionNote" : {
-          "type" : "string"
-        },
-        "vpa" : {
+        "virtualPaymentAddress" : {
           "type" : "string"
         }
       },
