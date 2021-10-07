@@ -779,6 +779,9 @@
     "CustomerAccountAuthentication" : {
       "type" : "object",
       "properties" : {
+        "data" : {
+          "type" : "string"
+        },
         "method" : {
           "type" : "string"
         },
@@ -2087,6 +2090,9 @@
         },
         "skipAuthentication" : {
           "type" : "boolean"
+        },
+        "transactionRiskLevel" : {
+          "type" : "string"
         }
       },
       "additionalProperties" : false

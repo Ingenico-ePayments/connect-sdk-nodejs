@@ -493,6 +493,9 @@
     "CustomerAccountAuthentication" : {
       "type" : "object",
       "properties" : {
+        "data" : {
+          "type" : "string"
+        },
         "method" : {
           "type" : "string"
         },
