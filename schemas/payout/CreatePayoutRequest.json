@@ -161,6 +161,9 @@
         },
         "issueNumber" : {
           "type" : "string"
+        },
+        "partialPin" : {
+          "type" : "string"
         }
       },
       "additionalProperties" : false
