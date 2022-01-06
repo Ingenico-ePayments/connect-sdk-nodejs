@@ -917,6 +917,9 @@
           "type" : "integer",
           "maximum" : 9223372036854775807
         },
+        "productSku" : {
+          "type" : "string"
+        },
         "productType" : {
           "type" : "string"
         },

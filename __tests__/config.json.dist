@@ -1,0 +1,12 @@
+{
+  "merchantId": "MERCHANT_ID",
+  "apiKeyId": "API_KEY_ID",
+  "secretApiKey": "API_SECRET",
+  "apiEndpoint": {
+    "host": "API_ENDPOINT_HOST",
+    "scheme": "https",
+    "port": 443
+  },
+  "integrator": "INTEGRATOR",
+  "enableLogging": false
+}

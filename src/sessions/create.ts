@@ -1,0 +1,32 @@
+/*
+ * This file was auto-generated from the API references found at
+ * https://epayments-api.developer-ingenico.com/s2sapi/v1/
+ */
+import { validate } from "jsonschema";
+import communicator = require("../utils/communicator");
+import sdkcontext = require("../utils/context");
+import { PaymentContext, SdkCallback } from "../model";
+import { SessionRequest } from "../model/domain/sessions";
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const requestSchema = require("../../schemas/sessions/SessionRequest.json");
+
+const createSession = function(merchantId: string, postData: SessionRequest, paymentContext: PaymentContext | null, cb: SdkCallback): void {
+  // validate postData
+  const isValidRequest = validate(postData, requestSchema);
+  if (!isValidRequest.valid) {
+    const logger = sdkcontext.getLogger();
+    if (sdkcontext.isLoggingEnabled()) {
+      logger("error", isValidRequest.errors);
+    }
+    throw new Error(isValidRequest.errors.toString());
+  }
+  communicator.json({
+    method: "POST",
+    modulePath: "/v1/" + merchantId + "/sessions",
+    body: postData,
+    paymentContext: paymentContext,
+    cb: cb
+  });
+};
+export = createSession;
