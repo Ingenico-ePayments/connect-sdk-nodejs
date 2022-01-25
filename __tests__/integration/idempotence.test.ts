@@ -1,7 +1,9 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 
 import * as uuid from "uuid";
-import { CreatePaymentResponse } from "../../src/model/domain/payment";
+import { SdkResponse } from "../../src/model";
+import { CreatePaymentResponse, PaymentErrorResponse } from "../../src/model/domain/payment";
+import { CreatePaymentResult } from "../../src/model/domain/payment/definitions";
 import connectSdk, { config } from "./init";
 
 /**
@@ -38,16 +40,26 @@ describe("Idempotence", () => {
       }
     };
 
+    function extractPaymentResult(response: SdkResponse): CreatePaymentResult {
+      // For this test it doesn't matter if the response is successful or declined,
+      // as long as idempotence is handled correctly
+      if (response.status === 201) {
+        return response.body as CreatePaymentResponse;
+      } else {
+        const responseBody = response.body as PaymentErrorResponse;
+        return responseBody.paymentResult!;
+      }
+    }
+
     connectSdk.payments.create(config.merchantId, body, paymentContext, (error, response) => {
       expect(error).toBeNull();
 
       expect(response).not.toBeNull();
-      expect(response!.status).toBe(201);
-      expect(response!.body).not.toBe(null);
+      expect(response!.body).toBeTruthy();
 
-      const responseBody = response!.body as CreatePaymentResponse;
-      expect(responseBody.payment).not.toBe(null);
-      expect(responseBody.payment!.id).not.toBe(null);
+      const paymentResult = extractPaymentResult(response!);
+      expect(paymentResult.payment).toBeTruthy();
+      expect(paymentResult.payment!.id).toBeTruthy();
       expect(paymentContext.idemPotence.key).toBe(idemPotenceKey);
       expect(connectSdk.context.getIdempotenceRequestTimestamp()).toBeUndefined();
 
@@ -55,12 +67,12 @@ describe("Idempotence", () => {
         expect(error2).toBeNull();
 
         expect(response2).not.toBeNull();
-        expect(response2!.status).toBe(201);
-        expect(response2!.body).not.toBe(null);
+        expect(response2!.status).toBe(response!.status);
+        expect(response2!.body).toBeTruthy();
 
-        const responseBody2 = response2!.body as CreatePaymentResponse;
-        expect(responseBody2.payment).not.toBe(null);
-        expect(responseBody2.payment!.id).toBe(responseBody.payment!.id);
+        const paymentResult2 = extractPaymentResult(response2!);
+        expect(paymentResult2.payment).toBeTruthy();
+        expect(paymentResult2.payment!.id).toBe(paymentResult.payment!.id);
         expect(paymentContext.idemPotence.key).toBe(idemPotenceKey);
         expect(connectSdk.context.getIdempotenceRequestTimestamp()).not.toBeUndefined();
         expect(connectSdk.context.getIdempotenceRequestTimestamp()).not.toBeNull();

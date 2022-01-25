@@ -219,6 +219,9 @@ export interface CashPaymentMethodSpecificInput extends AbstractCashPaymentMetho
    */
   paymentProduct1503SpecificInput?: CashPaymentProduct1503SpecificInput | null;
   paymentProduct1504SpecificInput?: CashPaymentProduct1504SpecificInput | null;
+  paymentProduct1506SpecificInput?: CashPaymentProduct1506SpecificInput | null;
+  paymentProduct1508SpecificInput?: CashPaymentProduct1508SpecificInput | null;
+  paymentProduct1511SpecificInput?: CashPaymentProduct1511SpecificInput | null;
   paymentProduct1521SpecificInput?: CashPaymentProduct1521SpecificInput | null;
   paymentProduct1522SpecificInput?: CashPaymentProduct1522SpecificInput | null;
   paymentProduct1523SpecificInput?: CashPaymentProduct1523SpecificInput | null;
@@ -244,6 +247,18 @@ export interface CashPaymentProduct1503SpecificInput {
 }
 
 export interface CashPaymentProduct1504SpecificInput {
+  returnUrl?: string | null;
+}
+
+export interface CashPaymentProduct1506SpecificInput {
+  returnUrl?: string | null;
+}
+
+export interface CashPaymentProduct1508SpecificInput {
+  returnUrl?: string | null;
+}
+
+export interface CashPaymentProduct1511SpecificInput {
   returnUrl?: string | null;
 }
 
