@@ -874,6 +874,10 @@
         "frequencyOfInstallments" : {
           "type" : "string"
         },
+        "installmentPlanCode" : {
+          "type" : "integer",
+          "maximum" : 2147483647
+        },
         "interestRate" : {
           "type" : "string"
         },

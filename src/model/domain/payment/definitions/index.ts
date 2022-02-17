@@ -219,9 +219,6 @@ export interface CashPaymentMethodSpecificInput extends AbstractCashPaymentMetho
    */
   paymentProduct1503SpecificInput?: CashPaymentProduct1503SpecificInput | null;
   paymentProduct1504SpecificInput?: CashPaymentProduct1504SpecificInput | null;
-  paymentProduct1506SpecificInput?: CashPaymentProduct1506SpecificInput | null;
-  paymentProduct1508SpecificInput?: CashPaymentProduct1508SpecificInput | null;
-  paymentProduct1511SpecificInput?: CashPaymentProduct1511SpecificInput | null;
   paymentProduct1521SpecificInput?: CashPaymentProduct1521SpecificInput | null;
   paymentProduct1522SpecificInput?: CashPaymentProduct1522SpecificInput | null;
   paymentProduct1523SpecificInput?: CashPaymentProduct1523SpecificInput | null;
@@ -246,39 +243,25 @@ export interface CashPaymentProduct1503SpecificInput {
   returnUrl?: string | null;
 }
 
-export interface CashPaymentProduct1504SpecificInput {
-  returnUrl?: string | null;
-}
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+export interface CashPaymentProduct1504SpecificInput extends CashPaymentProductWithRedirectSpecificInputBase {}
 
-export interface CashPaymentProduct1506SpecificInput {
-  returnUrl?: string | null;
-}
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+export interface CashPaymentProduct1521SpecificInput extends CashPaymentProductWithRedirectSpecificInputBase {}
 
-export interface CashPaymentProduct1508SpecificInput {
-  returnUrl?: string | null;
-}
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+export interface CashPaymentProduct1522SpecificInput extends CashPaymentProductWithRedirectSpecificInputBase {}
 
-export interface CashPaymentProduct1511SpecificInput {
-  returnUrl?: string | null;
-}
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+export interface CashPaymentProduct1523SpecificInput extends CashPaymentProductWithRedirectSpecificInputBase {}
 
-export interface CashPaymentProduct1521SpecificInput {
-  returnUrl?: string | null;
-}
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+export interface CashPaymentProduct1524SpecificInput extends CashPaymentProductWithRedirectSpecificInputBase {}
 
-export interface CashPaymentProduct1522SpecificInput {
-  returnUrl?: string | null;
-}
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+export interface CashPaymentProduct1526SpecificInput extends CashPaymentProductWithRedirectSpecificInputBase {}
 
-export interface CashPaymentProduct1523SpecificInput {
-  returnUrl?: string | null;
-}
-
-export interface CashPaymentProduct1524SpecificInput {
-  returnUrl?: string | null;
-}
-
-export interface CashPaymentProduct1526SpecificInput {
+export interface CashPaymentProductWithRedirectSpecificInputBase {
   returnUrl?: string | null;
 }
 
@@ -445,6 +428,7 @@ export interface HostedCheckoutSpecificOutput {
 export interface Installments {
   amountOfMoneyPerInstallment?: AmountOfMoney | null;
   frequencyOfInstallments?: string | null;
+  installmentPlanCode?: number | null;
   interestRate?: string | null;
   numberOfInstallments?: number | null;
 }
