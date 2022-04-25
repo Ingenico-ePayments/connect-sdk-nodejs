@@ -41,13 +41,6 @@ export interface ServicesClient {
    *           If the call was not successful, the response body type will be {@link ErrorResponse}.
    */
   testconnection(merchantId: string, paymentContext: PaymentContext | null, cb: SdkCallback): void;
-  /**
-   * Resource /{merchantId}/services/settlementdetails/{paymentId} - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/nodejs/services/settlementdetails.html">Get Settlement details</a>
-   * @param cb The callback for the response.
-   *           If the call was successfull, the response body type will be {@link SettlementDetails}.
-   *           If the call was not successful, the response body type will be {@link ErrorResponse}.
-   */
-  settlementdetails(merchantId: string, paymentId: string, paymentContext: PaymentContext | null, cb: SdkCallback): void;
 }
 
 export interface ConvertAmountParams extends PaymentContext {

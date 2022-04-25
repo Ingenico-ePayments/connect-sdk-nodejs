@@ -7,7 +7,6 @@ import bankaccount = require("./bankaccount");
 import getIINdetails = require("./getIINdetails");
 import privacypolicy = require("./privacypolicy");
 import testconnection = require("./testconnection");
-import settlementdetails = require("./settlementdetails");
 import { ServicesClient } from "../model/services";
 
 const servicesClient: ServicesClient = {
@@ -15,7 +14,6 @@ const servicesClient: ServicesClient = {
   bankaccount: bankaccount,
   getIINdetails: getIINdetails,
   privacypolicy: privacypolicy,
-  testconnection: testconnection,
-  settlementdetails: settlementdetails
+  testconnection: testconnection
 };
 export = servicesClient;

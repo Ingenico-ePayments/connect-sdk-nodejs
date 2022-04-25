@@ -2,7 +2,7 @@
  * This file was auto-generated from the API references found at
  * https://epayments-api.developer-ingenico.com/s2sapi/v1/
  */
-import { AmountOfMoney, BankAccountBban, BankAccountIban } from "../definitions";
+import { BankAccountBban, BankAccountIban } from "../definitions";
 import { BankData, BankDetails, IINDetail, PaymentContext, Swift } from "./definitions";
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
@@ -33,13 +33,6 @@ export interface GetIINDetailsResponse {
 
 export interface GetPrivacyPolicyResponse {
   htmlContent?: string | null;
-}
-
-export interface SettlementDetails {
-  acquirerReferenceNumber?: string | null;
-  amountOfMoney?: AmountOfMoney | null;
-  paymentId?: string | null;
-  retrievalReferenceNumber?: string | null;
 }
 
 export interface TestConnection {
