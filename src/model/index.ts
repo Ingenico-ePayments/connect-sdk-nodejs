@@ -2,7 +2,7 @@
  * This file was auto-generated from the API references found at
  * https://epayments-api.developer-ingenico.com/s2sapi/v1/
  */
-import { Context, SdkContext } from "./types";
+import { Context, ObfuscationRules, SdkContext } from "./types";
 import { HostedcheckoutsClient } from "./hostedcheckouts";
 import { HostedmandatemanagementsClient } from "./hostedmandatemanagements";
 import { PaymentsClient } from "./payments";
@@ -42,6 +42,8 @@ export interface ConnectSdk {
   readonly context: SdkContext;
 
   readonly webhooks: WebhooksHelper;
+
+  readonly obfuscate: ObfuscationRules;
 }
 
 export * from "./types";

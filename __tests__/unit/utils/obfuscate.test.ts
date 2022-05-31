@@ -1,11 +1,29 @@
 import each from "jest-each";
 import * as http from "http";
+import * as _ from "lodash";
 import * as obfuscate from "../../../src/utils/obfuscate";
+import { ObfuscationRule } from "../../../src/model";
+
+import * as connectSdk from "../../../src";
+
+connectSdk.init({
+  host: "example.org",
+  scheme: "https",
+  port: -1,
+  enableLogging: false,
+  apiKeyId: "",
+  secretApiKey: "",
+  integrator: "Integration tests"
+});
 
 /**
  * @group unit:obfuscate
  */
 describe("obfuscate.getObfuscated", () => {
+  beforeEach(() => {
+    delete connectSdk.context.getContext().obfuscationRules;
+  });
+
   test("undefined body", () => {
     expect(obfuscate.getObfuscated(undefined)).toBe("");
   });
@@ -40,6 +58,41 @@ describe("obfuscate.getObfuscated", () => {
     expected.cardPaymentMethodSpecificInput.card.cvv = "***";
     expected.cardPaymentMethodSpecificInput.card.cardNumber = "************3456";
     expected.cardPaymentMethodSpecificInput.card.expiryDate = "**20";
+
+    expect(obfuscate.getObfuscated(body)).toBe(JSON.stringify(expected, null, 2));
+  });
+
+  test("cardNumber with custom rule", () => {
+    const body = {
+      order: {
+        amountOfMoney: {
+          currencyCode: "CAD",
+          amount: 2345
+        },
+        customer: {
+          billingAddress: {
+            countryCode: "CA"
+          }
+        }
+      },
+      cardPaymentMethodSpecificInput: {
+        paymentProductId: 1,
+        card: {
+          cvv: "123",
+          cardNumber: "1234567890123456",
+          expiryDate: "1220"
+        }
+      }
+    };
+    const expected = JSON.parse(JSON.stringify(body));
+    expected.cardPaymentMethodSpecificInput.card.cvv = "***";
+    expected.cardPaymentMethodSpecificInput.card.cardNumber = "123456******3456";
+    expected.cardPaymentMethodSpecificInput.card.expiryDate = "**20";
+
+    const obfuscationRule: ObfuscationRule = value => value.substring(0, 6) + _.padStart("", 6, "*") + value.substring(12);
+    connectSdk.context.getContext().obfuscationRules = {
+      cardNumber: obfuscationRule
+    };
 
     expect(obfuscate.getObfuscated(body)).toBe(JSON.stringify(expected, null, 2));
   });
@@ -137,6 +190,39 @@ describe("obfuscate.getObfuscated", () => {
 
     const expected = JSON.parse(JSON.stringify(headers));
     expected[name] = expectedObfuscatedValue;
+
+    expect(obfuscate.getObfuscated(headers, null, true)).toBe(JSON.stringify(expected, null, 2));
+  });
+
+  const customHeadersTestData = [
+    ["Authorization", "Basic QWxhZGRpbjpPcGVuU2VzYW1l", "********"],
+    ["authorization", "Basic QWxhZGRpbjpPcGVuU2VzYW1l", "********"],
+    ["AUTHORIZATION", "Basic QWxhZGRpbjpPcGVuU2VzYW1l", "********"],
+
+    ["X-GCS-Authentication-Token", "foobar", "********"],
+    ["x-gcs-authentication-token", "foobar", "********"],
+    ["X-GCS-AUTHENTICATION-TOKEN", "foobar", "********"],
+
+    ["X-GCS-CallerPassword", "foobar", "********"],
+    ["x-gcs-callerpassword", "foobar", "********"],
+    ["X-GCS-CALLERPASSWORD", "foobar", "********"],
+
+    ["Content-Type", "application/json", "****************"],
+    ["content-type", "application/json", "****************"],
+    ["CONTENT-TYPE", "application/json", "****************"]
+  ];
+  each(customHeadersTestData).test("when the header is '%s'", (name, originalValue, expectedObfuscatedValue) => {
+    const headers: http.IncomingHttpHeaders = {};
+    headers[name] = originalValue;
+    headers["content-length"] = "5";
+
+    const expected = JSON.parse(JSON.stringify(headers));
+    expected[name] = expectedObfuscatedValue;
+
+    const obfuscationRule: ObfuscationRule = obfuscate.all();
+    connectSdk.context.getContext().obfuscationRules = {
+      "content-type": obfuscationRule
+    };
 
     expect(obfuscate.getObfuscated(headers, null, true)).toBe(JSON.stringify(expected, null, 2));
   });

@@ -21,6 +21,7 @@ export interface Context {
   integrator: string;
   shoppingCartExtension?: ShoppingCartExtension;
   httpOptions?: https.RequestOptions;
+  obfuscationRules?: { [key: string]: ObfuscationRule };
 }
 
 export interface FileMetaData {
@@ -54,6 +55,27 @@ export interface MultipartFormDataObject {
 export interface MultipartFormDataRequest extends SdkRequest {
   body: MultipartFormDataObject;
 }
+
+export interface ObfuscationRules {
+  /**
+   * @returns An obfuscation rule that will replace all characters with *.
+   */
+  all(): ObfuscationRule;
+  /**
+   * @returns An obfuscation rule that will keep a fixed number of characters at the end, then replaces all other characters with *.
+   */
+  allButLast(count: number): ObfuscationRule;
+  /**
+   * @returns An obfuscation rule that will keep a fixed number of characters at the start, then replaces all other characters with *.
+   */
+  allButFirst(count: number): ObfuscationRule;
+  /**
+   * @returns An obfuscation rule that will replace values with a fixed length string containing only *.
+   */
+  withFixedLength(count: number): ObfuscationRule;
+}
+
+export type ObfuscationRule = (value: string) => string;
 
 export interface PaymentContext {
   extraHeaders?: Header[];

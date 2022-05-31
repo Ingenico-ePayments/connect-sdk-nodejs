@@ -5,6 +5,7 @@
 import https = require("https");
 import { CommunicatorLogger, ConnectSdk, Context } from "./model";
 import sdkcontext = require("./utils/context");
+import obfuscate = require("./utils/obfuscate");
 
 import hostedcheckouts = require("./hostedcheckouts");
 import hostedmandatemanagements = require("./hostedmandatemanagements");
@@ -89,6 +90,13 @@ const connectSdk: ConnectSdk = {
   files: files,
   context: sdkcontext,
 
-  webhooks: webhooks
+  webhooks: webhooks,
+
+  obfuscate: {
+    all: obfuscate.all,
+    allButLast: obfuscate.allButLast,
+    allButFirst: obfuscate.allButFirst,
+    withFixedLength: obfuscate.withFixedLength
+  }
 };
 export = connectSdk;
