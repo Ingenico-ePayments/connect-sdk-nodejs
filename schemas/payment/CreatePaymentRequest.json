@@ -1934,6 +1934,9 @@
         "description" : {
           "type" : "string"
         },
+        "externalReferenceId" : {
+          "type" : "string"
+        },
         "geocode" : {
           "type" : "string"
         },
@@ -1947,6 +1950,9 @@
           "type" : "string"
         },
         "name" : {
+          "type" : "string"
+        },
+        "phoneNumber" : {
           "type" : "string"
         },
         "type" : {

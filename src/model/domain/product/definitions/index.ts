@@ -90,6 +90,7 @@ export interface PaymentProduct {
   paymentProduct320SpecificData?: PaymentProduct320SpecificData | null;
   paymentProduct863SpecificData?: PaymentProduct863SpecificData | null;
   paymentProductGroup?: string | null;
+  supportsMandates?: boolean | null;
   usesRedirectionTo3rdParty?: boolean | null;
 }
 

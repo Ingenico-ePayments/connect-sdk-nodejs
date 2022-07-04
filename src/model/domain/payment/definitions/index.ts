@@ -913,11 +913,13 @@ export interface Seller {
   address?: Address | null;
   channelCode?: string | null;
   description?: string | null;
+  externalReferenceId?: string | null;
   geocode?: string | null;
   id?: string | null;
   invoiceNumber?: string | null;
   mcc?: string | null;
   name?: string | null;
+  phoneNumber?: string | null;
   type?: string | null;
 }
 
