@@ -297,7 +297,11 @@ export interface LodgingRoom {
 }
 
 export interface MicrosoftFraudResults {
+  deviceCountryCode?: string | null;
+  deviceId?: string | null;
   fraudScore?: number | null;
+  trueIpAddress?: string | null;
+  userDeviceType?: string | null;
 }
 
 export interface OrderStatusOutput {
