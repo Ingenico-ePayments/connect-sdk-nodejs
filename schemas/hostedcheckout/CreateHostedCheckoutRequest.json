@@ -1197,6 +1197,9 @@
     "Merchant" : {
       "type" : "object",
       "properties" : {
+        "configurationId" : {
+          "type" : "string"
+        },
         "contactWebsiteUrl" : {
           "type" : "string"
         },
@@ -1492,6 +1495,9 @@
           "type" : "integer",
           "maximum" : 60
         },
+        "paymentProduct4101SpecificInput" : {
+          "$ref" : "#/definitions/RedirectPaymentProduct4101SpecificInputBase"
+        },
         "paymentProduct840SpecificInput" : {
           "$ref" : "#/definitions/RedirectPaymentProduct840SpecificInputBase"
         },
@@ -1510,6 +1516,15 @@
         },
         "tokenize" : {
           "type" : "boolean"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "RedirectPaymentProduct4101SpecificInputBase" : {
+      "type" : "object",
+      "properties" : {
+        "displayName" : {
+          "type" : "string"
         }
       },
       "additionalProperties" : false

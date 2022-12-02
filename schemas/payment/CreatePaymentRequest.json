@@ -1426,6 +1426,9 @@
     "Merchant" : {
       "type" : "object",
       "properties" : {
+        "configurationId" : {
+          "type" : "string"
+        },
         "contactWebsiteUrl" : {
           "type" : "string"
         },
@@ -1472,6 +1475,9 @@
     "MobilePaymentProduct320SpecificInput" : {
       "type" : "object",
       "properties" : {
+        "cardholderName" : {
+          "type" : "string"
+        },
         "threeDSecure" : {
           "$ref" : "#/definitions/GPayThreeDSecure"
         }

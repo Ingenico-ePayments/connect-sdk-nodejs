@@ -120,6 +120,7 @@ export interface Card extends CardWithoutCvv {
 
 export interface CardEssentials {
   cardNumber?: string | null;
+  cardholderName?: string | null;
   expiryDate?: string | null;
 }
 
@@ -132,7 +133,6 @@ export interface CardFraudResults extends FraudResults {
 }
 
 export interface CardWithoutCvv extends CardEssentials {
-  cardholderName?: string | null;
   issueNumber?: string | null;
 }
 
@@ -297,9 +297,11 @@ export interface LodgingRoom {
 }
 
 export interface MicrosoftFraudResults {
+  clauseName?: string | null;
   deviceCountryCode?: string | null;
   deviceId?: string | null;
   fraudScore?: number | null;
+  policyApplied?: string | null;
   trueIpAddress?: string | null;
   userDeviceType?: string | null;
 }

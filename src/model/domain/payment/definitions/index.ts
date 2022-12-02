@@ -76,6 +76,9 @@ export interface AbstractRedirectPaymentMethodSpecificInput extends AbstractPaym
   tokenize?: boolean | null;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+export interface AbstractRedirectPaymentProduct4101SpecificInput {}
+
 export interface AbstractRedirectPaymentProduct840SpecificInput {
   addressSelectionAtPayPal?: boolean | null;
 }
@@ -497,6 +500,7 @@ export interface LoanRecipient {
 }
 
 export interface Merchant {
+  configurationId?: string | null;
   contactWebsiteUrl?: string | null;
   seller?: Seller | null;
   websiteUrl?: string | null;
@@ -536,6 +540,7 @@ export interface MobilePaymentMethodSpecificOutput extends AbstractPaymentMethod
 }
 
 export interface MobilePaymentProduct320SpecificInput {
+  cardholderName?: string | null;
   threeDSecure?: GPayThreeDSecure | null;
 }
 
@@ -776,6 +781,7 @@ export interface RedirectPaymentMethodSpecificInput extends AbstractRedirectPaym
 }
 
 export interface RedirectPaymentMethodSpecificInputBase extends AbstractRedirectPaymentMethodSpecificInput {
+  paymentProduct4101SpecificInput?: RedirectPaymentProduct4101SpecificInputBase | null;
   paymentProduct840SpecificInput?: RedirectPaymentProduct840SpecificInputBase | null;
 }
 
@@ -795,6 +801,10 @@ export interface RedirectPaymentProduct4101SpecificInput {
   displayName?: string | null;
   integrationType?: string | null;
   virtualPaymentAddress?: string | null;
+}
+
+export interface RedirectPaymentProduct4101SpecificInputBase extends AbstractRedirectPaymentProduct4101SpecificInput {
+  displayName?: string | null;
 }
 
 export interface RedirectPaymentProduct809SpecificInput {

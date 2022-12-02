@@ -823,6 +823,9 @@
     "Merchant" : {
       "type" : "object",
       "properties" : {
+        "configurationId" : {
+          "type" : "string"
+        },
         "contactWebsiteUrl" : {
           "type" : "string"
         },

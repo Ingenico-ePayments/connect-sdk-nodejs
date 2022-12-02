@@ -1,7 +1,8 @@
 {
   "name": "Ingenico Connect Node.js SDK",
   "readme": "README.md",
-  "includeDeclarations": true,
+  "entryPointStrategy": "expand",
+  "entryPoints": ["src"],
   "exclude": ["**/node_modules/**"],
   "excludePrivate": true,
   "disableSources": true,
