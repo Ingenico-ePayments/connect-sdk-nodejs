@@ -4,7 +4,7 @@
  */
 import { AmountOfMoney, BankAccountBban, BankAccountIban } from "../definitions";
 import { APIError } from "../errors/definitions";
-import { BankTransferPayoutMethodSpecificInput, CardPayoutMethodSpecificInput, PayoutCustomer, PayoutDetails, PayoutReferences, PayoutResult } from "./definitions";
+import { BankTransferPayoutMethodSpecificInput, CardPayoutMethodSpecificInput, PayoutCustomer, PayoutDetails, PayoutMerchant, PayoutReferences, PayoutResult } from "./definitions";
 
 export interface ApprovePayoutRequest {
   datePayout?: string | null;
@@ -29,6 +29,7 @@ export interface CreatePayoutRequest {
    * @deprecated Moved to PayoutDetails
    */
   customer?: PayoutCustomer | null;
+  merchant?: PayoutMerchant | null;
   /**
    * @deprecated Moved to BankTransferPayoutMethodSpecificInput
    */

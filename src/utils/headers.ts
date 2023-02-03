@@ -18,7 +18,7 @@ interface ServerMetaInfo {
 export function serverMetaInfo(sdkContext: SdkContext): Header {
   const info: ServerMetaInfo = {
     sdkCreator: "Ingenico",
-    sdkIdentifier: "NodejsServerSDK/v4.6.2",
+    sdkIdentifier: "NodejsServerSDK/v4.7.0",
     platformIdentifier: process.env["OS"] + " Node.js/" + process.versions.node
   };
   if (sdkContext.getIntegrator() !== null) {

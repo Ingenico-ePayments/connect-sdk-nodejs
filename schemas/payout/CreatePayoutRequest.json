@@ -20,6 +20,9 @@
     "customer" : {
       "$ref" : "#/definitions/PayoutCustomer"
     },
+    "merchant" : {
+      "$ref" : "#/definitions/PayoutMerchant"
+    },
     "payoutDate" : {
       "type" : "string"
     },
@@ -243,6 +246,15 @@
         },
         "references" : {
           "$ref" : "#/definitions/PayoutReferences"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "PayoutMerchant" : {
+      "type" : "object",
+      "properties" : {
+        "configurationId" : {
+          "type" : "string"
         }
       },
       "additionalProperties" : false

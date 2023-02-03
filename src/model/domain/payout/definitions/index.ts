@@ -41,6 +41,10 @@ export interface PayoutDetails {
   references?: PayoutReferences | null;
 }
 
+export interface PayoutMerchant {
+  configurationId?: string | null;
+}
+
 export interface PayoutRecipient {
   firstName?: string | null;
   surname?: string | null;
