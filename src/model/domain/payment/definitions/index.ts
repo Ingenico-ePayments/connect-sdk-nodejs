@@ -742,6 +742,7 @@ export interface PaymentReferences {
 export interface PaymentStatusOutput extends OrderStatusOutput {
   isAuthorized?: boolean | null;
   isRefundable?: boolean | null;
+  isRetriable?: boolean | null;
   threeDSecureStatus?: string | null;
 }
 
