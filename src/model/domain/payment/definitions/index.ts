@@ -928,6 +928,7 @@ export interface Seller {
   geocode?: string | null;
   id?: string | null;
   invoiceNumber?: string | null;
+  isForeignRetailer?: boolean | null;
   mcc?: string | null;
   name?: string | null;
   phoneNumber?: string | null;

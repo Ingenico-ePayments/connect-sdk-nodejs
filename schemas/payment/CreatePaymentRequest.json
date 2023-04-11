@@ -1952,6 +1952,9 @@
         "invoiceNumber" : {
           "type" : "string"
         },
+        "isForeignRetailer" : {
+          "type" : "boolean"
+        },
         "mcc" : {
           "type" : "string"
         },
