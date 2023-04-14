@@ -470,6 +470,9 @@
         "merchantInitiatedReasonIndicator" : {
           "type" : "string"
         },
+        "networkTokenData" : {
+          "$ref" : "#/definitions/SchemeTokenData"
+        },
         "paymentProductId" : {
           "type" : "integer",
           "maximum" : 2147483647
@@ -1893,6 +1896,24 @@
           "type" : "string"
         },
         "variant" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "SchemeTokenData" : {
+      "type" : "object",
+      "properties" : {
+        "cryptogram" : {
+          "type" : "string"
+        },
+        "eci" : {
+          "type" : "string"
+        },
+        "networkToken" : {
+          "type" : "string"
+        },
+        "tokenExpiryDate" : {
           "type" : "string"
         }
       },

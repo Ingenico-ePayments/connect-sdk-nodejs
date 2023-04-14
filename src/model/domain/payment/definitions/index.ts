@@ -189,6 +189,7 @@ export interface CardPaymentMethodSpecificInput extends AbstractCardPaymentMetho
   externalCardholderAuthenticationData?: ExternalCardholderAuthenticationData | null;
   isRecurring?: boolean | null;
   merchantInitiatedReasonIndicator?: string | null;
+  networkTokenData?: SchemeTokenData | null;
   /**
    * @deprecated Use threeDSecure.redirectionData.returnUrl instead
    */
@@ -900,6 +901,13 @@ export interface RefundPaymentProduct840CustomerAccount {
 
 export interface RefundPaymentProduct840SpecificOutput {
   customerAccount?: RefundPaymentProduct840CustomerAccount | null;
+}
+
+export interface SchemeTokenData {
+  cryptogram?: string | null;
+  eci?: string | null;
+  networkToken?: string | null;
+  tokenExpiryDate?: string | null;
 }
 
 export interface SdkDataInput {

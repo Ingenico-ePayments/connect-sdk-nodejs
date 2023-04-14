@@ -1,7 +1,7 @@
 import http = require("http");
 import https = require("https");
 import uuid = require("uuid");
-import formData = require("form-data");
+import FormData = require("form-data");
 import obfuscate = require("../utils/obfuscate");
 import headers = require("../utils/headers");
 import { ConnectionCallback, Logger, MultipartFormDataObject, SdkContext } from "../model";
@@ -78,11 +78,9 @@ export function sendMultipart(options: https.RequestOptions, postData: Multipart
     handleError(e, context, logger, uuidString, cb);
   });
 
-  const form = new formData();
-  // overwrite getBoundary to use the provided boundary instead of letting the form generate one
-  form.getBoundary = (): string => {
-    return boundary;
-  };
+  const form = new FormData();
+  // Use the provided boundary instead of letting the form generate one
+  form.setBoundary(boundary);
   if (postData) {
     for (const key in postData) {
       const item = postData[key];
@@ -99,7 +97,7 @@ export function sendMultipart(options: https.RequestOptions, postData: Multipart
           cb(new Error(key + ": content is required"), null);
           return;
         }
-        const opts: formData.AppendOptions = {
+        const opts: FormData.AppendOptions = {
           filename: item.fileName,
           contentType: item.contentType
         };
