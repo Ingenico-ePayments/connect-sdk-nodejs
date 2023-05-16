@@ -8,5 +8,6 @@
     "port": 443
   },
   "integrator": "INTEGRATOR",
-  "enableLogging": false
+  "enableLogging": false,
+  "httpBinUrl": "http://httpbin.org"
 }

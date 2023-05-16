@@ -1,16 +1,21 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 
 import { Readable } from "stream";
+import { URL } from "url";
 import * as connectSdk from "../../src";
 import * as communicator from "../../src/utils/communicator";
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const config = require("../config.json");
 
+const httpBinUrl = new URL(config.httpBinUrl || "http://httpbin.org");
+const scheme = httpBinUrl.protocol === "http:" ? "http" : "https";
+const port = httpBinUrl.port ? parseInt(httpBinUrl.port) : httpBinUrl.protocol === "http:" ? 80 : 443;
+
 connectSdk.init({
-  host: "httpbin.org",
-  scheme: "http",
-  port: 80,
+  host: httpBinUrl.hostname,
+  scheme,
+  port,
   enableLogging: config.enableLogging, // defaults to false
   apiKeyId: config.apiKeyId,
   secretApiKey: config.secretApiKey,

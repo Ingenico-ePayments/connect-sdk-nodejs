@@ -140,6 +140,10 @@
         "name" : {
           "type" : "string"
         },
+        "numberInParty" : {
+          "type" : "integer",
+          "maximum" : 2147483647
+        },
         "passengerName" : {
           "type" : "string"
         },

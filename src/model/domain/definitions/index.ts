@@ -44,6 +44,7 @@ export interface AirlineData {
   issueDate?: string | null;
   merchantCustomerId?: string | null;
   name?: string | null;
+  numberInParty?: number | null;
   passengerName?: string | null;
   passengers?: AirlinePassenger[] | null;
   placeOfIssue?: string | null;
