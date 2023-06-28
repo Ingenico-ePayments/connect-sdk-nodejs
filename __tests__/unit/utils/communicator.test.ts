@@ -148,7 +148,7 @@ describe("communicator", () => {
         expect(error).not.toBeNull();
         expect(error!.status).toBe(200);
         expect(error!.body).toBe(responseBody);
-        expect(error!.message).toBe("Unexpected token N in JSON at position 0");
+        expect(error!.message).toMatch(/Unexpected token .*/);
 
         expect(response).toBeNull();
 

@@ -7,6 +7,7 @@ import { GPayThreeDSecure, Payment, PaymentCreationReferences } from "../../paym
 
 export interface CreatedPaymentOutput {
   displayedData?: DisplayedData | null;
+  isCheckedRememberMe?: boolean | null;
   payment?: Payment | null;
   paymentCreationReferences?: PaymentCreationReferences | null;
   /**

@@ -658,6 +658,7 @@ export interface PaymentAccountOnFile {
 }
 
 export interface PaymentCreationOutput extends PaymentCreationReferences {
+  isCheckedRememberMe?: boolean | null;
   isNewToken?: boolean | null;
   token?: string | null;
   tokenizationSucceeded?: boolean | null;
@@ -736,6 +737,7 @@ export interface PaymentReferences {
   merchantReference?: string | null;
   paymentReference?: string | null;
   providerId?: string | null;
+  providerMerchantId?: string | null;
   providerReference?: string | null;
   referenceOrigPayment?: string | null;
 }
@@ -744,6 +746,7 @@ export interface PaymentStatusOutput extends OrderStatusOutput {
   isAuthorized?: boolean | null;
   isRefundable?: boolean | null;
   isRetriable?: boolean | null;
+  providerRawOutput?: KeyValuePair[] | null;
   threeDSecureStatus?: string | null;
 }
 
@@ -904,6 +907,7 @@ export interface RefundPaymentProduct840SpecificOutput {
 }
 
 export interface SchemeTokenData {
+  cardholderName?: string | null;
   cryptogram?: string | null;
   eci?: string | null;
   networkToken?: string | null;

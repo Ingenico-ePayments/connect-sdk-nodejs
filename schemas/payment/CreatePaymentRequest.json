@@ -1908,6 +1908,9 @@
     "SchemeTokenData" : {
       "type" : "object",
       "properties" : {
+        "cardholderName" : {
+          "type" : "string"
+        },
         "cryptogram" : {
           "type" : "string"
         },
