@@ -310,6 +310,8 @@ export interface MicrosoftFraudResults {
 export interface OrderStatusOutput {
   errors?: APIError[] | null;
   isCancellable?: boolean | null;
+  isRetriable?: boolean | null;
+  providerRawOutput?: KeyValuePair[] | null;
   statusCategory?: string | null;
   statusCode?: number | null;
   statusCodeChangeDateTime?: string | null;

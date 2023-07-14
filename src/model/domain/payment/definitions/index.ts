@@ -633,6 +633,8 @@ export interface OrderReferences {
   invoiceData?: OrderInvoiceData | null;
   merchantOrderId?: number | null;
   merchantReference?: string | null;
+  providerId?: string | null;
+  providerMerchantId?: string | null;
 }
 
 export interface OrderReferencesApprovePayment {
@@ -745,8 +747,6 @@ export interface PaymentReferences {
 export interface PaymentStatusOutput extends OrderStatusOutput {
   isAuthorized?: boolean | null;
   isRefundable?: boolean | null;
-  isRetriable?: boolean | null;
-  providerRawOutput?: KeyValuePair[] | null;
   threeDSecureStatus?: string | null;
 }
 
@@ -862,8 +862,9 @@ export interface RedirectionData {
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface RefundBankMethodSpecificOutput extends RefundMethodSpecificOutput {}
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface RefundCardMethodSpecificOutput extends RefundMethodSpecificOutput {}
+export interface RefundCardMethodSpecificOutput extends RefundMethodSpecificOutput {
+  authorisationCode?: string | null;
+}
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface RefundCashMethodSpecificOutput extends RefundMethodSpecificOutput {}

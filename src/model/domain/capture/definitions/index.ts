@@ -2,7 +2,7 @@
  * This file was auto-generated from the API references found at
  * https://epayments-api.developer-ingenico.com/s2sapi/v1/
  */
-import { AbstractOrderStatus } from "../../definitions";
+import { AbstractOrderStatus, KeyValuePair } from "../../definitions";
 import {
   BankTransferPaymentMethodSpecificOutput,
   CardPaymentMethodSpecificOutput,
@@ -39,5 +39,7 @@ export interface CaptureOutput extends OrderOutput {
 }
 
 export interface CaptureStatusOutput {
+  isRetriable?: boolean | null;
+  providerRawOutput?: KeyValuePair[] | null;
   statusCode?: number | null;
 }
