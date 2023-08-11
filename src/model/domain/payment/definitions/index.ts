@@ -864,6 +864,7 @@ export interface RefundBankMethodSpecificOutput extends RefundMethodSpecificOutp
 
 export interface RefundCardMethodSpecificOutput extends RefundMethodSpecificOutput {
   authorisationCode?: string | null;
+  card?: CardEssentials | null;
 }
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
