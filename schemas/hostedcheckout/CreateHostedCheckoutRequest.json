@@ -802,6 +802,19 @@
       },
       "additionalProperties" : false
     },
+    "Frequency" : {
+      "type" : "object",
+      "properties" : {
+        "interval" : {
+          "type" : "string"
+        },
+        "intervalFrequency" : {
+          "type" : "integer",
+          "maximum" : 2147483647
+        }
+      },
+      "additionalProperties" : false
+    },
     "GPayThreeDSecure" : {
       "type" : "object",
       "properties" : {
@@ -848,6 +861,9 @@
         "paymentProductFilters" : {
           "$ref" : "#/definitions/PaymentProductFiltersHostedCheckout"
         },
+        "recurringPaymentsData" : {
+          "$ref" : "#/definitions/RecurringPaymentsData"
+        },
         "returnCancelState" : {
           "type" : "boolean"
         },
@@ -873,6 +889,9 @@
       "type" : "object",
       "properties" : {
         "amountOfMoneyPerInstallment" : {
+          "$ref" : "#/definitions/AmountOfMoney"
+        },
+        "amountOfMoneyTotal" : {
           "$ref" : "#/definitions/AmountOfMoney"
         },
         "frequencyOfInstallments" : {
@@ -1498,6 +1517,18 @@
       },
       "additionalProperties" : false
     },
+    "RecurringPaymentsData" : {
+      "type" : "object",
+      "properties" : {
+        "recurringInterval" : {
+          "$ref" : "#/definitions/Frequency"
+        },
+        "trialInformation" : {
+          "$ref" : "#/definitions/TrialInformation"
+        }
+      },
+      "additionalProperties" : false
+    },
     "RedirectPaymentMethodSpecificInputBase" : {
       "type" : "object",
       "properties" : {
@@ -1767,6 +1798,40 @@
           "type" : "string"
         },
         "utcTimestamp" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "TrialInformation" : {
+      "type" : "object",
+      "properties" : {
+        "amountOfMoneyAfterTrial" : {
+          "$ref" : "#/definitions/AmountOfMoney"
+        },
+        "endDate" : {
+          "type" : "string"
+        },
+        "isRecurring" : {
+          "type" : "boolean"
+        },
+        "trialPeriod" : {
+          "$ref" : "#/definitions/TrialPeriod"
+        },
+        "trialPeriodRecurring" : {
+          "$ref" : "#/definitions/Frequency"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "TrialPeriod" : {
+      "type" : "object",
+      "properties" : {
+        "duration" : {
+          "type" : "integer",
+          "maximum" : 2147483647
+        },
+        "interval" : {
           "type" : "string"
         }
       },

@@ -2,7 +2,7 @@
  * This file was auto-generated from the API references found at
  * https://epayments-api.developer-ingenico.com/s2sapi/v1/
  */
-import { AbstractPaymentMethodSpecificInput, KeyValuePair, PaymentProductFilter } from "../../definitions";
+import { AbstractPaymentMethodSpecificInput, AmountOfMoney, KeyValuePair, PaymentProductFilter } from "../../definitions";
 import { GPayThreeDSecure, Payment, PaymentCreationReferences } from "../../payment/definitions";
 
 export interface CreatedPaymentOutput {
@@ -24,10 +24,16 @@ export interface DisplayedData {
   showData?: KeyValuePair[] | null;
 }
 
+export interface Frequency {
+  interval?: string | null;
+  intervalFrequency?: number | null;
+}
+
 export interface HostedCheckoutSpecificInput {
   isRecurring?: boolean | null;
   locale?: string | null;
   paymentProductFilters?: PaymentProductFiltersHostedCheckout | null;
+  recurringPaymentsData?: RecurringPaymentsData | null;
   returnCancelState?: boolean | null;
   returnUrl?: string | null;
   showResultPage?: boolean | null;
@@ -59,4 +65,22 @@ export interface PaymentProductFiltersHostedCheckout {
   exclude?: PaymentProductFilter | null;
   restrictTo?: PaymentProductFilter | null;
   tokensOnly?: boolean | null;
+}
+
+export interface RecurringPaymentsData {
+  recurringInterval?: Frequency | null;
+  trialInformation?: TrialInformation | null;
+}
+
+export interface TrialInformation {
+  amountOfMoneyAfterTrial?: AmountOfMoney | null;
+  endDate?: string | null;
+  isRecurring?: boolean | null;
+  trialPeriod?: TrialPeriod | null;
+  trialPeriodRecurring?: Frequency | null;
+}
+
+export interface TrialPeriod {
+  duration?: number | null;
+  interval?: string | null;
 }

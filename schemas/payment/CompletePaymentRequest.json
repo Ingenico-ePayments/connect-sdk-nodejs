@@ -576,6 +576,9 @@
         "amountOfMoneyPerInstallment" : {
           "$ref" : "#/definitions/AmountOfMoney"
         },
+        "amountOfMoneyTotal" : {
+          "$ref" : "#/definitions/AmountOfMoney"
+        },
         "frequencyOfInstallments" : {
           "type" : "string"
         },

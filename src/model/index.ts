@@ -17,6 +17,7 @@ import { ServicesClient } from "./services";
 import { TokensClient } from "./tokens";
 import { MandatesClient } from "./mandates";
 import { SessionsClient } from "./sessions";
+import { InstallmentsClient } from "./installments";
 import { FilesClient } from "./files";
 import { WebhooksHelper } from "./webhooks";
 
@@ -37,6 +38,7 @@ export interface ConnectSdk {
   readonly tokens: TokensClient;
   readonly mandates: MandatesClient;
   readonly sessions: SessionsClient;
+  readonly installments: InstallmentsClient;
   readonly files: FilesClient;
 
   readonly context: SdkContext;

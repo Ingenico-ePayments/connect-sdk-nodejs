@@ -431,6 +431,7 @@ export interface HostedCheckoutSpecificOutput {
 
 export interface Installments {
   amountOfMoneyPerInstallment?: AmountOfMoney | null;
+  amountOfMoneyTotal?: AmountOfMoney | null;
   frequencyOfInstallments?: string | null;
   installmentPlanCode?: number | null;
   interestRate?: string | null;

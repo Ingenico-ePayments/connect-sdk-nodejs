@@ -21,6 +21,7 @@ import services = require("./services");
 import tokens = require("./tokens");
 import mandates = require("./mandates");
 import sessions = require("./sessions");
+import installments = require("./installments");
 import files = require("./files");
 
 import webhooks = require("./webhooks");
@@ -87,6 +88,7 @@ const connectSdk: ConnectSdk = {
   tokens: tokens,
   mandates: mandates,
   sessions: sessions,
+  installments: installments,
   files: files,
   context: sdkcontext,
 
