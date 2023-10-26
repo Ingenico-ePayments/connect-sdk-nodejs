@@ -105,13 +105,26 @@ export interface AbstractThreeDSecure {
   transactionRiskLevel?: string | null;
 }
 
+export interface AccountFundingRecipient {
+  accountNumber?: string | null;
+  accountNumberType?: string | null;
+  address?: Address | null;
+  dateOfBirth?: string | null;
+  name?: AfrName | null;
+  partialPan?: string | null;
+}
+
 export interface AdditionalOrderInput {
+  accountFundingRecipient?: AccountFundingRecipient | null;
   airlineData?: AirlineData | null;
   installments?: Installments | null;
   /**
    * @deprecated Use Order.shoppingCart.amountBreakdown instead
    */
   level3SummaryData?: Level3SummaryData | null;
+  /**
+   * @deprecated No replacement
+   */
   loanRecipient?: LoanRecipient | null;
   lodgingData?: LodgingData | null;
   /**
@@ -124,6 +137,11 @@ export interface AdditionalOrderInput {
 
 export interface AddressPersonal extends Address {
   name?: PersonalName | null;
+}
+
+export interface AfrName {
+  firstName?: string | null;
+  surname?: string | null;
 }
 
 export interface AmountBreakdown {
@@ -293,6 +311,7 @@ export interface Customer extends CustomerBase {
   contactDetails?: ContactDetails | null;
   device?: CustomerDevice | null;
   fiscalNumber?: string | null;
+  isCompany?: boolean | null;
   isPreviousCustomer?: boolean | null;
   locale?: string | null;
   personalInformation?: PersonalInformation | null;
@@ -493,11 +512,29 @@ export interface LineItemLevel3InterchangeInformation {
   unit?: string | null;
 }
 
+/**
+ * @deprecated No replacement
+ */
 export interface LoanRecipient {
+  /**
+   * @deprecated No replacement
+   */
   accountNumber?: string | null;
+  /**
+   * @deprecated No replacement
+   */
   dateOfBirth?: string | null;
+  /**
+   * @deprecated No replacement
+   */
   partialPan?: string | null;
+  /**
+   * @deprecated No replacement
+   */
   surname?: string | null;
+  /**
+   * @deprecated No replacement
+   */
   zip?: string | null;
 }
 
@@ -643,6 +680,7 @@ export interface OrderReferencesApprovePayment {
 }
 
 export interface OrderTypeInformation {
+  fundingType?: string | null;
   purchaseType?: string | null;
   transactionType?: string | null;
   usageType?: string | null;
@@ -751,9 +789,16 @@ export interface PaymentStatusOutput extends OrderStatusOutput {
   threeDSecureStatus?: string | null;
 }
 
+export interface PersonalIdentification {
+  idIssuingCountryCode?: string | null;
+  idType?: string | null;
+  idValue?: string | null;
+}
+
 export interface PersonalInformation {
   dateOfBirth?: string | null;
   gender?: string | null;
+  identification?: PersonalIdentification | null;
   name?: PersonalName | null;
 }
 

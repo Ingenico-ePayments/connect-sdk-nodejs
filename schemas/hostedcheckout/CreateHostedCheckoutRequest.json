@@ -38,9 +38,36 @@
   },
   "additionalProperties" : false,
   "definitions" : {
+    "AccountFundingRecipient" : {
+      "type" : "object",
+      "properties" : {
+        "accountNumber" : {
+          "type" : "string"
+        },
+        "accountNumberType" : {
+          "type" : "string"
+        },
+        "address" : {
+          "$ref" : "#/definitions/Address"
+        },
+        "dateOfBirth" : {
+          "type" : "string"
+        },
+        "name" : {
+          "$ref" : "#/definitions/AfrName"
+        },
+        "partialPan" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
     "AdditionalOrderInput" : {
       "type" : "object",
       "properties" : {
+        "accountFundingRecipient" : {
+          "$ref" : "#/definitions/AccountFundingRecipient"
+        },
         "airlineData" : {
           "$ref" : "#/definitions/AirlineData"
         },
@@ -127,6 +154,18 @@
           "type" : "string"
         },
         "zip" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "AfrName" : {
+      "type" : "object",
+      "properties" : {
+        "firstName" : {
+          "type" : "string"
+        },
+        "surname" : {
           "type" : "string"
         }
       },
@@ -560,6 +599,9 @@
         },
         "fiscalNumber" : {
           "type" : "string"
+        },
+        "isCompany" : {
+          "type" : "boolean"
         },
         "isPreviousCustomer" : {
           "type" : "boolean"
@@ -1421,6 +1463,9 @@
     "OrderTypeInformation" : {
       "type" : "object",
       "properties" : {
+        "fundingType" : {
+          "type" : "string"
+        },
         "purchaseType" : {
           "type" : "string"
         },
@@ -1484,6 +1529,21 @@
       },
       "additionalProperties" : false
     },
+    "PersonalIdentification" : {
+      "type" : "object",
+      "properties" : {
+        "idIssuingCountryCode" : {
+          "type" : "string"
+        },
+        "idType" : {
+          "type" : "string"
+        },
+        "idValue" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
     "PersonalInformation" : {
       "type" : "object",
       "properties" : {
@@ -1492,6 +1552,9 @@
         },
         "gender" : {
           "type" : "string"
+        },
+        "identification" : {
+          "$ref" : "#/definitions/PersonalIdentification"
         },
         "name" : {
           "$ref" : "#/definitions/PersonalName"
