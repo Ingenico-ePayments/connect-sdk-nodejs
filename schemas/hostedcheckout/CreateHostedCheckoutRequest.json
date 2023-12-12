@@ -1657,9 +1657,6 @@
     "SdkDataInput" : {
       "type" : "object",
       "properties" : {
-        "deviceInfo" : {
-          "type" : "string"
-        },
         "deviceRenderOptions" : {
           "$ref" : "#/definitions/DeviceRenderOptions"
         },

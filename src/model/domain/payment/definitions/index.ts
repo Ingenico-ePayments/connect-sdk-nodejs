@@ -395,6 +395,7 @@ export interface EInvoicePaymentMethodSpecificInput extends AbstractEInvoicePaym
 export interface EInvoicePaymentMethodSpecificInputBase extends AbstractEInvoicePaymentMethodSpecificInput {}
 
 export interface EInvoicePaymentMethodSpecificOutput extends AbstractPaymentMethodSpecificOutput {
+  fraudResults?: FraudResults | null;
   paymentProduct9000SpecificOutput?: EInvoicePaymentProduct9000SpecificOutput | null;
 }
 
@@ -963,10 +964,6 @@ export interface SchemeTokenData {
 }
 
 export interface SdkDataInput {
-  /**
-   * @deprecated No replacement
-   */
-  deviceInfo?: string | null;
   deviceRenderOptions?: DeviceRenderOptions | null;
   sdkAppId?: string | null;
   sdkEncryptedData?: string | null;

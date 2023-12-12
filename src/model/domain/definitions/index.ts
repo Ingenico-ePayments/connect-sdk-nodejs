@@ -129,7 +129,6 @@ export interface CardFraudResults extends FraudResults {
   avsResult?: string | null;
   cvvResult?: string | null;
   fraugster?: FraugsterResults | null;
-  microsoftFraudProtection?: MicrosoftFraudResults | null;
   retailDecisions?: FraudResultsRetailDecisions | null;
 }
 
@@ -234,6 +233,7 @@ export interface FraudFieldsShippingDetails {
 export interface FraudResults {
   fraudServiceResult?: string | null;
   inAuth?: InAuth | null;
+  microsoftFraudProtection?: MicrosoftFraudResults | null;
 }
 
 export interface FraudResultsRetailDecisions {

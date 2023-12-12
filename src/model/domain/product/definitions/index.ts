@@ -81,6 +81,7 @@ export interface PaymentProduct {
   fields?: PaymentProductField[] | null;
   fieldsWarning?: string | null;
   id?: number | null;
+  isAuthenticationSupported?: boolean | null;
   isJavaScriptRequired?: boolean | null;
   maxAmount?: number | null;
   minAmount?: number | null;
