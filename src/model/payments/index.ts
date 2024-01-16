@@ -1,6 +1,6 @@
 /*
  * This file was auto-generated from the API references found at
- * https://epayments-api.developer-ingenico.com/s2sapi/v1/
+ * https://epayments-api.developer-ingenico.com/
  */
 import { CreateDisputeRequest } from "../domain/dispute";
 import { ApprovePaymentRequest, CapturePaymentRequest, CompletePaymentRequest, CreatePaymentRequest, TokenizePaymentRequest } from "../domain/payment";

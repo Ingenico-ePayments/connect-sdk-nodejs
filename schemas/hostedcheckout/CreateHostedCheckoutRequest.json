@@ -435,6 +435,9 @@
     "CardPaymentMethodSpecificInputBase" : {
       "type" : "object",
       "properties" : {
+        "acquirerPromotionCode" : {
+          "type" : "string"
+        },
         "authorizationMode" : {
           "type" : "string"
         },

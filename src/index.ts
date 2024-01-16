@@ -1,6 +1,6 @@
 /*
  * This file was auto-generated from the API references found at
- * https://epayments-api.developer-ingenico.com/s2sapi/v1/
+ * https://epayments-api.developer-ingenico.com/
  */
 import https = require("https");
 import { CommunicatorLogger, ConnectSdk, Context } from "./model";
@@ -90,6 +90,7 @@ const connectSdk: ConnectSdk = {
   sessions: sessions,
   installments: installments,
   files: files,
+
   context: sdkcontext,
 
   webhooks: webhooks,
