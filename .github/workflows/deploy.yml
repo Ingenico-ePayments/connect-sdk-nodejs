@@ -1,0 +1,27 @@
+name: Deploy
+
+on:
+  push:
+    tags: ['[0-9]+.[0-9]+*']
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: false
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '8.x'
+          # sets up .npmrc file to publish to npm
+          registry-url: 'https://registry.npmjs.org'
+          cache: 'npm'
+      - name: Build
+        run: npm ci && npm run build
+      - name: Publish
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

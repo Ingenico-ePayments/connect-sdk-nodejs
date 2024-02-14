@@ -35,6 +35,7 @@ export interface FindProductgroupsParams extends PaymentContext {
   locale?: string;
   amount?: number;
   isRecurring?: boolean;
+  isInstallments?: boolean;
   hide?: string[];
 }
 
@@ -44,5 +45,6 @@ export interface GetProductgroupParams extends PaymentContext {
   locale?: string;
   amount?: number;
   isRecurring?: boolean;
+  isInstallments?: boolean;
   hide?: string[];
 }

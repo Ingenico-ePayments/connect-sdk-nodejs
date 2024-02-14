@@ -63,6 +63,7 @@ export interface FindProductsParams extends PaymentContext {
   locale?: string;
   amount?: number;
   isRecurring?: boolean;
+  isInstallments?: boolean;
   hide?: string[];
 }
 
@@ -72,6 +73,7 @@ export interface GetProductParams extends PaymentContext {
   locale?: string;
   amount?: number;
   isRecurring?: boolean;
+  isInstallments?: boolean;
   hide?: string[];
   forceBasicFlow?: boolean;
 }
