@@ -47,7 +47,7 @@ There are two types of tests:
     ```
     npm run test:unit
     ```
-2. Integration tests. Before you can run these, you first need to copy file `__tests__/config.json.dist` to `__tests__/config.json` and replace all values as needed.  
+2. Integration tests. Before you can run these, you first need to copy file `__tests__/config.json.dist` to `__tests__/config.json` and replace all values as needed. If needed, a `proxy` property can be added with nested properties `host`, `scheme` (defaults to `http`), `port` (defaults to 3128) and `credentials` (optional, in the format `<username>:<password>`).  
    Run these tests as follows:
 
     ```

@@ -22,6 +22,7 @@ export interface Context {
   shoppingCartExtension?: ShoppingCartExtension;
   httpOptions?: https.RequestOptions;
   obfuscationRules?: { [key: string]: ObfuscationRule };
+  proxy?: ProxyConfiguration;
 }
 
 export interface FileMetaData {
@@ -80,6 +81,13 @@ export type ObfuscationRule = (value: string) => string;
 export interface PaymentContext {
   extraHeaders?: Header[];
   idemPotence?: IdemPotence;
+}
+
+export interface ProxyConfiguration {
+  host: string;
+  scheme?: "http" | "https";
+  port?: number;
+  credentials?: string;
 }
 
 export type SdkCallback = (error: SdkResponseError | null, result: SdkResponse | null) => void;

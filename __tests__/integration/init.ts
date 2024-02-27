@@ -12,7 +12,8 @@ connectSdk.init({
   enableLogging: config.enableLogging, // defaults to false
   apiKeyId: config.apiKeyId,
   secretApiKey: config.secretApiKey,
-  integrator: "Integration tests"
+  integrator: config.integrator,
+  proxy: config.proxy
 });
 
 export default connectSdk;

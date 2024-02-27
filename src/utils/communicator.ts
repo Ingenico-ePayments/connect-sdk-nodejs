@@ -59,6 +59,17 @@ function prepareRequest(o: SdkRequest, context: Context, options: https.RequestO
   extraHeaders.push(serverMetaInfo);
 
   options.headers.Authorization = "GCS v1HMAC:" + context.apiKeyId + ":" + sdkcontext.getSignature(o.method, contentType, date, extraHeaders, options.path);
+
+  if (context.proxy) {
+    options.path = `${options.protocol}//${options.host}:${options.port}${options.path}`;
+    options.host = context.proxy.host;
+    options.protocol = (context.proxy.scheme ?? "http") + ":";
+    options.port = context.proxy.port ?? 3128;
+
+    if (context.proxy.credentials) {
+      options.headers["Proxy-Authorization"] = "Basic " + Buffer.from(context.proxy.credentials).toString("base64");
+    }
+  }
 }
 
 function handleResponse(error: Error | null, response: http.IncomingMessage | null, cb: SdkCallback): void {
