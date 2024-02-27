@@ -54,7 +54,7 @@
 <pre><code><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-0">run</span><span class="hl-1"> </span><span class="hl-2">test</span><span class="hl-1">:</span><span class="hl-0">unit</span>
 </code></pre>
 </li>
-<li><p>Integration tests. Before you can run these, you first need to copy file <code>__tests__/config.json.dist</code> to <code>__tests__/config.json</code> and replace all values as needed.<br>Run these tests as follows:</p>
+<li><p>Integration tests. Before you can run these, you first need to copy file <code>__tests__/config.json.dist</code> to <code>__tests__/config.json</code> and replace all values as needed. If needed, a <code>proxy</code> property can be added with nested properties <code>host</code>, <code>scheme</code> (defaults to <code>http</code>), <code>port</code> (defaults to 3128) and <code>credentials</code> (optional, in the format <code>&lt;username&gt;:&lt;password&gt;</code>).<br>Run these tests as follows:</p>
 <pre><code><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-0">run</span><span class="hl-1"> </span><span class="hl-2">test</span><span class="hl-1">:</span><span class="hl-0">integration</span>
 </code></pre>
 </li>
