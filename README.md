@@ -1,5 +1,7 @@
 # Ingenico Connect Node.js SDK
 
+**This SDK has been rebranded to Worldline. As part of the rebranding the SDK has moved to https://github.com/Worldline-Global-Collect/connect-sdk-nodejs.**
+
 ## Introduction
 
 The Node.js SDK helps you to communicate with the [Ingenico Connect](https://epayments.developer-ingenico.com/) Server API. Its primary features are:
